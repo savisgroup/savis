@@ -4,7 +4,7 @@ export const defaultLocale: Locale = "vi";
 export const isLocale = (v: string): v is Locale => (locales as readonly string[]).includes(v);
 
 type Dict = {
-  nav: { solutions: string; industries: string; insights: string; about: string; contact: string };
+  nav: { contact: string };
   a11y: { openMenu: string; closeMenu: string; mainNav: string; mobileMenu: string; language: string; home: string; skip: string; breadcrumb: string; category: string };
   insights: {
     eyebrow: string; title: string; lead: string; all: string; readMore: string; home: string;
@@ -15,7 +15,7 @@ type Dict = {
 
 export const dict: Record<Locale, Dict> = {
   en: {
-    nav: { solutions: "Solutions & Products", industries: "Industries", insights: "Insights", about: "About Us", contact: "Contact us" },
+    nav: { contact: "Contact us" },
     a11y: { openMenu: "Open menu", closeMenu: "Close menu", mainNav: "Main", mobileMenu: "Menu", language: "Language", home: "SAVIS Group home", skip: "Skip to content", breadcrumb: "Breadcrumb", category: "Category" },
     insights: {
       eyebrow: "News & insights", title: "News, regulation and expert insight.",
@@ -26,7 +26,7 @@ export const dict: Record<Locale, Dict> = {
     footer: { tagline: "Trusted Digital Infrastructure for a Smarter World." },
   },
   vi: {
-    nav: { solutions: "Giải pháp & Sản phẩm", industries: "Lĩnh vực", insights: "Insights", about: "Về chúng tôi", contact: "Liên hệ" },
+    nav: { contact: "Liên hệ" },
     a11y: { openMenu: "Mở menu", closeMenu: "Đóng menu", mainNav: "Điều hướng chính", mobileMenu: "Menu", language: "Ngôn ngữ", home: "Trang chủ SAVIS Group", skip: "Bỏ qua, đến nội dung chính", breadcrumb: "Đường dẫn", category: "Danh mục" },
     insights: {
       eyebrow: "Tin tức & Insights", title: "Tin tức, quy định và góc nhìn chuyên gia.",
