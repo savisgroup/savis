@@ -6,11 +6,8 @@
   "upload_source_maps": true,
   "compatibility_date": "2026-11-13",
   "compatibility_flags": ["nodejs_compat"],
-  // Lệnh build của dashboard chỉ chạy `next build`; OpenNext cần chạy thêm để tạo .open-next/ trước khi deploy.
-  // OpenNext gọi lại `npm run build` bên trong, nên không bị lặp vô hạn.
-  "build": {
-    "command": "npx opennextjs-cloudflare build"
-  },
+  // .open-next/ do `npm run build` tạo ra (xem open-next.config.ts), không dùng build.command
+  // vì chưa chắc `wrangler preview` chạy bước đó.
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
@@ -21,5 +18,9 @@
   ],
   "observability": {
     "enabled": true
-  }
+  },
+  // Nhánh không phải production được Workers Builds deploy bằng `wrangler preview`, lệnh này bắt buộc có block `previews`.
+  // Để rỗng: Preview không kế thừa cấu hình production nên không có WORKER_SELF_REFERENCE
+  // (service binding trong Preview chỉ gọi bản production). Chấp nhận được vì ISR/cache chưa bật.
+  "previews": {}
 }
