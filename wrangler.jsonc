@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Phải trùng tên Worker trên Cloudflare dashboard (Workers Builds đối chiếu trường này)
+  "name": "savis",
+  "main": ".open-next/worker.js",
+  "upload_source_maps": true,
+  "compatibility_date": "2026-11-13",
+  "compatibility_flags": ["nodejs_compat"],
+  // Lệnh build của dashboard chỉ chạy `next build`; OpenNext cần chạy thêm để tạo .open-next/ trước khi deploy.
+  // OpenNext gọi lại `npm run build` bên trong, nên không bị lặp vô hạn.
+  "build": {
+    "command": "npx opennextjs-cloudflare build"
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Self-reference dùng cho ISR/revalidate của OpenNext: service phải là chính Worker này.
+  "services": [
+    { "binding": "WORKER_SELF_REFERENCE", "service": "savis" }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

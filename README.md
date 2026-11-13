@@ -32,3 +32,11 @@ npm run build && npm start      # production
 - Media/ảnh đại diện đọc từ `cms.savis-group.com/api/media/file/...`; nếu dùng domain khác cho CMS, đổi `PAYLOAD_URL`.
 - Nội dung mới trên CMS xuất hiện sau tối đa 60 giây. Muốn tức thì: thêm webhook gọi `revalidateTag("payload")`.
 - Không commit `.env.local`.
+
+## Triển khai Cloudflare Workers
+- Dùng `@opennextjs/cloudflare`. Cấu hình ở `wrangler.jsonc` và `open-next.config.ts`.
+- **`name` trong `wrangler.jsonc` phải trùng tên Worker trên dashboard (`savis`)**, và `services[WORKER_SELF_REFERENCE].service` cũng phải là tên đó. Sai một trong hai thì deploy lỗi `10143`.
+- Workers Builds: Build command `npm run build`, Deploy command `npx wrangler deploy`. `wrangler.jsonc` có `build.command` tự chạy OpenNext trước khi deploy, nên không cần đổi lệnh trong dashboard.
+- Khai báo biến môi trường ở **Settings → Build → Variables and secrets**: `PAYLOAD_URL`, `NEXT_PUBLIC_SITE_URL`, và `PAYLOAD_API_KEY` (secret, chỉ khi cần Draft). Production để `INSIGHTS_INCLUDE_DRAFTS=false`.
+- Kiểm tra cấu hình mà không deploy: `npx wrangler deploy --dry-run`. Chạy thử trong Workers runtime: `npm run preview`.
+- **Chưa có incremental cache (R2/KV):** ISR `revalidate = 60` chưa hoạt động. Trang đã prerender (`/vi`, `/en`) chỉ cập nhật khi deploy lại. Cần thêm R2 (hoặc KV) vào `open-next.config.ts` và `wrangler.jsonc` để nội dung CMS tự làm mới.
