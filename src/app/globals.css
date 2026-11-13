@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* Design tokens — nguồn: design system "SAVIS Web" (tokens.json). Sửa ở design system, rồi đồng bộ lại tại đây. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #ffffff;
+  --surface: #f3f6fc;
+  --raised: #ffffff;
+  --ink: #0b1f4d;
+  --text: #1f2a44;
+  --muted: #56617a;
+  --line: #e1e7f2;
+  --border-strong: #7a859e;
+  --brand: #0052ff;
+  --brand-ink: #ffffff;
+  --cyan: #00b8e6;
+  --band: #0b1f4d;
+  --band-2: #081638;
+  --on-band: #ffffff;
+  --on-band-muted: #b9c6e6;
+  --on-band-accent: #6fe3ff;
+  --accent-line: #00d4ff;
+  --chip: #e7f0ff;
+  --chip-ink: #0040c7;
+  --chip-on-band: #ffffff1a;
+  --chip-on-band-ink: #dce7ff;
+  --warn: #8a5a00;
+  --warn-bg: #fff4dc;
+  --focus: #0052ff;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 88px;
+  --container: 1240px;
+  --header-height: 72px;
+
+  --motion-fast: 150ms;
+  --motion-base: 250ms;
+  --motion-slow: 400ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #060d20;
+  --surface: #0c1630;
+  --raised: #0f1c3b;
+  --ink: #eaf0ff;
+  --text: #d3dcf0;
+  --muted: #9aa8c8;
+  --line: #1c2a4a;
+  --border-strong: #6b7ba3;
+  --brand: #4282ff;
+  --brand-ink: #060d20;
+  --cyan: #3fd8ff;
+  --chip: #14295a;
+  --chip-ink: #a9c3ff;
+  --warn: #ffd27a;
+  --warn-bg: #3a2c08;
+  --focus: #3fd8ff;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-border-strong: var(--border-strong);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-cyan: var(--cyan);
+  --color-band: var(--band);
+  --color-band-2: var(--band-2);
+  --color-on-band: var(--on-band);
+  --color-on-band-muted: var(--on-band-muted);
+  --color-on-band-accent: var(--on-band-accent);
+  --color-accent-line: var(--accent-line);
+  --color-chip: var(--chip);
+  --color-chip-ink: var(--chip-ink);
+  --color-chip-on-band: var(--chip-on-band);
+  --color-chip-on-band-ink: var(--chip-on-band-ink);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  /* --font-sora / --font-inter do next/font tạo ra trong layout.tsx */
+  /* Sora không có subset vietnamese: Inter làm dự phòng theo từng ký tự để dấu tiếng Việt không rơi về font hệ thống */
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@theme {
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 22px;
+  --shadow-mega: 0 30px 60px rgba(8, 22, 56, 0.22);
+  --shadow-float: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 26px;
+  -webkit-font-smoothing: antialiased;
+}
+@layer base {
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); letter-spacing: -0.01em; }
+}
+/* Không đặt border-radius ở đây: CSS ngoài layer sẽ đè rounded-* của Tailwind và làm méo nút pill khi focus */
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.on-band :focus-visible { outline-color: var(--on-band-accent); }
+.on-band :is(h1, h2, h3, h4) { color: var(--on-band); }
+
+.container-x {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: max(var(--space-4), env(safe-area-inset-left, 0px));
+}
+
+/* Eyebrow: viết hoa bằng CSS, không viết hoa trong chuỗi */
+.eyebrow {
+  font-size: 12.5px;
+  line-height: 18px; /* 18px thay vì 16px của token: chữ hoa có dấu tiếng Việt dễ chạm dòng trên khi xuống dòng */
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.on-band .eyebrow { color: var(--on-band-accent); }
+
+/* Thân bài (Lexical) */
+.prose-savis { font-size: 17px; line-height: 1.75; color: var(--text); max-width: 760px; }
+.prose-savis > * + * { margin-top: 1.1em; }
+.prose-savis h2 { font-size: 26px; line-height: 1.25; margin-top: 2em; }
+.prose-savis h3 { font-size: 21px; line-height: 1.3; margin-top: 1.6em; }
+.prose-savis ul { list-style: disc; padding-left: 1.4em; }
+.prose-savis ol { list-style: decimal; padding-left: 1.4em; }
+.prose-savis li + li { margin-top: .45em; }
+.prose-savis a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+.prose-savis blockquote { border-left: 4px solid var(--brand); padding: 4px 0 4px 20px; color: var(--ink); font-style: italic; }
+.prose-savis code { background: var(--chip); color: var(--chip-ink); padding: 1px 6px; border-radius: var(--radius-sm); font-size: .9em; }
+.prose-savis figure img { border-radius: var(--radius-lg); border: 1px solid var(--line); }
+.prose-savis .tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-md); }
+.prose-savis table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.prose-savis th, .prose-savis td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.prose-savis th { background: var(--surface); color: var(--ink); font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
