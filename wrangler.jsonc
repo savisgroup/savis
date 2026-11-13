@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Phải trùng tên Worker trên Cloudflare dashboard (Workers Builds đối chiếu trường này)
+  "name": "savis",
+  "main": ".open-next/worker.js",
+  "upload_source_maps": true,
+  "compatibility_date": "2026-11-13",
+  "compatibility_flags": ["nodejs_compat"],
+  // .open-next/ do `npm run build` tạo ra (xem open-next.config.ts), không dùng build.command
+  // vì chưa chắc `wrangler preview` chạy bước đó.
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Self-reference dùng cho ISR/revalidate của OpenNext: service phải là chính Worker này.
+  "services": [
+    { "binding": "WORKER_SELF_REFERENCE", "service": "savis" }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  // Nhánh không phải production được Workers Builds deploy bằng `wrangler preview`, lệnh này bắt buộc có block `previews`.
+  // Để rỗng: Preview không kế thừa cấu hình production nên không có WORKER_SELF_REFERENCE
+  // (service binding trong Preview chỉ gọi bản production). Chấp nhận được vì ISR/cache chưa bật.
+  "previews": {}
+}
