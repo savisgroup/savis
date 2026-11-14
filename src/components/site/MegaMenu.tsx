@@ -13,11 +13,11 @@ import { cn } from "@/lib/utils";
 
 // Mega menu theo DS (components/MegaMenu): Radix NavigationMenu lo mở/đóng, aria-expanded, Esc, focus.
 // Panel rộng toàn trang ngay dưới header: cột trái (trụ cột hoặc phần giới thiệu), giữa (nhóm link), phải (card nổi bật nền navy).
-// Mở bằng hover, click hoặc bàn phím. Dưới 1100px header dùng MobileMenu thay cho menu này.
+// Mở bằng hover, click hoặc bàn phím. Dưới 1240px header dùng MobileMenu thay cho menu này.
 export function MegaMenu({ locale, label }: { locale: Locale; label: string }) {
   return (
-    <NavigationMenu.Root aria-label={label} className="hidden min-w-0 flex-1 self-stretch min-[1100px]:flex" delayDuration={120}>
-      <NavigationMenu.List className="flex h-full items-stretch gap-0.5">
+    <NavigationMenu.Root aria-label={label} className="hidden min-w-0 flex-1 self-stretch min-[1240px]:flex" delayDuration={120}>
+      <NavigationMenu.List className="flex h-full items-stretch">
         <NavigationMenu.Item value="solutions" className="flex">
           <Trigger>{solutionsMenu.label[locale]}</Trigger>
           <NavigationMenu.Content><SolutionsPanel locale={locale} /></NavigationMenu.Content>
@@ -39,9 +39,9 @@ export function MegaMenu({ locale, label }: { locale: Locale; label: string }) {
 
 function Trigger({ children }: { children: React.ReactNode }) {
   return (
-    <NavigationMenu.Trigger className="group inline-flex min-h-[var(--header-height)] items-center gap-1 whitespace-nowrap border-b-[3px] border-transparent px-2 text-[13.5px] font-semibold leading-5 text-ink min-[1560px]:px-[11px] min-[1560px]:text-[14.5px] transition-colors duration-[var(--motion-fast)] hover:text-brand data-[state=open]:border-brand data-[state=open]:text-brand">
+    <NavigationMenu.Trigger className="group inline-flex min-h-[var(--header-height)] items-center gap-0.5 whitespace-nowrap border-b-[3px] border-transparent px-1.5 text-[13px] font-semibold leading-5 text-ink transition-colors duration-[var(--motion-fast)] hover:text-brand data-[state=open]:border-brand data-[state=open]:text-brand">
       {children}
-      <ChevronDown aria-hidden className="size-3.5 transition-transform duration-[var(--motion-fast)] group-data-[state=open]:rotate-180" />
+      <ChevronDown aria-hidden className="size-3 transition-transform duration-[var(--motion-fast)] group-data-[state=open]:rotate-180" />
     </NavigationMenu.Trigger>
   );
 }
