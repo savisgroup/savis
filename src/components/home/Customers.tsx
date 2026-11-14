@@ -24,7 +24,10 @@ export function Customers({ locale, content }: { locale: string; content: HomeCo
           <Link href={href} className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] overflow-hidden rounded-lg border border-line bg-raised text-foreground">
             <div className="on-band flex min-h-[300px] flex-col justify-between gap-6 bg-[radial-gradient(circle_at_30%_30%,#13306f_0%,var(--band)_50%,var(--band-2)_100%)] p-10">
               <span className="self-start rounded-full bg-chip-on-band px-3 py-1 text-xs font-semibold tracking-wide text-chip-on-band-ink">{feature.kicker}</span>
-              <b className="font-display text-[44px] font-bold leading-[48px] tracking-[-0.02em] text-on-band">{feature.client}</b>
+              <div className="flex flex-col gap-1.5">
+                <b className="font-display text-[44px] font-bold leading-[48px] tracking-[-0.02em] text-on-band">{feature.client}</b>
+                {feature.clientFull && <span className="text-[15px] leading-[22px] text-on-band-muted">{feature.clientFull}</span>}
+              </div>
             </div>
             <div className="flex flex-col justify-center gap-4 p-10">
               <h3 className="text-[30px] font-bold leading-9 tracking-[-0.01em]">{feature.title}</h3>

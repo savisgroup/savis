@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PillarImage } from "./PillarImage";
 import { Database, Fingerprint, Landmark, ShieldCheck, WalletCards, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -9,10 +8,11 @@ const icons: Record<PillarId, LucideIcon> = {
   identity: Fingerprint, cyber: ShieldCheck, gov: Landmark, finance: WalletCards, data: Database,
 };
 
-type Props = { locale: string; content: HomeContent["solutions"]; pillars: HomeContent["pillars"] };
+type Props = { content: HomeContent["solutions"]; pillars: HomeContent["pillars"] };
 
-// Thanh 5 trụ cột (neo tới hàng tương ứng) + 4 hàng lớn xen kẽ trái/phải. Trụ cột 5 chỉ có ở thanh, chưa có hàng riêng như mockup C.
-export function Pillars({ locale, content, pillars }: Props) {
+// Thanh 5 trụ cột (neo tới hàng tương ứng) + 5 hàng lớn xen kẽ trái/phải. Không đánh số 01-05 như mockup vì design system
+// quy định các trụ cột song song, không đánh số.
+export function Pillars({ content, pillars }: Props) {
   return (
     <section id="solutions">
       <div className="container-x pb-10 pt-[88px]">
@@ -31,15 +31,14 @@ export function Pillars({ locale, content, pillars }: Props) {
         </nav>
       </div>
       <div className="container-x flex flex-col gap-24 pb-[88px] pt-10">
-        {pillars.slice(0, 4).map((p, i) => (
+        {pillars.map((p, i) => (
           <div key={p.id} id={`pillar-${p.id}`} className="group/pillar grid items-center gap-7 min-[860px]:grid-cols-2 min-[860px]:gap-16">
-            <PillarMedia id={p.id} flip={i % 2 === 1} />
+            <PillarMedia id={p.id} name={p.name} flip={i % 2 === 1} />
             {/* Chữ hiện sau ảnh một nhịp. */}
             <Reveal delay={0.15} className="flex min-w-0 flex-col gap-4">
               <h3 className="text-[clamp(26px,2.6vw,36px)] font-bold leading-[1.12] tracking-[-0.02em]">{p.name}</h3>
               <p className="text-lg leading-7 text-muted">{p.text}</p>
               <div className="flex flex-wrap gap-1.5">{p.tags.map((t) => <Badge key={t}>{t}</Badge>)}</div>
-              <Link href={`/${locale}#solutions`} className="font-semibold text-brand hover:underline">{p.link} →</Link>
             </Reveal>
           </div>
         ))}
@@ -62,9 +61,16 @@ const pillarImages: Partial<Record<PillarId, string>> = {
 };
 
 // Ảnh mang tính trang trí (tên trụ cột đã có ở tiêu đề bên cạnh) nên alt rỗng. Chuyển động nằm trong PillarImage.
-function PillarMedia({ id, flip }: { id: PillarId; flip: boolean }) {
+// Trụ cột chưa có ảnh (data) dùng khung navy với hai vòng tròn và tên trụ cột như mockup, không ghi nhãn placeholder.
+function PillarMedia({ id, name, flip }: { id: PillarId; name: string; flip: boolean }) {
   const src = pillarImages[id];
   const order = flip ? "min-[860px]:order-2" : "";
-  if (!src) return <div className={`aspect-[4/3] rounded-lg bg-band ${order}`} />;
-  return <PillarImage src={src} className={order} />;
+  if (src) return <PillarImage src={src} className={order} />;
+  return (
+    <div aria-hidden className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-[radial-gradient(circle_at_70%_30%,#13306f_0%,var(--band)_45%,var(--band-2)_100%)] ${order}`}>
+      <div className="absolute inset-[14%] rounded-full border border-on-band-accent/20" />
+      <div className="absolute inset-[28%] rounded-full border border-on-band-accent/30" />
+      <span className="relative p-6 text-center font-display text-[22px] font-bold leading-7 text-on-band">{name}</span>
+    </div>
+  );
 }

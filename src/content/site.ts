@@ -48,19 +48,23 @@ const companyItems: NavItem[] = [
 ];
 export const footerCompany = (locale: Locale): FooterLink[] => companyItems.map((it) => toFooter(locale, it));
 
-// Cột Global offices: chỉ tên (thành phố cho Việt Nam, quốc gia/khu vực cho văn phòng nước ngoài) như tài liệu.
-export type Office = { name: Text; hq?: boolean };
+// Văn phòng: footer chỉ dùng tên; khối "Global presence" trên trang chủ dùng thêm khu vực, địa chỉ và liên hệ.
+// Văn phòng Hoa Kỳ chưa có địa chỉ (mockup ghi "[Address]") nên bỏ trống.
+export type Office = { name: Text; region: Text; address?: Text; contact?: { phone: string; email: string }; hq?: boolean };
+const same = (v: string): Text => ({ en: v, vi: v });
+const APAC: Text = { en: "Asia-Pacific", vi: "Châu Á - Thái Bình Dương" };
+const AFRICA: Text = { en: "Africa", vi: "Châu Phi" };
 export const offices: Office[] = [
-  { name: { en: "Hanoi", vi: "Hà Nội" }, hq: true },
-  { name: { en: "Ho Chi Minh City", vi: "TP. Hồ Chí Minh" } },
-  { name: { en: "Singapore", vi: "Singapore" } },
-  { name: { en: "Philippines", vi: "Philippines" } },
-  { name: { en: "Australia & New Zealand", vi: "Úc & New Zealand" } },
-  { name: { en: "United Arab Emirates", vi: "UAE" } },
-  { name: { en: "Nigeria", vi: "Nigeria" } },
-  { name: { en: "Algeria", vi: "Algeria" } },
-  { name: { en: "Brazil", vi: "Brazil" } },
-  { name: { en: "United States", vi: "Hoa Kỳ" } },
+  { name: { en: "Hanoi", vi: "Hà Nội" }, region: { en: "Global headquarters", vi: "Trụ sở chính toàn cầu" }, address: { en: "9F Viet A Tower, 9 Duy Tan", vi: "Tầng 9, toà nhà Việt Á, số 9 Duy Tân" }, hq: true },
+  { name: { en: "Ho Chi Minh City", vi: "TP. Hồ Chí Minh" }, region: { en: "Office", vi: "Văn phòng" }, address: { en: "2F Winhome, 25 Dao Duy Anh", vi: "Tầng 2 Winhome, 25 Đào Duy Anh" } },
+  { name: same("Singapore"), region: APAC, address: same("Marina Bay Financial Centre, Singapore") },
+  { name: same("Philippines"), region: APAC, address: same("Manila, Philippines") },
+  { name: { en: "Australia & New Zealand", vi: "Úc & New Zealand" }, region: APAC, address: { en: "Melbourne Office, Melbourne, Australia", vi: "Văn phòng Melbourne, Úc" }, contact: { phone: "+61 434 567 456", email: "anz-sale@savis-group.com" } },
+  { name: { en: "United Arab Emirates", vi: "UAE" }, region: { en: "Middle East", vi: "Trung Đông" }, address: same("Dubai, UAE") },
+  { name: same("Nigeria"), region: AFRICA, address: same("Abuja, Nigeria") },
+  { name: same("Algeria"), region: AFRICA, address: same("Algiers, Algeria") },
+  { name: same("Brazil"), region: { en: "Latin America", vi: "Mỹ Latinh" }, address: same("São Paulo, Brazil") },
+  { name: { en: "United States", vi: "Hoa Kỳ" }, region: { en: "North America", vi: "Bắc Mỹ" } },
 ];
 
 // Chứng nhận ISO lấy nguyên từ tài liệu nội dung; cần xác nhận còn hiệu lực trước khi công bố chính thức.
