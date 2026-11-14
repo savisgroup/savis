@@ -53,11 +53,13 @@ export function Pillars({ content, pillars }: Props) {
 // - cyber:    Winston Chen,     unsplash.com/photos/iZe21DzHnUg
 // - gov:      Andre Benz,       unsplash.com/photos/WsxKHqrdibY
 // - finance:  Atlantic Money,   unsplash.com/photos/9XrefmwkHCs
+// - data:     jonakoh,          unsplash.com/photos/r5lbaK3fDaM
 const pillarImages: Partial<Record<PillarId, string>> = {
   identity: "/images/pillars/identity.jpg",
   cyber: "/images/pillars/cyber.jpg",
   gov: "/images/pillars/gov.jpg",
   finance: "/images/pillars/finance.jpg",
+  data: "/images/pillars/data.jpg",
 };
 
 // Ảnh mang tính trang trí (tên trụ cột đã có ở tiêu đề bên cạnh) nên alt rỗng. Chuyển động nằm trong PillarImage.
