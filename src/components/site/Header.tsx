@@ -26,7 +26,7 @@ export function Header({ locale }: { locale: Locale }) {
         </div>
       </div>
       <header className="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-background text-ink">
-        <div className="container-x flex min-h-[var(--header-height)] items-center gap-5">
+        <div className="container-x flex min-h-[var(--header-height)] items-center gap-4">
           <Logo href={homeHref} label={t.a11y.home} />
           <MegaMenu locale={locale} label={t.a11y.mainNav} />
           <div className="ml-auto flex flex-none items-center gap-2.5">

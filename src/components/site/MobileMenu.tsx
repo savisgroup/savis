@@ -18,7 +18,7 @@ type Props = {
 
 const gutter = "px-[max(16px,env(safe-area-inset-left,0px))]";
 
-// Menu toàn màn hình cho màn hình hẹp (dưới bp-lg 1100px). Dùng Radix Dialog: focus trap, Esc đóng, trả focus về nút mở.
+// Menu toàn màn hình cho màn hình hẹp (dưới 1240px). Dùng Radix Dialog: focus trap, Esc đóng, trả focus về nút mở.
 // Mỗi menu L1 là một mục <details> thu gọn; mục chưa có trang hiện dạng chữ mờ (giống mega menu desktop).
 export function MobileMenu({ homeHref, sections, links, contact, labels, footer }: Props) {
   const [open, setOpen] = useState(false);
@@ -32,7 +32,7 @@ export function MobileMenu({ homeHref, sections, links, contact, labels, footer 
         <button
           type="button"
           aria-label={labels.open}
-          className="inline-flex size-[46px] items-center justify-center rounded-md border border-border-strong bg-surface text-ink min-[1100px]:hidden"
+          className="inline-flex size-[46px] items-center justify-center rounded-md border border-border-strong bg-surface text-ink min-[1240px]:hidden"
         >
           <Menu aria-hidden className="size-5" />
         </button>
