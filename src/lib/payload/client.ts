@@ -30,10 +30,14 @@ export async function getCategories(): Promise<InsightCategory[]> {
   return r.docs;
 }
 
+// Payload trả bản ngôn ngữ mặc định khi bài chưa dịch (fallback). Lọc theo tiêu đề có ở đúng ngôn ngữ để trang /en
+// không hiện bài tiếng Việt và ngược lại. Không tắt fallback toàn cục vì tên danh mục, alt ảnh vẫn cần fallback.
+const translatedIn = { "where[title][exists]": true } as const;
+
 export async function getInsights(locale: Locale, opts: { categorySlug?: string; limit?: number; page?: number } = {}) {
   const params: Record<string, string | number | boolean | undefined> = {
     locale, depth: 1, limit: opts.limit ?? 24, page: opts.page ?? 1,
-    sort: "-publishedDate,-createdAt", draft: DRAFTS || undefined,
+    sort: "-publishedDate,-createdAt", draft: DRAFTS || undefined, ...translatedIn,
   };
   if (opts.categorySlug) params["where[category.slug][equals]"] = opts.categorySlug;
   return pf<PaginatedDocs<Insight>>("/insights", params);
@@ -41,7 +45,7 @@ export async function getInsights(locale: Locale, opts: { categorySlug?: string;
 
 export async function getInsightBySlug(locale: Locale, slug: string): Promise<Insight | null> {
   const r = await pf<PaginatedDocs<Insight>>("/insights", {
-    locale, depth: 2, limit: 1, "where[slug][equals]": slug, draft: DRAFTS || undefined,
+    locale, depth: 2, limit: 1, "where[slug][equals]": slug, draft: DRAFTS || undefined, ...translatedIn,
   });
   return r.docs[0] ?? null;
 }

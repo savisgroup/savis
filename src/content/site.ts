@@ -1,59 +1,79 @@
 import type { Locale } from "@/lib/i18n";
-import { homeContent, type PillarId } from "@/content/home";
+import { pillarCopy, pillarMenus, resolveHref, simpleMenus, type MobileLink, type NavItem } from "@/content/navigation";
 
-// Điều hướng và footer theo bản C (design canvas "SAVIS Website Trang chủ").
-// `live` = trang đích đã tồn tại. Mục chưa có trang bị ẩn thay vì trỏ vào 404; bật `live` khi dựng xong trang.
-// Ô tìm kiếm, form bản tin và liên kết pháp lý (Privacy, Cookies, Accessibility) của bản C chưa có chức năng/trang
-// nên chưa dựng; thêm khi có backend và nội dung pháp lý đã duyệt.
-type NavSeed = { id: string; label: Record<Locale, string>; path: string; live: boolean };
+// Thanh tiện ích và footer theo "SAVIS Web V3 – Sitemap & nội dung", mục 2.1 và 2.3.
+// Link dùng chung resolveHref với mega menu: trang chưa dựng thì hiện dạng chữ, không dẫn vào 404.
+// Chưa đưa vào footer: Facebook / LinkedIn / YouTube (chưa có URL), Privacy / Cookies (chưa có trang).
+type Text = Record<Locale, string>;
+type NavSeed = { id: string; label: Text; path: string; live: boolean };
 export type NavLink = { href: string; label: string };
-
-const navSeeds: NavSeed[] = [
-  { id: "solutions", label: { en: "Solutions & Products", vi: "Giải pháp & Sản phẩm" }, path: "#solutions", live: true },
-  { id: "industries", label: { en: "Industries", vi: "Lĩnh vực" }, path: "#industries", live: true },
-  { id: "services", label: { en: "Services", vi: "Dịch vụ" }, path: "/services", live: false },
-  { id: "innovation", label: { en: "Innovation", vi: "Đổi mới sáng tạo" }, path: "/innovation", live: false },
-  { id: "customers", label: { en: "Customers", vi: "Khách hàng" }, path: "/customers", live: false },
-  { id: "insights", label: { en: "Insights", vi: "Insights" }, path: "/insights", live: true },
-  { id: "about", label: { en: "About Us", vi: "Về chúng tôi" }, path: "/about", live: false },
-];
+export type FooterLink = MobileLink;
 
 const utilitySeeds: NavSeed[] = [
-  { id: "investors", label: { en: "Investors", vi: "Nhà đầu tư" }, path: "/investors", live: false },
-  { id: "careers", label: { en: "Careers", vi: "Tuyển dụng" }, path: "/careers", live: false },
+  { id: "investors", label: { en: "Investors", vi: "Nhà đầu tư" }, path: "/about", live: false },
+  { id: "careers", label: { en: "Careers", vi: "Tuyển dụng" }, path: "/about/careers", live: false },
   { id: "trust-center", label: { en: "Trust Center", vi: "Trust Center" }, path: "/trust-center", live: false },
-  { id: "partners", label: { en: "Partner portal", vi: "Cổng đối tác" }, path: "/partners", live: false },
+  { id: "partners", label: { en: "Partner portal", vi: "Cổng đối tác" }, path: "/about/partners", live: false },
 ];
 
-// Đường dẫn bắt đầu bằng "#" là neo trên trang chủ.
-const toLinks = (seeds: NavSeed[], locale: Locale): NavLink[] =>
-  seeds.filter((s) => s.live).map((s) => ({ href: `/${locale}${s.path}`, label: s.label[locale] }));
+export const utilityNav = (locale: Locale): NavLink[] =>
+  utilitySeeds.filter((s) => s.live).map((s) => ({ href: `/${locale}${s.path}`, label: s.label[locale] }));
 
-export const utilityNav = (locale: Locale) => toLinks(utilitySeeds, locale);
+const toFooter = (locale: Locale, it: Pick<NavItem, "label" | "path" | "fallback">): FooterLink => ({
+  label: it.label[locale], href: resolveHref(locale, it),
+});
 
-// Cột "Công ty" của footer (theo bản C): các mục chính từ Services trở đi, các liên kết tiện ích, rồi Liên hệ.
-const COMPANY_IDS = new Set(["services", "innovation", "customers", "insights", "about"]);
-export const footerCompany = (locale: Locale, contactLabel: string): NavLink[] => [
-  ...toLinks(navSeeds.filter((s) => COMPANY_IDS.has(s.id)), locale),
-  ...toLinks(utilitySeeds.filter((s) => s.id === "partners" || s.id === "careers"), locale),
-  { href: `/${locale}#contact`, label: contactLabel },
+// Cột Solutions & Products: 5 trụ cột.
+export const footerPillars = (locale: Locale): FooterLink[] =>
+  pillarMenus.map((p) => ({ label: pillarCopy(locale, p.id).name, href: resolveHref(locale, p) }));
+
+// Cột Industries: 13 ngành như mega menu; tài liệu rút gọn BFSI thành "Banking".
+const industryShort: Record<string, Text> = { "/industries/bfsi": { en: "Banking", vi: "Ngân hàng" } };
+export const footerIndustries = (locale: Locale): FooterLink[] =>
+  (simpleMenus.find((m) => m.id === "industries")?.items ?? []).map((it) =>
+    toFooter(locale, { ...it, label: industryShort[it.path] ?? it.label }));
+
+// Cột Company theo đúng thứ tự trong tài liệu.
+const companyItems: NavItem[] = [
+  { label: { en: "Services", vi: "Dịch vụ" }, path: "/services" },
+  { label: { en: "Innovation", vi: "Đổi mới sáng tạo" }, path: "/innovation" },
+  { label: { en: "Customers", vi: "Khách hàng" }, path: "/customers" },
+  { label: { en: "Insights", vi: "Insights" }, path: "/insights" },
+  { label: { en: "About Us", vi: "Về chúng tôi" }, path: "/about" },
+  { label: { en: "Use Cases", vi: "Tình huống ứng dụng" }, path: "/use-cases" },
+  { label: { en: "Trust Center", vi: "Trust Center" }, path: "/trust-center" },
+  { label: { en: "Partners", vi: "Đối tác" }, path: "/about/partners" },
+  { label: { en: "Careers", vi: "Tuyển dụng" }, path: "/about/careers" },
+  { label: { en: "Contact", vi: "Liên hệ" }, path: "/contact", fallback: "#contact" },
 ];
+export const footerCompany = (locale: Locale): FooterLink[] => companyItems.map((it) => toFooter(locale, it));
 
-// Cột "Giải pháp" của footer: trụ cột 5 chưa có hàng riêng trên trang chủ nên trỏ về đầu khối giải pháp.
-const pillarAnchor = (id: PillarId) => (id === "data" ? "#solutions" : `#pillar-${id}`);
-export const footerPillars = (locale: Locale): NavLink[] =>
-  homeContent[locale].pillars.map((p) => ({ href: `/${locale}${pillarAnchor(p.id)}`, label: p.name }));
-
-export type Office = { city: string; detail?: string; hq?: boolean };
-// Chỉ liệt kê văn phòng đã có dữ liệu thật trong mockup; dòng giữ chỗ "[City] / [Address]" của Hoa Kỳ bị bỏ.
+// Cột Global offices: chỉ tên (thành phố cho Việt Nam, quốc gia/khu vực cho văn phòng nước ngoài) như tài liệu.
+export type Office = { name: Text; hq?: boolean };
 export const offices: Office[] = [
-  { city: "Hanoi", detail: "9F Viet A Tower, 9 Duy Tan", hq: true },
-  { city: "Ho Chi Minh City", detail: "2F Winhome, 25 Dao Duy Anh" },
-  { city: "Singapore" },
+  { name: { en: "Hanoi", vi: "Hà Nội" }, hq: true },
+  { name: { en: "Ho Chi Minh City", vi: "TP. Hồ Chí Minh" } },
+  { name: { en: "Singapore", vi: "Singapore" } },
+  { name: { en: "Philippines", vi: "Philippines" } },
+  { name: { en: "Australia & New Zealand", vi: "Úc & New Zealand" } },
+  { name: { en: "United Arab Emirates", vi: "UAE" } },
+  { name: { en: "Nigeria", vi: "Nigeria" } },
+  { name: { en: "Algeria", vi: "Algeria" } },
+  { name: { en: "Brazil", vi: "Brazil" } },
+  { name: { en: "United States", vi: "Hoa Kỳ" } },
 ];
 
-export const footerCopy: Record<Locale, { solutions: string; company: string; offices: string; hq: string; hotline: string; regions: string }> = {
-  en: { solutions: "Solutions & Products", company: "Company", offices: "Global offices", hq: "HQ", hotline: "Hotline", regions: "Vietnam · Singapore · Philippines · Australia & New Zealand · UAE · Nigeria · Algeria · Brazil" },
-  vi: { solutions: "Giải pháp & Sản phẩm", company: "Công ty", offices: "Văn phòng toàn cầu", hq: "Trụ sở chính", hotline: "Hotline", regions: "Việt Nam · Singapore · Philippines · Úc & New Zealand · UAE · Nigeria · Algeria · Brazil" },
+// Chứng nhận ISO lấy nguyên từ tài liệu nội dung; cần xác nhận còn hiệu lực trước khi công bố chính thức.
+export const certifications = ["ISO 9001", "ISO 14001", "ISO/IEC 27001"];
+
+export const footerCopy: Record<Locale, { solutions: string; industries: string; company: string; offices: string; hq: string; hotline: string; regions: string }> = {
+  en: {
+    solutions: "Solutions & Products", industries: "Industries", company: "Company", offices: "Global offices", hq: "HQ", hotline: "Hotline",
+    regions: "Vietnam · Singapore · Philippines · Australia & New Zealand · UAE · Nigeria · Algeria · Brazil · USA",
+  },
+  vi: {
+    solutions: "Giải pháp & Sản phẩm", industries: "Lĩnh vực", company: "Công ty", offices: "Văn phòng toàn cầu", hq: "Trụ sở chính", hotline: "Hotline",
+    regions: "Việt Nam · Singapore · Philippines · Úc & New Zealand · UAE · Nigeria · Algeria · Brazil · Hoa Kỳ",
+  },
 };
 export const HOTLINE = { display: "1900 636156", tel: "1900636156" };

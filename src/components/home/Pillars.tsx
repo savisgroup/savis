@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PillarImage } from "./PillarImage";
 import { Database, Fingerprint, Landmark, ShieldCheck, WalletCards, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/site/Reveal";
@@ -31,35 +32,39 @@ export function Pillars({ locale, content, pillars }: Props) {
       </div>
       <div className="container-x flex flex-col gap-24 pb-[88px] pt-10">
         {pillars.slice(0, 4).map((p, i) => (
-          <Reveal key={p.id}>
-            <div id={`pillar-${p.id}`} className="grid items-center gap-7 min-[860px]:grid-cols-2 min-[860px]:gap-16">
-              <PillarMedia name={p.name} flip={i % 2 === 1} />
-              <div className="flex min-w-0 flex-col gap-4">
-                <span className="eyebrow">{p.eyebrow}</span>
-                <h3 className="text-[clamp(26px,2.6vw,36px)] font-bold leading-[1.12] tracking-[-0.02em]">{p.name}</h3>
-                <p className="text-lg leading-7 text-muted">{p.text}</p>
-                <div className="flex flex-wrap gap-1.5">{p.tags.map((t) => <Badge key={t}>{t}</Badge>)}</div>
-                <Link href={`/${locale}#solutions`} className="font-semibold text-brand hover:underline">{p.link} →</Link>
-              </div>
-            </div>
-          </Reveal>
+          <div key={p.id} id={`pillar-${p.id}`} className="group/pillar grid items-center gap-7 min-[860px]:grid-cols-2 min-[860px]:gap-16">
+            <PillarMedia id={p.id} flip={i % 2 === 1} />
+            {/* Chữ hiện sau ảnh một nhịp. */}
+            <Reveal delay={0.15} className="flex min-w-0 flex-col gap-4">
+              <h3 className="text-[clamp(26px,2.6vw,36px)] font-bold leading-[1.12] tracking-[-0.02em]">{p.name}</h3>
+              <p className="text-lg leading-7 text-muted">{p.text}</p>
+              <div className="flex flex-wrap gap-1.5">{p.tags.map((t) => <Badge key={t}>{t}</Badge>)}</div>
+              <Link href={`/${locale}#solutions`} className="font-semibold text-brand hover:underline">{p.link} →</Link>
+            </Reveal>
+          </div>
         ))}
       </div>
     </section>
   );
 }
 
-// Khung hình trụ cột: chưa có ảnh sản phẩm thật nên chỉ dùng nền vòng tròn trang trí, không in nhãn placeholder.
-// Khi có ảnh thật, thay thân component này bằng next/image.
-function PillarMedia({ name, flip }: { name: string; flip: boolean }) {
-  return (
-    <div
-      aria-hidden
-      className={`on-band relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-[radial-gradient(circle_at_70%_30%,#13306f_0%,var(--band)_45%,var(--band-2)_100%)] ${flip ? "min-[860px]:order-2" : ""}`}
-    >
-      <div className="absolute inset-[14%] rounded-full border border-[rgba(111,227,255,.18)]" />
-      <div className="absolute inset-[28%] rounded-full border border-[rgba(111,227,255,.28)]" />
-      <span className="relative max-w-[70%] p-6 text-center font-display text-[22px] font-bold leading-7 text-on-band">{name}</span>
-    </div>
-  );
+// Ảnh minh hoạ trụ cột: ảnh Unsplash (Unsplash License, dùng thương mại miễn phí, không bắt buộc ghi nguồn),
+// đã kiểm tra không có logo thương hiệu nổi bật. Thay bằng ảnh sản phẩm thật khi có. Nguồn từng ảnh:
+// - identity: George Prentzas, unsplash.com/photos/SRFG7iwktDk
+// - cyber:    Winston Chen,     unsplash.com/photos/iZe21DzHnUg
+// - gov:      Andre Benz,       unsplash.com/photos/WsxKHqrdibY
+// - finance:  Atlantic Money,   unsplash.com/photos/9XrefmwkHCs
+const pillarImages: Partial<Record<PillarId, string>> = {
+  identity: "/images/pillars/identity.jpg",
+  cyber: "/images/pillars/cyber.jpg",
+  gov: "/images/pillars/gov.jpg",
+  finance: "/images/pillars/finance.jpg",
+};
+
+// Ảnh mang tính trang trí (tên trụ cột đã có ở tiêu đề bên cạnh) nên alt rỗng. Chuyển động nằm trong PillarImage.
+function PillarMedia({ id, flip }: { id: PillarId; flip: boolean }) {
+  const src = pillarImages[id];
+  const order = flip ? "min-[860px]:order-2" : "";
+  if (!src) return <div className={`aspect-[4/3] rounded-lg bg-band ${order}`} />;
+  return <PillarImage src={src} className={order} />;
 }
