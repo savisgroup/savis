@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { isLocale } from "@/lib/i18n";
+import { defaultLocale, isLocale } from "@/lib/i18n";
 
 const copy = {
   vi: { title: "Đã có lỗi xảy ra.", body: "Chúng tôi không tải được nội dung lúc này. Vui lòng thử lại.", retry: "Thử lại" },
@@ -11,7 +11,7 @@ const copy = {
 
 export default function LocaleError({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   const params = useParams<{ locale?: string }>();
-  const t = copy[params.locale && isLocale(params.locale) ? params.locale : "vi"];
+  const t = copy[params.locale && isLocale(params.locale) ? params.locale : defaultLocale];
   useEffect(() => {
     console.error("[route error]", error.digest ?? "", error);
   }, [error]);
