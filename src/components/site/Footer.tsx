@@ -9,12 +9,13 @@ const linkClass = "transition-colors duration-[var(--motion-fast)] hover:text-on
 const listClass = "flex flex-col gap-2 text-sm leading-[21px]";
 
 // Footer theo sitemap V3 mục 2.3: cột thương hiệu, Solutions & Products, Industries, Global offices, Company, dòng bản quyền.
+// Mang neo #contact (hotline ở dòng cuối) cho các nút Liên hệ đến khi có trang /contact.
 // Mục chưa có trang hiện dạng chữ thường, không phải link (giữ nguyên độ tương phản trên nền navy).
 export function Footer({ locale }: { locale: Locale }) {
   const t = dict[locale];
   const c = footerCopy[locale];
   return (
-    <footer className="on-band bg-band-2 pb-6 pt-16 text-on-band-muted">
+    <footer id="contact" className="on-band bg-band-2 pb-6 pt-16 text-on-band-muted">
       <div className="container-x">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 min-[768px]:grid-cols-3 min-[1100px]:grid-cols-[minmax(0,1.3fr)_repeat(4,minmax(0,1fr))]">
           <div className="col-span-2 flex min-w-0 flex-col gap-4 min-[768px]:col-span-3 min-[1100px]:col-span-1">

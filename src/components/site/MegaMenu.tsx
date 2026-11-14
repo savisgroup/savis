@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 // Mở bằng hover, click hoặc bàn phím. Dưới 1100px header dùng MobileMenu thay cho menu này.
 export function MegaMenu({ locale, label }: { locale: Locale; label: string }) {
   return (
-    <NavigationMenu.Root aria-label={label} className="hidden flex-1 self-stretch min-[1100px]:flex" delayDuration={120}>
+    <NavigationMenu.Root aria-label={label} className="hidden min-w-0 flex-1 self-stretch min-[1100px]:flex" delayDuration={120}>
       <NavigationMenu.List className="flex h-full items-stretch gap-0.5">
         <NavigationMenu.Item value="solutions" className="flex">
           <Trigger>{solutionsMenu.label[locale]}</Trigger>
@@ -39,7 +39,7 @@ export function MegaMenu({ locale, label }: { locale: Locale; label: string }) {
 
 function Trigger({ children }: { children: React.ReactNode }) {
   return (
-    <NavigationMenu.Trigger className="group inline-flex min-h-[var(--header-height)] items-center gap-1 whitespace-nowrap border-b-[3px] border-transparent px-[11px] text-[14.5px] font-semibold leading-5 text-ink transition-colors duration-[var(--motion-fast)] hover:text-brand data-[state=open]:border-brand data-[state=open]:text-brand">
+    <NavigationMenu.Trigger className="group inline-flex min-h-[var(--header-height)] items-center gap-1 whitespace-nowrap border-b-[3px] border-transparent px-2 text-[13.5px] font-semibold leading-5 text-ink min-[1560px]:px-[11px] min-[1560px]:text-[14.5px] transition-colors duration-[var(--motion-fast)] hover:text-brand data-[state=open]:border-brand data-[state=open]:text-brand">
       {children}
       <ChevronDown aria-hidden className="size-3.5 transition-transform duration-[var(--motion-fast)] group-data-[state=open]:rotate-180" />
     </NavigationMenu.Trigger>

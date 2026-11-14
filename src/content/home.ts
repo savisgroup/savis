@@ -1,114 +1,112 @@
 import type { Locale } from "@/lib/i18n";
 
-// Nội dung trang chủ, phương án C (design canvas "SAVIS Website Trang chủ", artboard Main-v3).
+// Nội dung trang chủ, phương án C (design canvas "SAVIS Website Trang chủ", artboard Main-v3, bản cập nhật 14/11/2026).
 // Câu chữ EN lấy từ mockup. Bản VI là bản dịch nháp, cần BA rà soát trước khi công bố.
 //
 // Cổng duyệt nội dung: design system cấm placeholder và bằng chứng chưa duyệt trên production.
-// Các cờ dưới đây mặc định false; chỉ bật khi doanh nghiệp xác nhận được phép công bố.
+// Cờ dưới đây mặc định false; chỉ bật khi doanh nghiệp xác nhận được phép công bố.
 export const approval = {
-  /** Tên khách hàng trong dải logo (NEAC, State Bank of Vietnam, NAPAS, Vietcombank, ...). */
-  clientNames: false,
   /** Case study NEAC và hai case phụ (cần xác nhận tên khách hàng và câu bằng chứng PKI quốc gia). */
   caseStudies: false,
 } as const;
-// Số liệu "[XXX]+ khách hàng chính phủ và doanh nghiệp" trong mockup chưa có số thật nên không đưa vào `stats`.
 
 export type PillarId = "identity" | "cyber" | "gov" | "finance" | "data";
-export type CaseItem = { client: string; kicker: string; title: string; text: string };
-export type Segment = { label: string; promise: string; proofs: string[]; cta: string };
+export type CaseItem = { client: string; clientFull?: string; kicker: string; title: string; text: string };
+export type FeaturedIndustry = { path: string; name: string; pitch: string; products: string[] };
 
 export type HomeContent = {
   hero: {
-    eyebrow: string; titleLead: string; titleAccent: string; lead: string;
-    primary: string; secondary: string;
+    eyebrow: string; primary: string; secondary: string;
+    carousel: { label: string; slide: string; pause: string; play: string };
+    main: { title: string };
+    egov: { title: string; accent: string; sub: string; chip: string; visualTitle: string };
+    trustca: { title: string; accent: string; lead: string; sub: string; chips: string[]; visualLines: string[] };
     phone: { title: string; badge: string; file: string; pages: string; kyc: string; kycMethod: string; hint: string; action: string };
     floatA: { title: string; sub: string };
     floatB: { title: string; sub: string };
   };
   stats: { value: string; label: string }[];
-  trustedBy: string;
-  clients: string[];
   solutions: { eyebrow: string; title: string; navLabel: string };
+  /** `link` là nhãn CTA của thẻ trụ cột trong mega menu. */
   pillars: { id: PillarId; name: string; text: string; tags: string[]; link: string }[];
-  industries: { eyebrow: string; title: string; segments: Segment[] };
+  industries: { eyebrow: string; title: string; all: string; cardCta: string; other: string; featured: FeaturedIndustry[] };
+  presence: { eyebrow: string; title: string; about: string };
   customers: { eyebrow: string; title: string; all: string; read: string; cases: CaseItem[] };
-  idFlow: { eyebrow: string; title: string; link: string; steps: { stage: string; title: string; description: string }[] };
-  cta: { title: string; primary: string; secondary: string };
 };
 
 const en: HomeContent = {
   hero: {
     eyebrow: "Trusted digital infrastructure for a smarter world",
-    titleLead: "Identity, trust and secure platforms",
-    titleAccent: "for nations and enterprises.",
-    lead: "Five solution pillars, delivered end to end — from consulting and integration to 24/7 operations — on core technology we design and build ourselves.",
     primary: "Explore Solutions",
-    secondary: "Talk to an Expert",
+    secondary: "Talk to our Expert",
+    carousel: { label: "Highlights", slide: "Slide", pause: "Pause slides", play: "Play slides" },
+    main: { title: "SAVIS delivers Make-in-Vietnam technology that meets the world’s most rigorous standards" },
+    egov: { title: "SAVIS eGov Super App - Smart City", accent: "ASOCIO Award Winner", sub: "A leading smart city solution provider in Vietnam", chip: "ASOCIO Award", visualTitle: "SAVIS eGov Super App" },
+    trustca: {
+      title: "TrustCA Remote Signing and", accent: "TrustCA Timestamp",
+      lead: "Officially meet the latest eIDAS 2.0 and NIS2 requirements",
+      sub: "SAVIS reaffirms its pioneering role in delivering digital trust services in Vietnam",
+      chips: ["eIDAS 2.0", "NIS2"], visualLines: ["TrustCA Remote Signing", "TrustCA Timestamp"],
+    },
     phone: { title: "Sign document", badge: "TrustCA", file: "Document.pdf", pages: "3 pages", kyc: "Smart eKYC", kycMethod: "Face + ID", hint: "Confirm with your fingerprint", action: "Sign with legal effect" },
     floatA: { title: "Identity verified", sub: "Smart eKYC: document and face" },
     floatB: { title: "Certificate valid", sub: "Remote Signing and Timestamp" },
   },
   stats: [
-    { value: "5", label: "SAVIS solution pillars" },
-    { value: "10", label: "offices worldwide" },
-    { value: "22", label: "years of digital trust" },
+    { value: "22+", label: "years" },
+    { value: "200+", label: "international partners" },
+    { value: "5,000+", label: "customers" },
   ],
-  trustedBy: "Trusted by",
-  clients: ["NEAC", "State Bank of Vietnam", "NAPAS", "Vietcombank", "Agribank", "VPBank", "Sacombank", "VIB"],
-  solutions: { eyebrow: "Solutions & Products", title: "Five pillars. One trust ecosystem.", navLabel: "Solution pillars" },
+  solutions: { eyebrow: "Solutions & Products", title: "SAVIS - Your Trusted Partner", navLabel: "Solution pillars" },
   pillars: [
-    { id: "identity", name: "Digital Identity & Trust", text: "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.", tags: ["Digital ID", "National PKI", "TrustCA", "eSignature"], link: "Explore Digital Identity & Trust" },
-    { id: "cyber", name: "Cybersecurity & Quantum-Safe Infrastructure", text: "Monitor threats, protect keys and data, and prepare cryptography for the post-quantum era.", tags: ["SOC", "GP HSM", "Zero Trust", "PQC"], link: "Explore Cybersecurity" },
-    { id: "gov", name: "Digital Government & Smart Infrastructure", text: "One-stop public services, citizen touchpoints and connected city infrastructure.", tags: ["mGov SuperApp", "eGate", "Smart City", "AI Camera"], link: "Explore Digital Government" },
-    { id: "finance", name: "Open Finance & Secure Digital Transactions", text: "Open APIs, customer consent and payment security for banks and financial institutions.", tags: ["Open Banking Suite", "Digital Banking", "eWallet", "eContract"], link: "Explore Open Finance" },
-    { id: "data", name: "AI, Data & Digital Platforms", text: "Data platforms, trusted archives, intelligent documents and AI-native media operations.", tags: ["Data Lake", "Archive", "OCR", "CMS"], link: "Explore AI, Data & Platforms" },
+    { id: "identity", name: "Digital Identity & Trust", text: "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.", tags: ["Digital ID", "ID Verification", "FIDO2", "National PKI", "TrustCA", "eSignature", "Fraud"], link: "Explore Digital Identity & Trust" },
+    { id: "cyber", name: "Cybersecurity & Quantum-Safe Infrastructure", text: "Monitor threats, protect keys and data, and prepare cryptography for the post-quantum era.", tags: ["SOC", "GP HSM", "KMS", "Zero Trust", "Enterprise Browser", "Quantum Safe Gateway", "Crypto Agility", "PQC"], link: "Explore Cybersecurity" },
+    { id: "gov", name: "Digital Government & Smart Infrastructure", text: "One-stop public services, citizen touchpoints and connected city infrastructure.", tags: ["mGov SuperApp", "eGate", "Smart Kiosk", "Smart City", "AI Camera", "IoT Security"], link: "Explore Digital Government" },
+    { id: "finance", name: "Open Finance & Secure Digital Transactions", text: "Open APIs, customer consent and payment security for banks and financial institutions.", tags: ["Open Banking Suite", "Digital Banking", "eWallet", "Transaction Signing", "3DS", "Tokenization", "eContract"], link: "Explore Open Finance" },
+    { id: "data", name: "AI, Data & Digital Platforms", text: "Data platforms, trusted archives, intelligent documents and AI-native media operations.", tags: ["Data Lake", "Archive", "OCR", "BPM", "CMS AI", "MAM", "Healthcare", "Cloud"], link: "Explore AI, Data & Platforms" },
   ],
   industries: {
-    eyebrow: "Industries", title: "Built for the sectors that cannot fail.",
-    segments: [
-      { label: "Government & Public Sector", promise: "National PKI, citizen identity, digital public services and trusted records for ministries and provinces.", proofs: ["National PKI", "Digital ID Mobile Platform", "Digital ID Wallet"], cta: "Explore your industry" },
-      { label: "Banking, Financial Services & Insurance", promise: "Bank CAs, onboarding, authentication, open APIs and payment security for regulated institutions.", proofs: ["PKI in a Box", "Signing Gateway", "TrustCA Remote Signing"], cta: "Explore your industry" },
+    eyebrow: "Industries", title: "Driving Digital Transformation Across Every Sector",
+    all: "Explore your industry", cardCta: "Explore this industry", other: "Other industries",
+    featured: [
+      { path: "/industries/government", name: "Government & Public Sector", pitch: "National PKI, citizen identity, digital public services and trusted records for ministries and provinces.", products: ["National PKI", "Digital ID Mobile Platform", "Digital ID Wallet"] },
+      { path: "/industries/bfsi", name: "Banking, Financial Services & Insurance", pitch: "Bank CAs, onboarding, authentication, open APIs and payment security for regulated institutions.", products: ["PKI in a Box", "Signing Gateway", "TrustCA Remote Signing"] },
     ],
   },
-  customers: { eyebrow: "Customers", title: "Trust, deployed in production.", all: "View Success Stories", read: "Read the case study",
+  presence: { eyebrow: "Global presence", title: "Ten offices across four continents. One trust ecosystem.", about: "About SAVIS" },
+  customers: { eyebrow: "Trusted partnerships, proven results", title: "Success Stories from SAVIS Customers", all: "View Success Stories", read: "Read the case study",
     cases: [
-      { client: "NEAC", kicker: "National Trust Infrastructure", title: "Building Vietnam’s national PKI", text: "SAVIS designed and delivered the national public key infrastructure that anchors trust for Vietnam’s public digital signature ecosystem." },
-      { client: "State Bank of Vietnam", kicker: "National Trust Infrastructure", title: "Root CA and issuing CA for the national payment system", text: "SAVIS built the Root CA and intermediate CA that secure interbank and national payment transactions for Vietnam’s central bank." },
+      { client: "NEAC", clientFull: "National Electronic Authentication Centre, Vietnam", kicker: "National Trust Infrastructure", title: "Vietnam National Root CA", text: "SAVIS designed and delivered the Vietnam National Root CA — the root of trust that anchors every public digital signature certificate in the country." },
       { client: "NEAC", kicker: "National Trust Infrastructure", title: "An international, WebTrust-grade CA for cross-border trust", text: "An international certification authority built to WebTrust requirements, so Vietnamese certificates can be recognised by Microsoft, Apple, Adobe and EU trust programmes." },
+      { client: "State Bank of Vietnam", kicker: "National Trust Infrastructure", title: "Root CA and issuing CA for the national payment system", text: "SAVIS built the Root CA and intermediate CA that secure interbank and national payment transactions for Vietnam’s central bank." },
     ],
   },
-  idFlow: {
-    eyebrow: "Digital ID Mobile Platform", title: "From an ID card to a trusted identity on every phone.", link: "Explore the platform",
-    steps: [
-      { stage: "01 · ENROL", title: "Verify remotely", description: "Smart eKYC checks the document and the face." },
-      { stage: "02 · ISSUE", title: "Put the ID on the phone", description: "Digital ID Wallet and Mobile Identity PKI." },
-      { stage: "03 · AUTHENTICATE", title: "Log in without passwords", description: "IAM & CIAM, TrustPass and strong authentication." },
-      { stage: "04 · SIGN", title: "Sign with legal effect", description: "TrustCA Remote Signing and Timestamp." },
-    ],
-  },
-  cta: { title: "Talk to an Expert", primary: "Contact us", secondary: "Explore Solutions" },
 };
 
 const vi: HomeContent = {
   hero: {
     eyebrow: "Hạ tầng số tin cậy cho một thế giới thông minh hơn",
-    titleLead: "Định danh, niềm tin và nền tảng an toàn",
-    titleAccent: "cho quốc gia và doanh nghiệp.",
-    lead: "Năm trụ cột giải pháp, triển khai trọn vẹn từ tư vấn, tích hợp đến vận hành 24/7, trên công nghệ lõi do chính SAVIS thiết kế và xây dựng.",
     primary: "Khám phá giải pháp",
     secondary: "Trao đổi với chuyên gia",
+    carousel: { label: "Nổi bật", slide: "Banner", pause: "Tạm dừng banner", play: "Chạy banner" },
+    main: { title: "SAVIS mang đến công nghệ Make in Vietnam đáp ứng những tiêu chuẩn khắt khe nhất thế giới" },
+    egov: { title: "SAVIS eGov Super App - Smart City", accent: "Giải thưởng ASOCIO", sub: "Nhà cung cấp giải pháp đô thị thông minh hàng đầu tại Việt Nam", chip: "Giải thưởng ASOCIO", visualTitle: "SAVIS eGov Super App" },
+    trustca: {
+      title: "TrustCA Remote Signing và", accent: "TrustCA Timestamp",
+      lead: "Chính thức đáp ứng các yêu cầu mới nhất của eIDAS 2.0 và NIS2",
+      sub: "SAVIS khẳng định vai trò tiên phong trong cung cấp dịch vụ tin cậy số tại Việt Nam",
+      chips: en.hero.trustca.chips, visualLines: en.hero.trustca.visualLines,
+    },
     phone: { title: "Ký tài liệu", badge: "TrustCA", file: "Document.pdf", pages: "3 trang", kyc: "Smart eKYC", kycMethod: "Khuôn mặt + CCCD", hint: "Xác nhận bằng vân tay", action: "Ký có giá trị pháp lý" },
     floatA: { title: "Đã xác minh danh tính", sub: "Smart eKYC: giấy tờ và khuôn mặt" },
     floatB: { title: "Chứng thư hợp lệ", sub: "Ký từ xa và dấu thời gian" },
   },
   stats: [
-    { value: "5", label: "trụ cột giải pháp SAVIS" },
-    { value: "10", label: "văn phòng trên thế giới" },
-    { value: "22", label: "năm xây dựng niềm tin số" },
+    { value: "22+", label: "năm" },
+    { value: "200+", label: "đối tác quốc tế" },
+    { value: "5.000+", label: "khách hàng" },
   ],
-  trustedBy: "Được tin dùng bởi",
-  clients: en.clients,
-  solutions: { eyebrow: "Giải pháp & Sản phẩm", title: "Năm trụ cột. Một hệ sinh thái tin cậy.", navLabel: "Các trụ cột giải pháp" },
+  solutions: { eyebrow: "Giải pháp & Sản phẩm", title: "SAVIS - Đối tác tin cậy của bạn", navLabel: "Các trụ cột giải pháp" },
   pillars: [
     { id: "identity", name: "Định danh số & Dịch vụ tin cậy", text: "Xác minh con người, xác thực truy cập và ký với giá trị pháp lý, từ đăng ký khách hàng đến chữ ký số công cộng.", tags: en.pillars[0].tags, link: "Khám phá Định danh số & Dịch vụ tin cậy" },
     { id: "cyber", name: "An ninh mạng & Hạ tầng an toàn lượng tử", text: "Giám sát mối đe dọa, bảo vệ khoá và dữ liệu, chuẩn bị mật mã cho kỷ nguyên hậu lượng tử.", tags: en.pillars[1].tags, link: "Khám phá An ninh mạng" },
@@ -117,29 +115,21 @@ const vi: HomeContent = {
     { id: "data", name: "AI, Dữ liệu & Nền tảng số", text: "Nền tảng dữ liệu, lưu trữ tin cậy, tài liệu thông minh và vận hành truyền thông ứng dụng AI.", tags: en.pillars[4].tags, link: "Khám phá AI, Dữ liệu & Nền tảng" },
   ],
   industries: {
-    eyebrow: "Lĩnh vực", title: "Dành cho những lĩnh vực không được phép gián đoạn.",
-    segments: [
-      { label: "Chính phủ & Khu vực công", promise: "PKI quốc gia, định danh công dân, dịch vụ công số và hồ sơ tin cậy cho các bộ ngành và địa phương.", proofs: en.industries.segments[0].proofs, cta: "Khám phá lĩnh vực" },
-      { label: "Ngân hàng, Tài chính & Bảo hiểm", promise: "CA ngân hàng, định danh khách hàng, xác thực, API mở và bảo mật thanh toán cho các tổ chức chịu quản lý chặt chẽ.", proofs: en.industries.segments[1].proofs, cta: "Khám phá lĩnh vực" },
+    eyebrow: "Lĩnh vực", title: "Thúc đẩy chuyển đổi số trên mọi lĩnh vực",
+    all: "Tìm lĩnh vực của bạn", cardCta: "Khám phá lĩnh vực này", other: "Lĩnh vực khác",
+    featured: [
+      { path: "/industries/government", name: "Chính phủ & Khu vực công", pitch: "PKI quốc gia, định danh công dân, dịch vụ công số và hồ sơ tin cậy cho các bộ ngành và địa phương.", products: en.industries.featured[0].products },
+      { path: "/industries/bfsi", name: "Ngân hàng, Tài chính & Bảo hiểm", pitch: "CA ngân hàng, định danh khách hàng, xác thực, API mở và bảo mật thanh toán cho các tổ chức chịu quản lý chặt chẽ.", products: en.industries.featured[1].products },
     ],
   },
-  customers: { eyebrow: "Khách hàng", title: "Niềm tin được triển khai trong thực tế.", all: "Xem các câu chuyện thành công", read: "Đọc case study",
+  presence: { eyebrow: "Hiện diện toàn cầu", title: "Mười văn phòng trên bốn châu lục. Một hệ sinh thái tin cậy.", about: "Về SAVIS" },
+  customers: { eyebrow: "Hợp tác tin cậy, kết quả đã được chứng minh", title: "Câu chuyện thành công từ khách hàng của SAVIS", all: "Xem các câu chuyện thành công", read: "Đọc case study",
     cases: [
-      { client: "NEAC", kicker: "Hạ tầng tin cậy quốc gia", title: "Xây dựng PKI quốc gia của Việt Nam", text: "SAVIS thiết kế và triển khai hạ tầng khoá công khai quốc gia, làm điểm neo niềm tin cho hệ sinh thái chữ ký số công cộng của Việt Nam." },
-      { client: "Ngân hàng Nhà nước Việt Nam", kicker: "Hạ tầng tin cậy quốc gia", title: "Root CA và CA cấp phát cho hệ thống thanh toán quốc gia", text: "SAVIS xây dựng Root CA và CA trung gian bảo mật các giao dịch liên ngân hàng và thanh toán quốc gia của ngân hàng trung ương." },
+      { client: "NEAC", clientFull: "Trung tâm Chứng thực điện tử quốc gia, Việt Nam", kicker: "Hạ tầng tin cậy quốc gia", title: "Root CA quốc gia của Việt Nam", text: "SAVIS thiết kế và triển khai Root CA quốc gia của Việt Nam, gốc tin cậy cho mọi chứng thư chữ ký số công cộng trong nước." },
       { client: "NEAC", kicker: "Hạ tầng tin cậy quốc gia", title: "CA quốc tế đạt chuẩn WebTrust cho niềm tin xuyên biên giới", text: "CA quốc tế xây dựng theo yêu cầu WebTrust để chứng thư số Việt Nam được các chương trình tin cậy của Microsoft, Apple, Adobe và EU công nhận." },
+      { client: "Ngân hàng Nhà nước Việt Nam", kicker: "Hạ tầng tin cậy quốc gia", title: "Root CA và CA cấp phát cho hệ thống thanh toán quốc gia", text: "SAVIS xây dựng Root CA và CA trung gian bảo mật các giao dịch liên ngân hàng và thanh toán quốc gia của ngân hàng trung ương." },
     ],
   },
-  idFlow: {
-    eyebrow: "Digital ID Mobile Platform", title: "Từ thẻ căn cước đến danh tính tin cậy trên mọi chiếc điện thoại.", link: "Khám phá nền tảng",
-    steps: [
-      { stage: "01 · ĐĂNG KÝ", title: "Xác minh từ xa", description: "Smart eKYC kiểm tra giấy tờ và khuôn mặt." },
-      { stage: "02 · CẤP PHÁT", title: "Đưa danh tính lên điện thoại", description: "Digital ID Wallet và Mobile Identity PKI." },
-      { stage: "03 · XÁC THỰC", title: "Đăng nhập không cần mật khẩu", description: "IAM & CIAM, TrustPass và xác thực mạnh." },
-      { stage: "04 · KÝ", title: "Ký có giá trị pháp lý", description: "TrustCA Remote Signing và Timestamp." },
-    ],
-  },
-  cta: { title: "Trao đổi với chuyên gia", primary: "Liên hệ", secondary: "Khám phá giải pháp" },
 };
 
 export const homeContent: Record<Locale, HomeContent> = { en, vi };
