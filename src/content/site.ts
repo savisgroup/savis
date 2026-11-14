@@ -29,7 +29,6 @@ const utilitySeeds: NavSeed[] = [
 const toLinks = (seeds: NavSeed[], locale: Locale): NavLink[] =>
   seeds.filter((s) => s.live).map((s) => ({ href: `/${locale}${s.path}`, label: s.label[locale] }));
 
-export const mainNav = (locale: Locale) => toLinks(navSeeds, locale);
 export const utilityNav = (locale: Locale) => toLinks(utilitySeeds, locale);
 
 // Cột "Công ty" của footer (theo bản C): các mục chính từ Services trở đi, các liên kết tiện ích, rồi Liên hệ.
