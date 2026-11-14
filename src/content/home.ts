@@ -29,7 +29,7 @@ export type HomeContent = {
   trustedBy: string;
   clients: string[];
   solutions: { eyebrow: string; title: string; navLabel: string };
-  pillars: { id: PillarId; eyebrow: string; name: string; text: string; tags: string[]; link: string }[];
+  pillars: { id: PillarId; name: string; text: string; tags: string[]; link: string }[];
   industries: { eyebrow: string; title: string; segments: Segment[] };
   customers: { eyebrow: string; title: string; all: string; read: string; cases: CaseItem[] };
   idFlow: { eyebrow: string; title: string; link: string; steps: { stage: string; title: string; description: string }[] };
@@ -57,11 +57,11 @@ const en: HomeContent = {
   clients: ["NEAC", "State Bank of Vietnam", "NAPAS", "Vietcombank", "Agribank", "VPBank", "Sacombank", "VIB"],
   solutions: { eyebrow: "Solutions & Products", title: "Five pillars. One trust ecosystem.", navLabel: "Solution pillars" },
   pillars: [
-    { id: "identity", eyebrow: "Định danh số & Dịch vụ tin cậy", name: "Digital Identity & Trust", text: "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.", tags: ["Digital ID", "National PKI", "TrustCA", "eSignature"], link: "Explore Digital Identity & Trust" },
-    { id: "cyber", eyebrow: "An ninh mạng & Hạ tầng an toàn lượng tử", name: "Cybersecurity & Quantum-Safe Infrastructure", text: "Monitor threats, protect keys and data, and prepare cryptography for the post-quantum era.", tags: ["SOC", "GP HSM", "Zero Trust", "PQC"], link: "Explore Cybersecurity" },
-    { id: "gov", eyebrow: "Chính phủ số & Hạ tầng thông minh", name: "Digital Government & Smart Infrastructure", text: "One-stop public services, citizen touchpoints and connected city infrastructure.", tags: ["mGov SuperApp", "eGate", "Smart City", "AI Camera"], link: "Explore Digital Government" },
-    { id: "finance", eyebrow: "Tài chính mở & Giao dịch số an toàn", name: "Open Finance & Secure Digital Transactions", text: "Open APIs, customer consent and payment security for banks and financial institutions.", tags: ["Open Banking Suite", "Digital Banking", "eWallet", "eContract"], link: "Explore Open Finance" },
-    { id: "data", eyebrow: "AI, Dữ liệu & Nền tảng số", name: "AI, Data & Digital Platforms", text: "Data platforms, trusted archives, intelligent documents and AI-native media operations.", tags: ["Data Lake", "Archive", "OCR", "CMS"], link: "Explore AI, Data & Platforms" },
+    { id: "identity", name: "Digital Identity & Trust", text: "Verify people, authenticate access and sign with legal certainty — from onboarding to qualified signatures.", tags: ["Digital ID", "National PKI", "TrustCA", "eSignature"], link: "Explore Digital Identity & Trust" },
+    { id: "cyber", name: "Cybersecurity & Quantum-Safe Infrastructure", text: "Monitor threats, protect keys and data, and prepare cryptography for the post-quantum era.", tags: ["SOC", "GP HSM", "Zero Trust", "PQC"], link: "Explore Cybersecurity" },
+    { id: "gov", name: "Digital Government & Smart Infrastructure", text: "One-stop public services, citizen touchpoints and connected city infrastructure.", tags: ["mGov SuperApp", "eGate", "Smart City", "AI Camera"], link: "Explore Digital Government" },
+    { id: "finance", name: "Open Finance & Secure Digital Transactions", text: "Open APIs, customer consent and payment security for banks and financial institutions.", tags: ["Open Banking Suite", "Digital Banking", "eWallet", "eContract"], link: "Explore Open Finance" },
+    { id: "data", name: "AI, Data & Digital Platforms", text: "Data platforms, trusted archives, intelligent documents and AI-native media operations.", tags: ["Data Lake", "Archive", "OCR", "CMS"], link: "Explore AI, Data & Platforms" },
   ],
   industries: {
     eyebrow: "Industries", title: "Built for the sectors that cannot fail.",
@@ -110,11 +110,11 @@ const vi: HomeContent = {
   clients: en.clients,
   solutions: { eyebrow: "Giải pháp & Sản phẩm", title: "Năm trụ cột. Một hệ sinh thái tin cậy.", navLabel: "Các trụ cột giải pháp" },
   pillars: [
-    { id: "identity", eyebrow: "Digital Identity & Trust", name: "Định danh số & Dịch vụ tin cậy", text: "Xác minh con người, xác thực truy cập và ký với giá trị pháp lý, từ đăng ký khách hàng đến chữ ký số công cộng.", tags: en.pillars[0].tags, link: "Khám phá Định danh số & Dịch vụ tin cậy" },
-    { id: "cyber", eyebrow: "Cybersecurity & Quantum-Safe", name: "An ninh mạng & Hạ tầng an toàn lượng tử", text: "Giám sát mối đe dọa, bảo vệ khoá và dữ liệu, chuẩn bị mật mã cho kỷ nguyên hậu lượng tử.", tags: en.pillars[1].tags, link: "Khám phá An ninh mạng" },
-    { id: "gov", eyebrow: "Digital Government & Smart Infrastructure", name: "Chính phủ số & Hạ tầng thông minh", text: "Dịch vụ công một cửa, điểm chạm với người dân và hạ tầng đô thị kết nối.", tags: en.pillars[2].tags, link: "Khám phá Chính phủ số" },
-    { id: "finance", eyebrow: "Open Finance & Secure Transactions", name: "Tài chính mở & Giao dịch số an toàn", text: "API mở, quản lý sự đồng ý của khách hàng và bảo mật thanh toán cho ngân hàng và tổ chức tài chính.", tags: en.pillars[3].tags, link: "Khám phá Tài chính mở" },
-    { id: "data", eyebrow: "AI, Data & Digital Platforms", name: "AI, Dữ liệu & Nền tảng số", text: "Nền tảng dữ liệu, lưu trữ tin cậy, tài liệu thông minh và vận hành truyền thông ứng dụng AI.", tags: en.pillars[4].tags, link: "Khám phá AI, Dữ liệu & Nền tảng" },
+    { id: "identity", name: "Định danh số & Dịch vụ tin cậy", text: "Xác minh con người, xác thực truy cập và ký với giá trị pháp lý, từ đăng ký khách hàng đến chữ ký số công cộng.", tags: en.pillars[0].tags, link: "Khám phá Định danh số & Dịch vụ tin cậy" },
+    { id: "cyber", name: "An ninh mạng & Hạ tầng an toàn lượng tử", text: "Giám sát mối đe dọa, bảo vệ khoá và dữ liệu, chuẩn bị mật mã cho kỷ nguyên hậu lượng tử.", tags: en.pillars[1].tags, link: "Khám phá An ninh mạng" },
+    { id: "gov", name: "Chính phủ số & Hạ tầng thông minh", text: "Dịch vụ công một cửa, điểm chạm với người dân và hạ tầng đô thị kết nối.", tags: en.pillars[2].tags, link: "Khám phá Chính phủ số" },
+    { id: "finance", name: "Tài chính mở & Giao dịch số an toàn", text: "API mở, quản lý sự đồng ý của khách hàng và bảo mật thanh toán cho ngân hàng và tổ chức tài chính.", tags: en.pillars[3].tags, link: "Khám phá Tài chính mở" },
+    { id: "data", name: "AI, Dữ liệu & Nền tảng số", text: "Nền tảng dữ liệu, lưu trữ tin cậy, tài liệu thông minh và vận hành truyền thông ứng dụng AI.", tags: en.pillars[4].tags, link: "Khám phá AI, Dữ liệu & Nền tảng" },
   ],
   industries: {
     eyebrow: "Lĩnh vực", title: "Dành cho những lĩnh vực không được phép gián đoạn.",

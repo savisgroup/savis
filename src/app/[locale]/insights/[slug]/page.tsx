@@ -33,9 +33,12 @@ export default async function InsightPage({ params }: Props) {
   const date = formatDate(post.publishedDate, locale);
   const img = mediaUrl(post.featuredImage, "card");
 
-  // Bài liên quan: ưu tiên relatedPosts đã chọn trong CMS, nếu không có thì lấy 3 bài mới nhất khác
-  const picked = (post.relatedPosts ?? []).filter((r): r is Insight => typeof r === "object");
-  const more = picked.length ? picked.slice(0, 3) : (await getInsights(locale, { limit: 4 })).docs.filter((d) => d.id !== post.id).slice(0, 3);
+  // Bài liên quan: ưu tiên relatedPosts đã chọn trong CMS (chỉ giữ bài đã dịch sang ngôn ngữ đang xem),
+  // nếu không còn bài nào thì lấy 3 bài mới nhất khác.
+  const translated = (await getInsights(locale, { limit: 50 })).docs;
+  const translatedIds = new Set(translated.map((d) => d.id));
+  const picked = (post.relatedPosts ?? []).filter((r): r is Insight => typeof r === "object" && translatedIds.has(r.id));
+  const more = picked.length ? picked.slice(0, 3) : translated.filter((d) => d.id !== post.id).slice(0, 3);
 
   return (
     <>
