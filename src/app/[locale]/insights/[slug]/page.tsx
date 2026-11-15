@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { dict, formatDate, isLocale } from "@/lib/i18n";
+import { dict, formatDate, isLocale, locales } from "@/lib/i18n";
 import { getInsightBySlug, getInsights, mediaUrl } from "@/lib/payload/client";
 import type { Insight } from "@/lib/payload/types";
 import { RichText } from "@/components/lexical/RichText";
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const img = mediaUrl(post.featuredImage);
   return {
     title: post.title, description: post.summary,
-    alternates: { canonical: `/${locale}/insights/${slug}`, languages: { vi: `/vi/insights/${slug}`, en: `/en/insights/${slug}` } },
+    alternates: { canonical: `/${locale}/insights/${slug}`, languages: Object.fromEntries(locales.map((l) => [l, `/${l}/insights/${slug}`])) },
     openGraph: { title: post.title, description: post.summary, type: "article", publishedTime: post.publishedDate ?? undefined, images: img ? [img] : undefined },
   };
 }

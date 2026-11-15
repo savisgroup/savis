@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { dict, type Locale } from "@/lib/i18n";
+import { dict, locales, type Locale } from "@/lib/i18n";
 import { utilityNav } from "@/content/site";
 import { mobileSections } from "@/content/navigation";
 import { LocaleSwitch } from "./LocaleSwitch";
@@ -15,8 +15,10 @@ export function Header({ locale }: { locale: Locale }) {
   const utility = utilityNav(locale);
   const contact = { href: `/${locale}#contact`, label: t.nav.contact };
   const homeHref = `/${locale}`;
+  const multiLocale = locales.length > 1;
   return (
     <>
+      {(utility.length > 0 || multiLocale) && (
       <div className="on-band bg-band-2 text-[13px] leading-[18px] text-on-band-muted">
         <div className="container-x flex flex-wrap items-center justify-end gap-x-[22px] gap-y-1 py-[7px]">
           {utility.map((l) => (
@@ -25,6 +27,7 @@ export function Header({ locale }: { locale: Locale }) {
           <LocaleSwitch current={locale} label={t.a11y.language} onBand />
         </div>
       </div>
+      )}
       <header className="sticky top-[env(safe-area-inset-top,0px)] z-50 border-b border-line bg-background text-ink">
         <div className="container-x flex min-h-[var(--header-height)] items-center gap-4">
           <Logo href={homeHref} label={t.a11y.home} />
@@ -39,7 +42,7 @@ export function Header({ locale }: { locale: Locale }) {
               links={utility}
               contact={contact}
               labels={{ open: t.a11y.openMenu, close: t.a11y.closeMenu, title: t.a11y.mobileMenu, home: t.a11y.home }}
-              footer={<LocaleSwitch current={locale} label={t.a11y.language} />}
+              footer={multiLocale ? <LocaleSwitch current={locale} label={t.a11y.language} /> : undefined}
             />
           </div>
         </div>

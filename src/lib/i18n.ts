@@ -1,5 +1,7 @@
-export const locales = ["en", "vi"] as const;
-export type Locale = (typeof locales)[number];
+// Tiếng Việt đang TẮT: website chỉ phục vụ /en. Bản dịch vi vẫn nằm trong code (content/*, dict) để bật lại:
+// thêm "vi" vào `locales` và xoá redirect /vi trong next.config.ts.
+export type Locale = "en" | "vi";
+export const locales: readonly Locale[] = ["en"];
 export const defaultLocale: Locale = "en";
 export const isLocale = (v: string): v is Locale => (locales as readonly string[]).includes(v);
 
