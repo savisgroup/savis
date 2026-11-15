@@ -146,6 +146,20 @@
    ]
   },
   {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "eyebrow": "Report a vulnerability",
+     "title": "Responsible disclosure"
+    },
+    {
+     "t": "text",
+     "text": "Found a security issue in a SAVIS product or service? Contact our security team at security@savis.vn."
+    }
+   ]
+  },
+  {
    "tone": "dark",
    "blocks": [],
    "cta": {
