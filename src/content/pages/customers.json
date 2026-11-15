@@ -111,6 +111,14 @@
      "items": [
       {
        "t": "card",
+       "eyebrow": "Agribank",
+       "title": "Agribank’s qualified CA for payments and paperless banking",
+       "text": "A bank-owned qualified CA and centralised e-signature gateway that every Agribank channel uses to sign and verify.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
        "eyebrow": "Sacombank",
        "title": "Sacombank’s qualified CA, from appliance to signing",
        "text": "A complete in-house CA for Sacombank — SAM Appliance, PKI Appliance, Signing Server, VA and RA — serving payments, open banking, digital banking, lending and e-contracts.",
@@ -142,7 +150,7 @@
        "linked": true
       }
      ],
-     "dropped": 1
+     "dropped": 0
     }
    ]
   },

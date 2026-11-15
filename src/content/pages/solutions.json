@@ -90,6 +90,17 @@
        "t": "card",
        "badges": [
         {
+         "text": "SAVIS New Service",
+         "tone": "new"
+        }
+       ],
+       "title": "VNeID Integration",
+       "text": "Connect and verify customer identity through VNeID, Vietnam’s national electronic identity, with consent, data minimisation and audit logs built in."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
          "text": "SAVIS CORE TECHNOLOGY",
          "tone": "default"
         }
@@ -120,7 +131,7 @@
        "text": "PKI-based identity and signing keys protected on the user’s phone."
       }
      ],
-     "dropped": 1
+     "dropped": 0
     },
     {
      "t": "sub",
@@ -492,9 +503,20 @@
        ],
        "title": "RASP+",
        "text": "Runtime self-protection for mobile apps against tampering, hooking, rooting and overlay attacks."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "TrustShield",
+       "text": "Protection suite for banking and government apps."
       }
      ],
-     "dropped": 1
+     "dropped": 0
     }
    ],
    "id": "pillar-01"
@@ -611,11 +633,22 @@
          "tone": "new"
         }
        ],
+       "title": "Zero Trust Gateway Appliance",
+       "text": "Hardware gateway that checks identity, device health and policy on every request before granting access to applications — never trust, always verify."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
        "title": "Secure Enterprise Browser",
        "text": "Managed browser that enforces zero-trust policy where work happens: data-loss controls, isolation and audit for web and SaaS apps on managed and unmanaged devices."
       }
      ],
-     "dropped": 1
+     "dropped": 0
     },
     {
      "t": "sub",
@@ -690,9 +723,31 @@
        ],
        "title": "PQC Suite",
        "text": "Post-quantum cryptography toolkit for migration and hybrid deployment."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS PARTNER R&D",
+         "tone": "default"
+        }
+       ],
+       "title": "QKD",
+       "text": "Quantum key distribution delivered with technology partners."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS PARTNER R&D",
+         "tone": "default"
+        }
+       ],
+       "title": "Quantum Communication",
+       "text": "Quantum-secured communication pilots and research."
       }
      ],
-     "dropped": 2
+     "dropped": 0
     },
     {
      "t": "sub",
@@ -796,9 +851,20 @@
        ],
        "title": "Smart Kiosk",
        "text": "Self-service kiosk with identity verification and document services."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS PARTNER",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart City Solution",
+       "text": "City operations platform connecting sensors, services and data."
       }
      ],
-     "dropped": 1
+     "dropped": 0
     },
     {
      "t": "sub",
@@ -808,6 +874,28 @@
      "t": "grid",
      "cols": "3",
      "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS R&D",
+         "tone": "default"
+        }
+       ],
+       "title": "AI Camera Security",
+       "text": "AI video analytics that detects incidents, intrusions and safety risks in real time — on a SAVIS AI camera line with a hardware root of trust, designed for IEC 62443 and ETSI EN 303 645."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS PARTNER",
+         "tone": "default"
+        }
+       ],
+       "title": "IoT Devices",
+       "text": "Connected devices and gateways for city and enterprise deployments."
+      },
       {
        "t": "card",
        "badges": [
@@ -831,7 +919,7 @@
        "text": "Phone-as-key for vehicles: share, revoke and use car keys securely from a mobile wallet."
       }
      ],
-     "dropped": 2
+     "dropped": 0
     }
    ],
    "id": "pillar-03"
@@ -895,9 +983,20 @@
        ],
        "title": "Consent Management",
        "text": "Collect, track and prove customer consent."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "TPP Manager",
+       "text": "Onboard, verify and monitor third-party providers and their certificates."
       }
      ],
-     "dropped": 1
+     "dropped": 0
     },
     {
      "t": "sub",

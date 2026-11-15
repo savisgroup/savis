@@ -1,5 +1,5 @@
 // Mô hình dữ liệu trang cấp 2 (L2). Sinh từ các artboard "L2 · ..." của canvas thiết kế, xem index.ts.
-// Mục `pending` là nội dung MKT chưa duyệt (placeholder, "to confirm"); bộ chuyển đổi đã loại sẵn khỏi JSON.
+// Sinh bằng scripts/l2/convert.py. Mục còn placeholder thiếu dữ kiện thật đã bị loại sẵn khỏi JSON.
 
 export type Tone = "light" | "surface" | "dark";
 export type Button = { label: string; href: string; ghost: boolean };
