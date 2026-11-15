@@ -1,0 +1,161 @@
+{
+ "slug": "industries",
+ "hero": {
+  "crumb": "Industries",
+  "eyebrow": "Industries",
+  "title": "Powering Industries. Enabling the Digital Future.",
+  "lead": "Empower every industry with integrated technologies that connect people, secure operations and unlock new possibilities.",
+  "buttons": [
+   {
+    "label": "Discuss Your Project",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Where trust is mandated by law",
+     "eyebrow": "Priority industries"
+    },
+    {
+     "t": "grid",
+     "cols": "2",
+     "items": [
+      {
+       "t": "card",
+       "title": "Government & Public Sector",
+       "text": "National PKI, citizen identity, digital public services and trusted records for ministries and provinces.",
+       "more": "Explore Your Industry",
+       "dark": true,
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Banking, Financial Services & Insurance",
+       "text": "Bank CAs, onboarding, authentication, open APIs and payment security for regulated institutions.",
+       "more": "Explore Your Industry",
+       "dark": true,
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Find your industry",
+     "eyebrow": "All industries"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Trust Service Providers & CAs",
+       "text": "Everything a CA or qualified trust service provider runs: CA, RA, VA, TSA, remote signing, HSMs and audit readiness.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Telecommunications",
+       "text": "Mobile PKI, remote signing for subscribers, SIM-swap protection and SOC for network operators.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Enterprise",
+       "text": "Zero-trust access, secure browsing, signing, e-contracts and security operations for large organisations.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Energy & Utilities",
+       "text": "Power, water and gas operators: secure smart meters and OT networks, zero-trust access and quantum-safe links for critical infrastructure.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Automotive & Mobility",
+       "text": "Connected vehicles and EV charging: digital car keys, vehicle PKI, secure over-the-air updates and crypto agility.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Transport & Logistics",
+       "text": "Airports, ports, transit and logistics: identity at checkpoints, AI cameras, e-documents and contactless payment.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Retail & eCommerce",
+       "text": "Fraud-resistant checkout, wallets, customer data and biometric payment for merchants and marketplaces.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Education",
+       "text": "Universities and schools: student identity, digital diplomas, campus access and payments, and secure records.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Healthcare",
+       "text": "Signed medical records, protected patient data and secure staff access.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Media & Broadcasting",
+       "text": "AI-native newsrooms, production planning and broadcast platforms.",
+       "more": "Explore Your Industry",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "National PKI",
+       "text": "Root and subordinate CA hierarchy for a country’s public-key infrastructure and its trust services.",
+       "more": "Explore Your Industry",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Your industry not listed?",
+    "lead": "Our experts can scope a programme around your regulation and systems.",
+    "buttons": [
+     {
+      "label": "Discuss Your Project",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ]
+}

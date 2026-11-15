@@ -15,7 +15,9 @@ export type ProductGroup = { label: string; items: NavItem[] };
 export type PillarMenu = { id: PillarId; desc: Text; path: string; fallback: string; groups: ProductGroup[] };
 export type SimpleMenu = { id: string; label: Text; eyebrow: Text; title: Text; cta: NavItem; items: NavItem[] };
 
-const BUILT_PATHS = new Set<string>(["/insights"]);
+const BUILT_PATHS = new Set<string>([
+  "/insights", "/solutions", "/industries", "/use-cases", "/services", "/innovation", "/customers", "/about", "/trust-center", "/contact",
+]);
 
 /** Trả về href đầy đủ theo ngôn ngữ, hoặc null nếu trang đích chưa có. */
 export function resolveHref(locale: Locale, item: Pick<NavItem, "path" | "fallback">): string | null {
@@ -41,7 +43,7 @@ const smartKiosk: NavItem = { label: same("Smart Kiosk"), path: `/solutions/${GO
 
 export const pillarMenus: PillarMenu[] = [
   {
-    id: "identity", path: `/solutions/${ID}`, fallback: "#pillar-identity",
+    id: "identity", path: `/solutions/${ID}`, fallback: "/solutions#pillar-01",
     desc: { en: "Verify, authenticate and sign with legal certainty.", vi: "Xác minh, xác thực và ký số có giá trị pháp lý." },
     groups: [
       group(ID, "digital-identity", "Digital Identity & Verification", [
@@ -72,7 +74,7 @@ export const pillarMenus: PillarMenu[] = [
     ],
   },
   {
-    id: "cyber", path: `/solutions/${CY}`, fallback: "#pillar-cyber",
+    id: "cyber", path: `/solutions/${CY}`, fallback: "/solutions#pillar-02",
     desc: { en: "SOC, key management, zero trust and post-quantum.", vi: "SOC, quản lý khoá, zero trust và hậu lượng tử." },
     groups: [
       group(CY, "security-operations", "Security Operations", [["SAVIS SOC", "savis-soc"], ["SAVIS Cyber Security", "cyber-security"]]),
@@ -89,7 +91,7 @@ export const pillarMenus: PillarMenu[] = [
     ],
   },
   {
-    id: "gov", path: `/solutions/${GOV}`, fallback: "#pillar-gov",
+    id: "gov", path: `/solutions/${GOV}`, fallback: "/solutions#pillar-03",
     desc: { en: "Public services, citizen touchpoints, smart city.", vi: "Dịch vụ công, điểm chạm người dân, đô thị thông minh." },
     groups: [
       group(GOV, "digital-government", "Digital Government Platforms", [
@@ -101,7 +103,7 @@ export const pillarMenus: PillarMenu[] = [
     ],
   },
   {
-    id: "finance", path: `/solutions/${FIN}`, fallback: "#pillar-finance",
+    id: "finance", path: `/solutions/${FIN}`, fallback: "/solutions#pillar-04",
     desc: { en: "Open APIs, customer consent and payment security.", vi: "API mở, quản lý đồng ý và bảo mật thanh toán." },
     groups: [
       group(FIN, "open-finance", "Open Banking Suite", [
@@ -122,7 +124,7 @@ export const pillarMenus: PillarMenu[] = [
   },
   {
     // Trang chủ chưa có hàng riêng cho trụ cột 5 nên neo về đầu khối giải pháp.
-    id: "data", path: `/solutions/${AI}`, fallback: "#solutions",
+    id: "data", path: `/solutions/${AI}`, fallback: "/solutions#pillar-05",
     desc: { en: "Data, archives, intelligent documents and AI media.", vi: "Dữ liệu, lưu trữ, tài liệu thông minh và truyền thông AI." },
     groups: [
       group(AI, "data-analytics", "Data & Analytics", [["Data Lake & BI", "data-lake-bi"], ["AI KPI", "ai-kpi"], ["CDP 360 Big Data", "cdp-360"], ["SAVIS MDM", "savis-mdm"]]),

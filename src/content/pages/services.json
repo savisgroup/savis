@@ -1,0 +1,197 @@
+{
+ "slug": "services",
+ "hero": {
+  "crumb": "Services",
+  "eyebrow": "Services",
+  "title": "End-to-end technology services. Built for impact.",
+  "lead": "From consulting and system integration to engineering and managed services, we deliver the expertise and technology to turn complex challenges into lasting business value.",
+  "buttons": [
+   {
+    "label": "Talk to our Expert",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Everything we can do for you",
+     "eyebrow": "Service catalogue"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Consulting & Advisory",
+       "text": "Strategy, architecture and regulation for digital trust programmes.",
+       "list": [
+        "Digital identity and trust strategy",
+        "Regulatory compliance: eIDAS 2.0, NIS2, PCI DSS, data protection",
+        "Security and PKI architecture review"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Readiness Programs",
+       "text": "Assess, close the gaps and pass the audit.",
+       "list": [
+        "WebTrust Readiness for certification authorities",
+        "eIDAS 2.0 Readiness for trust services and wallets",
+        "Quantum Readiness for post-quantum migration"
+       ],
+       "more": "See readiness programmes",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "System Integration",
+       "text": "Networks, security, systems and cloud, integrated with what you already run.",
+       "list": [
+        "Network and security integration",
+        "Core banking, government and ERP integration",
+        "HSM, CA and signing infrastructure deployment",
+        "Private and hybrid cloud"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Software Engineering",
+       "text": "Platforms and apps built on SAVIS technology.",
+       "list": [
+        "Mobile and web applications",
+        "Cloud-native microservices and Open API",
+        "Localisation for national requirements"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Data Centre & Infrastructure",
+       "text": "From design to daily operation of your data centre.",
+       "list": [
+        "Data centre consulting and design",
+        "Build, optimise and renovate",
+        "Migration and restructuring",
+        "Data centre operation",
+        "Network infrastructure and integration",
+        "Information system transformation",
+        "Warranty and technical support"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Digitisation & Data Services",
+       "text": "Turn paper archives into searchable, trusted digital records.",
+       "list": [
+        "Document digitisation and data entry",
+        "Data extraction and recognition",
+        "Data conversion and migration",
+        "Cloud storage",
+        "Data security and encryption",
+        "Scanner and equipment rental",
+        "Certified data destruction"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Trust Services",
+       "text": "Signing and timestamping operated by TrustCA.",
+       "list": [
+        "TrustCA Timestamp Signing",
+        "TrustCA Remote Signing as a service",
+        "HSM as a Service"
+       ],
+       "more": "See readiness programmes",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Managed Services",
+       "text": "Operate critical trust services around the clock.",
+       "list": [
+        "24/7 SOC monitoring and incident response",
+        "PKI, HSM and key management operations",
+        "Application management under agreed SLAs"
+       ],
+       "more": "Talk to an Expert",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "One team from assessment to operations.",
+     "eyebrow": "How we work"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "step",
+       "num": "01 · ASSESS",
+       "title": "Understand the need",
+       "text": "Requirements, regulation and current systems."
+      },
+      {
+       "t": "step",
+       "num": "02 · DESIGN",
+       "title": "Plan the solution",
+       "text": "Architecture, security model and rollout plan."
+      },
+      {
+       "t": "step",
+       "num": "03 · DEPLOY",
+       "title": "Build and integrate",
+       "text": "Install, integrate, test and train your teams."
+      },
+      {
+       "t": "step",
+       "num": "04 · OPERATE",
+       "title": "Run it with you",
+       "text": "24/7 monitoring, support and continuous updates."
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Start with an assessment",
+    "lead": "Share your goals and constraints. We will propose scope, timeline and team.",
+    "buttons": [
+     {
+      "label": "Talk to our Expert",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ]
+}

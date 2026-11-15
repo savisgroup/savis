@@ -1,0 +1,168 @@
+{
+ "slug": "trust-center",
+ "hero": {
+  "crumb": "Trust Center",
+  "eyebrow": "Trust Center",
+  "title": "Security, compliance and certifications.",
+  "lead": "How SAVIS protects the trust services, keys and data our customers rely on.",
+  "buttons": [
+   {
+    "label": "Request compliance documents",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Independent assurance",
+     "eyebrow": "Certifications & compliance"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "Certified",
+       "title": "TrustCA Remote Signing",
+       "text": "Certified for eIDAS 2.0 and NIS2 by TAYLLORCOX PCEB."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Licensed",
+       "title": "Public digital signature certification",
+       "text": "TrustCA licensed in Vietnam."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Delivered",
+       "title": "PCI DSS programmes",
+       "text": "Readiness delivered for banks with ControlCase (QSA)."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Certified",
+       "title": "ISO/IEC 27001:2022",
+       "text": "Information security management system."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Certified",
+       "title": "ISO 9001:2015",
+       "text": "Quality management system."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Certified",
+       "title": "ISO 14001:2015",
+       "text": "Environmental management system."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Service",
+       "title": "WebTrust for CAs",
+       "text": "Readiness service and WebTrust-grade CA delivery for NEAC."
+      },
+      {
+       "t": "card",
+       "eyebrow": "Supported",
+       "title": "FIDO2 / CSC API",
+       "text": "Open standards supported across products."
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Standards bodies and associations",
+     "eyebrow": "Memberships"
+    },
+    {
+     "t": "logos",
+     "items": [
+      "FIDO Alliance",
+      "Cloud Signature Consortium (CSC)",
+      "GO.eIDAS",
+      "International Council on Archives (ICA)",
+      "AMWA",
+      "FIMS",
+      "VINASA",
+      "VNISA",
+      "VDCA"
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Built in, not bolted on",
+     "eyebrow": "Security practices"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "step",
+       "num": "01",
+       "text": "Keys generated and stored in certified HSMs"
+      },
+      {
+       "t": "step",
+       "num": "02",
+       "text": "Dual control and key ceremonies for CA operations"
+      },
+      {
+       "t": "step",
+       "num": "03",
+       "text": "24/7 monitoring by SAVIS SOC"
+      },
+      {
+       "t": "step",
+       "num": "04",
+       "text": "Secure development lifecycle and penetration testing"
+      },
+      {
+       "t": "step",
+       "num": "05",
+       "text": "Business continuity and disaster recovery sites"
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Need audit evidence?",
+    "lead": "Request certificates, reports and policies under NDA.",
+    "buttons": [
+     {
+      "label": "Request compliance documents",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ],
+ "droppedSections": [
+  "Report a vulnerabilityResponsible disclosureFound "
+ ]
+}
