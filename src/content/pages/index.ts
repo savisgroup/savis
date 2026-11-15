@@ -11,8 +11,8 @@ import type { PageData } from "./types";
 
 // Trang L2 dựng từ canvas thiết kế "SAVIS Website Trang chủ", các artboard "L2 · ...". Nội dung EN lấy nguyên từ thiết kế.
 // Insights không nằm ở đây: trang đó chạy bằng CMS (app/[locale]/insights).
-// Cập nhật khi thiết kế đổi: chạy lại bộ chuyển đổi artboard -> JSON rồi thay các file *.json cùng thư mục.
-// Các mục placeholder / "to confirm" / "VERIFY" của thiết kế đã bị loại khỏi JSON (design system cấm placeholder trên production).
+// Cập nhật khi thiết kế đổi: python scripts/l2/convert.py <thư mục project của canvas> (ghi đè các file *.json cùng thư mục).
+// Nhãn "To confirm" / "VERIFY" đã được duyệt và bỏ; placeholder còn thiếu dữ kiện ("[Year]", "[Name]") bị loại khỏi JSON (xem scripts/l2/convert.py).
 const pages = {
   solutions, industries, "use-cases": useCases, services, innovation, customers, about, "trust-center": trustCenter, contact,
 } as unknown as Record<string, PageData>;

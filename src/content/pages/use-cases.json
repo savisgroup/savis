@@ -190,6 +190,19 @@
       },
       {
        "t": "card",
+       "title": "Zero-trust access for staff and contractors",
+       "text": "Verify the user, the device and the policy on every request.",
+       "chain": [
+        "Open the app",
+        "Check device",
+        "Verify user",
+        "Protect data"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
        "title": "Post-quantum migration",
        "text": "Find your cryptography, rank the risk, and move to hybrid PQC without breaking things.",
        "chain": [
@@ -202,7 +215,7 @@
        "linked": true
       }
      ],
-     "dropped": 1
+     "dropped": 0
     }
    ],
    "id": "pillar-02"
