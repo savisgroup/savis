@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 export function Header({ locale }: { locale: Locale }) {
   const t = dict[locale];
   const utility = utilityNav(locale);
-  const contact = { href: `/${locale}#contact`, label: t.nav.contact };
+  const contact = { href: `/${locale}/contact`, label: t.nav.contact };
   const homeHref = `/${locale}`;
   const multiLocale = locales.length > 1;
   return (

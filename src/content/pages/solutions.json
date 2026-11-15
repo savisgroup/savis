@@ -1,0 +1,1395 @@
+{
+ "slug": "solutions",
+ "hero": {
+  "crumb": "Solutions & Products",
+  "eyebrow": "Solutions & Products",
+  "title": "Our Solutions and Products",
+  "lead": "Power your digital future with an integrated ecosystem of trusted technologies.",
+  "buttons": [
+   {
+    "label": "Talk to our Expert",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "tabs",
+     "items": [
+      "01 · Digital Identity & Trust",
+      "02 · Cybersecurity & Quantum-Safe Infrastructure",
+      "03 · Digital Government & Smart Infrastructure",
+      "04 · Open Finance & Secure Digital Transactions",
+      "05 · AI, Data & Digital Platforms"
+     ],
+     "active": null,
+     "anchors": [
+      "pillar-01",
+      "pillar-02",
+      "pillar-03",
+      "pillar-04",
+      "pillar-05"
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Digital Identity & Trust",
+     "eyebrow": "PILLAR 01"
+    },
+    {
+     "t": "sub",
+     "title": "Digital Identity & Verification"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Digital ID Mobile Platform",
+       "text": "Turn a passport or ID card into a trusted mobile identity: enrol, issue, authenticate and sign on one platform."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "ID Verification",
+       "text": "Check that ID cards and passports are genuine: chip reading, security features and data validation."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart eKYC",
+       "text": "Remote customer onboarding with document checks and face matching."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Digital ID Wallet",
+       "text": "Hold national ID, licences and certificates on the phone and present them securely."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Decentralized Identity (DID)",
+       "text": "Self-sovereign identifiers and verifiable credentials."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Mobile Identity PKI",
+       "text": "PKI-based identity and signing keys protected on the user’s phone."
+      }
+     ],
+     "dropped": 1
+    },
+    {
+     "t": "sub",
+     "title": "Authentication & Access"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "FIDO2 Passwordless Identity",
+       "text": "Passkeys and FIDO2 authentication that replace passwords and OTPs for citizens, customers and staff."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Mobile Identity SCA",
+       "text": "Strong customer authentication on the customer’s phone: device-bound keys plus biometrics to approve logins and payments."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Smart OTP+",
+       "text": "Next-generation soft-token OTP with device binding, transaction details on screen and protection against SIM swap."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "IAM & CIAM",
+       "text": "Workforce and customer identity, single sign-on and access policies."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Credential Management",
+       "text": "Issue, activate, renew and revoke smart cards, tokens and certificates from one console."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "TrustPass Authentication",
+       "text": "Hardware authenticators: TrustPass Key, Card, Sign Card and OTP / View Card."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Secure Credentials & Tokens"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "PKI Token",
+       "text": "USB cryptographic token that stores certificates and private keys for digital signing and secure login."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Smart Card PIV",
+       "text": "PIV-compatible smart card for employee and citizen ID: physical access, secure login and digital signatures on one card."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Crypto Bio Token",
+       "text": "Cryptographic token with a built-in fingerprint sensor: the private key is used only after the owner’s fingerprint matches on the device."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Smart Virtual Card",
+       "text": "A virtual smart card on the phone for identity, access, payments and signatures. Editions for Education, Citizen and Enterprise."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "PKI Infrastructure"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "National PKI",
+       "text": "Root and subordinate CA hierarchy for a country’s public-key infrastructure and its trust services."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "PKI in a Box",
+       "text": "All-in-one public key infrastructure appliance: CA, RA, validation and HSM, ready in weeks."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Timestamp Authority (TSA)",
+       "text": "On-premise time-stamping authority for enterprises and government systems."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Signing Gateway",
+       "text": "One gateway that routes every signing and verification request to the right HSM, CA and policy."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Signing Server",
+       "text": "High-volume server-side signing for systems and organizational seals."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Trust Services · TrustCA QTSP eIDAS 2.0"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "TrustCA Remote Signing",
+       "text": "Sign from any device while keys stay inside the HSM."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "TrustCA Timestamp",
+       "text": "Trusted timestamp service that proves when a document was signed; combined with LTV for long-term validation."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "TrustCA HSM Certificate",
+       "text": "Digital certificates whose keys live in an HSM, for high-volume server signing and organisational e-seals."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "TrustCA eKYC Biometric",
+       "text": "Biometric eKYC (face and fingerprint) that verifies the person and issues a TrustCA certificate in the same flow."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "SAVIS ePaperless",
+       "text": "Paperless workflows where every form and approval is signed, timestamped and archived with legal validity."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "TrustCA VA/RA",
+       "text": "Certificate validation and registration authority services."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS eCertify",
+       "text": "Tamper-evident digital certificates and diplomas."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Trust Compliance & Readiness"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New Service",
+         "tone": "new"
+        }
+       ],
+       "title": "WebTrust Readiness",
+       "text": "Gap assessment, controls and audit preparation for CAs seeking WebTrust for Certification Authorities."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New Service",
+         "tone": "new"
+        }
+       ],
+       "title": "eIDAS 2.0 Readiness",
+       "text": "Prepare trust services and wallets for eIDAS 2.0: gap analysis, ETSI-based policies and conformity assessment preparation."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Fraud & App Protection"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Fraud Prevention & Risk Management",
+       "text": "Detect identity fraud and risky sessions in real time."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Device Intelligence",
+       "text": "Score the risk of every device in real time — emulators, rooted phones, remote-access tools, SIM swaps and device farms — to stop fraud before login or payment."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Device Fingerprint SDK",
+       "text": "Recognise each device behind a login or payment to spot emulators, bots and account takeover."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "RASP+",
+       "text": "Runtime self-protection for mobile apps against tampering, hooking, rooting and overlay attacks."
+      }
+     ],
+     "dropped": 1
+    }
+   ],
+   "id": "pillar-01"
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Cybersecurity & Quantum-Safe Infrastructure",
+     "eyebrow": "PILLAR 02"
+    },
+    {
+     "t": "sub",
+     "title": "Security Operations"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS SOC",
+       "text": "Continuous monitoring, detection and incident response."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS Cyber Security",
+       "text": "Network, application, endpoint and data security solutions designed, integrated and supported by SAVIS with global security partners."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Cryptography & Key Management"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "SAM Appliance",
+       "text": "Secure access module appliance that protects keys and signing operations."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "GP HSM",
+       "text": "General-purpose hardware security module for key generation, signing and encryption in PKI, databases and applications."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Key Management System (KMS)",
+       "text": "Central lifecycle management for encryption keys across applications, databases and clouds: generate, rotate, back up and revoke under one policy."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "HSM as a Service",
+       "text": "Dedicated hardware security modules operated by SAVIS, consumed as a cloud service with no hardware to buy or run."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Zero Trust & Network Security"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Secure Enterprise Browser",
+       "text": "Managed browser that enforces zero-trust policy where work happens: data-loss controls, isolation and audit for web and SaaS apps on managed and unmanaged devices."
+      }
+     ],
+     "dropped": 1
+    },
+    {
+     "t": "sub",
+     "title": "Quantum-Safe Security"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Quantum Safe Gateway",
+       "text": "Network gateway that adds hybrid classical and post-quantum encryption (NIST ML-KEM, ML-DSA) to existing connections without changing applications."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Quantum Vault",
+       "text": "Post-quantum protected vault for keys, secrets and certificates that must stay confidential for decades."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Quantum Safe Storage",
+       "text": "Encrypted storage protected with post-quantum algorithms against harvest-now, decrypt-later attacks."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Crypto Agility",
+       "text": "Discover and inventory every algorithm, key and certificate, then switch them by policy without rewriting applications — the foundation for post-quantum migration."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Quantum Readiness Program",
+       "text": "Crypto discovery, risk assessment and a phased roadmap to post-quantum cryptography."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "PQC Suite",
+       "text": "Post-quantum cryptography toolkit for migration and hybrid deployment."
+      }
+     ],
+     "dropped": 2
+    },
+    {
+     "t": "sub",
+     "title": "Data Security"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Data Encryption & Protection",
+       "text": "Encryption and protection for data at rest and in transit."
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-02"
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Digital Government & Smart Infrastructure",
+     "eyebrow": "PILLAR 03"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS eGate",
+       "text": "Public service portal and integrated one-stop electronic system."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS DEP",
+       "text": "Local government data sharing and integration platform that connects provincial systems with each other and with national databases."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "Super App Mobile Gov",
+       "text": "One mobile app for citizens to reach every public service, with digital ID and e-payments built in. Winner of the ASOCIO Smart City Awards 2026 as SAVIS eGov SuperApp."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "One-Stop-Shop",
+       "text": "Single-window processing for administrative procedures."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Citizen Service Touchpoints"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart Kiosk",
+       "text": "Self-service kiosk with identity verification and document services."
+      }
+     ],
+     "dropped": 1
+    },
+    {
+     "t": "sub",
+     "title": "IoT, Mobility & Connected Devices"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "IoT Device Security",
+       "text": "Device certificates, protected keys and signed firmware so every sensor and gateway can be trusted."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Digital Car Key",
+       "text": "Phone-as-key for vehicles: share, revoke and use car keys securely from a mobile wallet."
+      }
+     ],
+     "dropped": 2
+    }
+   ],
+   "id": "pillar-03"
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Open Finance & Secure Digital Transactions",
+     "eyebrow": "PILLAR 04"
+    },
+    {
+     "t": "sub",
+     "title": "Open Banking Suite"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "API Management Suite",
+       "text": "API management for standardized banking and finance APIs."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Enterprise DMS",
+       "text": "Centralize, manage and secure enterprise documents with intelligent workflows, seamless collaboration and controlled access."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Open Banking Portal",
+       "text": "Developer and partner portal for third-party providers."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Consent Management",
+       "text": "Collect, track and prove customer consent."
+      }
+     ],
+     "dropped": 1
+    },
+    {
+     "t": "sub",
+     "title": "Payment & Transaction Security"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "API Security & Transaction Signing",
+       "text": "Protect banking APIs and bind every payment to the customer’s signature with dynamic linking for strong customer authentication."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "3D Secure 2.0",
+       "text": "Authentication for card-not-present payments."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Tokenization",
+       "text": "Replace card and account data with secure tokens."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Payment HSM",
+       "text": "Hardware security module for card and payment processing: PIN, card verification, EMV and key exchange."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Palm Biometric Payment",
+       "text": "Pay with the palm of the hand: contactless palm recognition linked to a card or account, for retail, transit and campuses."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Digital Banking"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Digital Banking Platform",
+       "text": "Neo-bank and digital channels for retail and SME banking: onboarding, accounts, payments and lending on web and mobile."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Mobile eWallet",
+       "text": "White-label e-wallet with secure top-up, QR payments and transfers, hardened against fraud and tampering."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Digital Agreements"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart eContract",
+       "text": "Create, sign and manage electronic contracts end to end."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Digital Assets"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Blockchain Framework",
+       "text": "Permissioned blockchain platform for banks and governments, with keys protected in HSMs."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Stablecoin Platform",
+       "text": "Issue, manage and redeem fiat-backed digital tokens with reserve and compliance controls."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "CBDC Platform",
+       "text": "Central bank digital currency issuance and distribution for retail and wholesale pilots."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "RWA Tokenization",
+       "text": "Turn real-world assets such as bonds, funds and property into regulated digital tokens."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY New",
+         "tone": "new"
+        }
+       ],
+       "title": "Crypto Wallet & Custody",
+       "text": "Institutional custody of digital assets with HSM and multi-party key protection."
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-04"
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "AI, Data & Digital Platforms",
+     "eyebrow": "PILLAR 05"
+    },
+    {
+     "t": "sub",
+     "title": "Data & Analytics"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Data Lake & BI",
+       "text": "Central data lake with dashboards and reporting."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "AI KPI",
+       "text": "AI-assisted KPI tracking and performance dashboards for public agencies and enterprises."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "CDP 360 Big Data",
+       "text": "Customer data platform for unified audience profiles."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS MDM",
+       "text": "Digital document management: store, classify, search and share documents with access control and version history."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Records & Archiving"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "Trusted Archive 2.0",
+       "text": "Long-term archive that keeps electronic records legally valid."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS CORE TECHNOLOGY",
+         "tone": "default"
+        }
+       ],
+       "title": "eArchive Box",
+       "text": "Archive appliance for on-premise electronic records."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Intelligent Documents"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart OCR",
+       "text": "Extract data from scanned documents and forms."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "SAVIS BPM Paperless",
+       "text": "Business process management that automates approvals and workflows end to end, with digital signing built in."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart eForm",
+       "text": "Digital forms with validation and e-signing."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS Roadmap",
+         "tone": "default"
+        }
+       ],
+       "title": "AI & Intelligent Automation",
+       "text": "Product scope under definition."
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "sub",
+     "title": "Media Platforms"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "MRP AI",
+       "text": "AI platform for planning and producing content — Sao Khuê Award 2026."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "CMS AI Hub",
+       "text": "AI-powered content hub: create, tag, translate and publish to web, apps and social from one place."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "MAM Intelligent Automation",
+       "text": "Media asset management with AI that indexes, transcribes and tags footage automatically, so archives are searchable in seconds."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "PPM Media",
+       "text": "Production planning for television programmes."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Converged Newsroom",
+       "text": "One newsroom for TV, web and social."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Smart Virtual Studio",
+       "text": "Virtual sets and real-time graphics for studios."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Media SuperApp & Mini Apps",
+       "text": "One app for viewers to watch, listen and interact, with mini apps for programmes and partners."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Playout & CG",
+       "text": "Channel playout automation and real-time character graphics for broadcasters."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "Forensic Watermarking & Multi-DRM",
+       "text": "Invisible forensic watermarks and multi-DRM licensing, with keys managed in KMS, to trace and stop content piracy."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS New",
+         "tone": "new"
+        }
+       ],
+       "title": "SAVIS Open Healthcare",
+       "text": "Digital hospital platform that connects HIS, EMR and PACS through open APIs, with signed medical records and patient services."
+      },
+      {
+       "t": "card",
+       "badges": [
+        {
+         "text": "SAVIS",
+         "tone": "default"
+        }
+       ],
+       "title": "Cloud Application Platform",
+       "text": "Cloud-native application platform with microservices and Open API to build and run digital services at scale."
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-05"
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Not sure which solution fits?",
+    "lead": "Tell us the problem and the standard you must meet. We will map it to the right products.",
+    "buttons": [
+     {
+      "label": "Talk to our Expert",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ]
+}

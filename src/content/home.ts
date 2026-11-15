@@ -6,6 +6,8 @@ import type { Locale } from "@/lib/i18n";
 // Cổng duyệt nội dung: design system cấm placeholder và bằng chứng chưa duyệt trên production.
 // Cờ dưới đây mặc định false; chỉ bật khi doanh nghiệp xác nhận được phép công bố.
 export const approval = {
+  /** Danh sách tên khách hàng (bộ, ngân hàng, doanh nghiệp) ở trang Customers. Chưa được xác nhận công bố nên mặc định tắt. */
+  clientNames: false,
   /** Case study NEAC và hai case phụ. Đã bật theo yêu cầu của DN ngày 14/11/2026 (hiển thị khối "Trusted partnerships, proven results"). */
   caseStudies: true,
 } as const;

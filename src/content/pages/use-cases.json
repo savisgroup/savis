@@ -1,0 +1,456 @@
+{
+ "slug": "use-cases",
+ "hero": {
+  "crumb": "Use Cases",
+  "eyebrow": "Use cases",
+  "title": "See how it works, step by step.",
+  "lead": "24 real-world use cases, each with the user journey, the logical architecture and the system architecture — mapped to SAVIS products, industries and case studies.",
+  "buttons": [
+   {
+    "label": "Discuss Your Use Case",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "tabs",
+     "items": [
+      "01 · Digital Identity & Trust",
+      "02 · Cybersecurity & Quantum-Safe Infrastructure",
+      "03 · Digital Government & Smart Infrastructure",
+      "04 · Open Finance & Secure Digital Transactions",
+      "05 · AI, Data & Digital Platforms"
+     ],
+     "active": null,
+     "anchors": [
+      "pillar-01",
+      "pillar-02",
+      "pillar-03",
+      "pillar-04",
+      "pillar-05"
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Digital Identity & Trust",
+     "eyebrow": "PILLAR 01",
+     "link": "Products in this pillar",
+     "href": "/solutions#pillar-01"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Remote customer onboarding",
+       "text": "Open an account in minutes with a chip-verified ID and a live selfie.",
+       "chain": [
+        "Scan ID",
+        "Read the chip",
+        "Live selfie",
+        "Confirm details"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Passwordless login and strong customer authentication",
+       "text": "Replace passwords and SMS OTP with device-bound keys and biometrics.",
+       "chain": [
+        "Sign in",
+        "Approval request",
+        "See what you approve",
+        "Confirm with biometrics"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Sign a contract remotely",
+       "text": "Legally binding signatures from any phone, with keys kept in a QSCD.",
+       "chain": [
+        "Review the contract",
+        "Confirm identity",
+        "Activate the signature",
+        "Signed & timestamped"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "National root of trust and CA operations",
+       "text": "Run a country’s or a bank’s certificate authority with ceremony-grade controls.",
+       "chain": [
+        "Certificate request",
+        "RA approval",
+        "Key ceremony",
+        "Publish & monitor"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Present a mobile ID",
+       "text": "Show only what is needed — verified, on the phone.",
+       "chain": [
+        "Open the wallet",
+        "Choose what to share",
+        "Present",
+        "Approve"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Smart cards, tokens and virtual cards",
+       "text": "One credential for doors, PCs, signatures and payments.",
+       "chain": [
+        "Enrol",
+        "Issue the credential",
+        "Tap to enter",
+        "Sign with a fingerprint"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Stop account takeover and app fraud",
+       "text": "Score every session, harden every app, step up only when risk is real.",
+       "chain": [
+        "Login from a new device",
+        "Risk scored",
+        "Step-up",
+        "App protected"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-01"
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Cybersecurity & Quantum-Safe Infrastructure",
+     "eyebrow": "PILLAR 02",
+     "link": "Products in this pillar",
+     "href": "/solutions#pillar-02"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "24/7 detection and response",
+       "text": "A security operations centre that watches, triages and contains around the clock.",
+       "chain": [
+        "Collect",
+        "Detect",
+        "Triage",
+        "Contain"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Central key management and HSM",
+       "text": "Every key generated, stored and rotated in hardware, under one policy.",
+       "chain": [
+        "Define policy",
+        "Generate in hardware",
+        "Distribute & use",
+        "Rotate & audit"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Post-quantum migration",
+       "text": "Find your cryptography, rank the risk, and move to hybrid PQC without breaking things.",
+       "chain": [
+        "Discover",
+        "Rank the risk",
+        "Plan",
+        "Protect now"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      }
+     ],
+     "dropped": 1
+    }
+   ],
+   "id": "pillar-02"
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Digital Government & Smart Infrastructure",
+     "eyebrow": "PILLAR 03",
+     "link": "Products in this pillar",
+     "href": "/solutions#pillar-03"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Apply for a public service on mobile",
+       "text": "From login to a signed decision, without visiting an office.",
+       "chain": [
+        "Log in with digital ID",
+        "Choose a service",
+        "Fill a smart form",
+        "Pay the fee"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Smart city operations",
+       "text": "One operations centre for cameras, sensors and incidents.",
+       "chain": [
+        "See the city",
+        "AI detects",
+        "Dispatch",
+        "Devices protected"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Digital car key and vehicle security",
+       "text": "Unlock, start and share a car from the phone — securely.",
+       "chain": [
+        "Key in the wallet",
+        "Share a key",
+        "Tap to unlock",
+        "Secure updates"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-03"
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Open Finance & Secure Digital Transactions",
+     "eyebrow": "PILLAR 04",
+     "link": "Products in this pillar",
+     "href": "/solutions#pillar-04"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Third-party access with customer consent",
+       "text": "Let licensed fintechs access accounts — only with the customer’s say-so.",
+       "chain": [
+        "Connect your bank",
+        "Redirect to the bank",
+        "Give consent",
+        "Strong authentication"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Secure online payment",
+       "text": "Approve exactly what you pay — amount and payee bound to your signature.",
+       "chain": [
+        "Checkout",
+        "3-D Secure challenge",
+        "See the real details",
+        "Sign the transaction"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Digital bank and e-wallet",
+       "text": "Open, fund and use an account entirely on the phone.",
+       "chain": [
+        "Open an account",
+        "Account home",
+        "Pay by QR",
+        "Confirm"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Pay with the palm of the hand",
+       "text": "No card, no phone — hover your palm to pay.",
+       "chain": [
+        "Enrol your palm",
+        "Link a card or account",
+        "Hover to pay",
+        "Charged"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Tokenised assets and digital currency",
+       "text": "Issue, hold and transfer regulated digital assets with bank-grade key protection.",
+       "chain": [
+        "Issue",
+        "Distribute",
+        "Transfer",
+        "Custody"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-04"
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "AI, Data & Digital Platforms",
+     "eyebrow": "PILLAR 05",
+     "link": "Products in this pillar",
+     "href": "/solutions#pillar-05"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Customer 360 and analytics",
+       "text": "One trusted view of every customer, ready for dashboards and AI.",
+       "chain": [
+        "Ingest",
+        "Match & merge",
+        "Segment",
+        "Report"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "From paper to trusted digital records",
+       "text": "Capture, understand, sign and archive documents with legal validity.",
+       "chain": [
+        "Capture",
+        "Extract with AI",
+        "Route",
+        "Sign & seal"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "AI-native newsroom and production",
+       "text": "Plan, produce and publish across TV, web and social from one platform.",
+       "chain": [
+        "Plan",
+        "Find footage",
+        "Write once",
+        "Produce"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Digital public-address radio",
+       "text": "Broadcast official information from province to commune over IP, and know every speaker is working.",
+       "chain": [
+        "Prepare a bulletin",
+        "Schedule",
+        "Broadcast",
+        "Monitor"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Connected digital hospital",
+       "text": "Signed medical records, connected imaging and patient services on one platform.",
+       "chain": [
+        "Doctor signs in",
+        "Review the record",
+        "Sign the record",
+        "Share with the patient"
+       ],
+       "more": "See the flow & architecture",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ],
+   "id": "pillar-05"
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Have a use case in mind?",
+    "lead": "We will map it to products, architecture and a reference customer.",
+    "buttons": [
+     {
+      "label": "Discuss Your Use Case",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ]
+}

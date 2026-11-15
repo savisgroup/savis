@@ -1,0 +1,439 @@
+{
+ "slug": "about",
+ "hero": {
+  "crumb": "About Us",
+  "eyebrow": "About SAVIS Group",
+  "title": "A global technology company built on digital trust.",
+  "lead": "Since 2004 SAVIS has designed, delivered and operated the identity, cryptography and platforms that governments, banks and enterprises depend on.",
+  "buttons": [
+   {
+    "label": "Contact SAVIS",
+    "href": "/contact",
+    "ghost": false
+   }
+  ],
+  "dropped": [
+   "Join us"
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "split",
+     "title": "Twenty-two years of building digital trust.",
+     "eyebrow": "OUR STORY",
+     "lead": "SAVIS started in Hanoi in 2004. Over 22 years we have built core technology in digital identity, trust services, cybersecurity, open finance and AI platforms, and delivered it to public institutions and financial services. Today we serve customers from ten offices on four continents.",
+     "cards": [
+      {
+       "t": "card",
+       "eyebrow": "MISSION",
+       "text": "Build the trusted digital infrastructure that lets nations and enterprises serve people securely."
+      },
+      {
+       "t": "card",
+       "eyebrow": "VISION",
+       "text": "A global technology company, trusted wherever digital interactions happen."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "What we hold ourselves to",
+     "eyebrow": "Values"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "step",
+       "num": "01",
+       "title": "Trust first",
+       "text": "Security and integrity in every decision."
+      },
+      {
+       "t": "step",
+       "num": "02",
+       "title": "Mastery",
+       "text": "We own and understand our technology."
+      },
+      {
+       "t": "step",
+       "num": "03",
+       "title": "Customer outcomes",
+       "text": "We stay until it works."
+      },
+      {
+       "t": "step",
+       "num": "04",
+       "title": "Openness",
+       "text": "Standards, partners and honest advice."
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "stats",
+     "items": [
+      {
+       "value": "22",
+       "label": "years of digital trust"
+      },
+      {
+       "value": "10",
+       "label": "offices on four continents"
+      },
+      {
+       "value": "5",
+       "label": "solution pillars"
+      },
+      {
+       "value": "17",
+       "label": "ministries & central agencies served"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Three business lines",
+     "eyebrow": "What we do"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "System Integration",
+       "text": "Networks, security, systems, cloud and data centres."
+      },
+      {
+       "t": "card",
+       "title": "Software Development",
+       "text": "Platforms for government, enterprise, broadcasting, digital banking, IoT and smart cities."
+      },
+      {
+       "t": "card",
+       "title": "IT Services",
+       "text": "Consulting, design, deployment, operation and maintenance."
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Independently certified",
+     "eyebrow": "Certifications"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "card",
+       "title": "ISO/IEC 27001:2022",
+       "text": "Information security"
+      },
+      {
+       "t": "card",
+       "title": "ISO 9001:2015",
+       "text": "Quality"
+      },
+      {
+       "t": "card",
+       "title": "ISO 14001:2015",
+       "text": "Environment"
+      }
+     ],
+     "dropped": 0
+    },
+    {
+     "t": "text",
+     "text": "Expert teams certified by IBM, Cisco, Oracle and Google."
+    },
+    {
+     "t": "link",
+     "label": "Trust Center",
+     "href": "/trust-center"
+    },
+    {
+     "t": "logos",
+     "label": "MEMBERSHIPS · SHAPING THE STANDARDS",
+     "items": [
+      "FIDO Alliance",
+      "Cloud Signature Consortium (CSC)",
+      "GO.eIDAS",
+      "International Council on Archives (ICA)",
+      "AMWA",
+      "FIMS",
+      "VINASA",
+      "VNISA",
+      "VDCA"
+     ],
+     "text": "SAVIS is the first and only Vietnamese member of the International Council on Archives."
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Awards",
+     "eyebrow": "Recognition"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "2026",
+       "title": "ASOCIO Smart City Awards 2026",
+       "text": "SAVIS eGov SuperApp — Smart Governance, Public Administration & Digital Public Services."
+      },
+      {
+       "t": "card",
+       "eyebrow": "2026",
+       "title": "Sao Khuê Award — Technology & Media",
+       "text": "SAVIS MRP AI, selected from nearly 300 nominations."
+      }
+     ],
+     "dropped": 2
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Our journey",
+     "eyebrow": "Milestones"
+    },
+    {
+     "t": "timeline",
+     "items": [
+      {
+       "year": "2004",
+       "text": "SAVIS founded in Hanoi on 4 November 2004."
+      },
+      {
+       "year": "2026",
+       "text": "SAVIS MRP AI wins a Sao Khuê Award."
+      },
+      {
+       "year": "2026",
+       "text": "SAVIS eGov SuperApp wins the ASOCIO Smart City Awards 2026; iBacNinh launched in Bac Ninh."
+      },
+      {
+       "year": "2026",
+       "text": "TrustCA Remote Signing certified for eIDAS 2.0 and NIS2."
+      },
+      {
+       "year": "2026",
+       "text": "Partnership with Soliton on Zero Trust access."
+      },
+      {
+       "year": "2026",
+       "text": "Ten offices across Asia-Pacific, the Middle East, Africa and the Americas; 22nd anniversary on 4 November."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "What sets us apart",
+     "eyebrow": "Why SAVIS"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "card",
+       "title": "International standards",
+       "text": "Products built to eIDAS 2.0, NIS2, FIDO2, PSD2 and ISO-certified processes.",
+       "dark": true
+      },
+      {
+       "t": "card",
+       "title": "Expert engineers",
+       "text": "Specialists certified by IBM, Cisco, Oracle, Google and other global vendors.",
+       "dark": true
+      },
+      {
+       "t": "card",
+       "title": "Professional service",
+       "text": "Consulting to 24/7 operations from one accountable team.",
+       "dark": true
+      },
+      {
+       "t": "card",
+       "title": "Complete ecosystem",
+       "text": "Identity, trust, security, finance, government, media and AI on one platform family.",
+       "dark": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Ten offices. Four continents.",
+     "eyebrow": "Global presence",
+     "link": "Contact an office",
+     "href": "/contact"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "office",
+       "region": "Global headquarters",
+       "name": "Hanoi",
+       "lines": [
+        "9F Viet A Tower, 9 Duy Tan"
+       ],
+       "hq": true
+      },
+      {
+       "t": "office",
+       "region": "Office",
+       "name": "Ho Chi Minh City",
+       "lines": [
+        "2F Winhome, 25 Dao Duy Anh"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Asia-Pacific",
+       "name": "Singapore",
+       "lines": [
+        "Marina Bay Financial Centre, Singapore"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Asia-Pacific",
+       "name": "Philippines",
+       "lines": [
+        "Manila, Philippines"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Asia-Pacific",
+       "name": "Australia & New Zealand",
+       "lines": [
+        "Melbourne Office, Melbourne, Australia",
+        "+61 434 567 456 | anz-sale@savis-group.com"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Middle East",
+       "name": "United Arab Emirates",
+       "lines": [
+        "Dubai, UAE"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Africa",
+       "name": "Nigeria",
+       "lines": [
+        "Abuja, Nigeria"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Africa",
+       "name": "Algeria",
+       "lines": [
+        "Algiers, Algeria"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "Latin America",
+       "name": "Brazil",
+       "lines": [
+        "São Paulo, Brazil"
+       ]
+      },
+      {
+       "t": "office",
+       "region": "North America",
+       "name": "United States",
+       "lines": []
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "grid",
+     "cols": "2",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "Partners",
+       "title": "Grow with the SAVIS partner ecosystem",
+       "more": "Partner program",
+       "dark": true,
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "Careers",
+       "title": "Build the trust layer with the S-ers",
+       "more": "Join us",
+       "dark": true,
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  }
+ ],
+ "droppedSections": [
+  "LeadershipManagement team[PHOTO][Name]Chairman[PHO"
+ ]
+}

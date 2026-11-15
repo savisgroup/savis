@@ -1,0 +1,377 @@
+{
+ "slug": "customers",
+ "hero": {
+  "crumb": "Customers",
+  "eyebrow": "Customers & case studies",
+  "title": "The trust layer behind a nation’s digital economy.",
+  "lead": "From Vietnam’s national root of trust to the open banking platforms of its largest banks, SAVIS technology runs in production where failure is not an option.",
+  "buttons": [
+   {
+    "label": "Discuss Your Project",
+    "href": "/contact",
+    "ghost": false
+   }
+  ]
+ },
+ "sections": [
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "stats",
+     "items": [
+      {
+       "value": "16",
+       "label": "published case studies"
+      },
+      {
+       "value": "5",
+       "label": "national trust infrastructures for NEAC & SBV"
+      },
+      {
+       "value": "10+",
+       "label": "banks & finance companies on TrustCA Remote Signing"
+      },
+      {
+       "value": "3",
+       "label": "Circular 64 open banking programmes"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Roots of trust, time-stamping and validation for a whole country’s digital economy",
+     "eyebrow": "National Trust Infrastructure"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "NEAC",
+       "title": "Vietnam National Root CA",
+       "text": "SAVIS designed and delivered the Vietnam National Root CA — the root of trust that anchors every public digital signature certificate in the country.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "NEAC",
+       "title": "Root CA and trust services for national mobile PKI",
+       "text": "A dedicated Root CA and trust services that let Vietnam’s mobile network operators issue digital signatures directly on subscribers’ phones.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "NEAC",
+       "title": "An international, WebTrust-grade CA for cross-border trust",
+       "text": "An international certification authority built to WebTrust requirements, so Vietnamese certificates can be recognised by Microsoft, Apple, Adobe and EU trust programmes.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "NEAC",
+       "title": "National time-stamping and validation services",
+       "text": "National TSA and VA services that prove when a document was signed and whether a certificate was valid at that moment.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "State Bank of Vietnam",
+       "title": "Root CA and issuing CA for the national payment system",
+       "text": "SAVIS built the Root CA and intermediate CA that secure interbank and national payment transactions for Vietnam’s central bank.",
+       "more": "Read the case study",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Qualified CAs, signing hubs and remote signing for banks and trust service providers",
+     "eyebrow": "Bank CAs & Signing Platforms"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "Sacombank",
+       "title": "Sacombank’s qualified CA, from appliance to signing",
+       "text": "A complete in-house CA for Sacombank — SAM Appliance, PKI Appliance, Signing Server, VA and RA — serving payments, open banking, digital banking, lending and e-contracts.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "Viettel-CA",
+       "title": "A turnkey QTSP and remote signing platform for Viettel-CA",
+       "text": "SAVIS delivered remote signing, QSCD and the QTSP platform for the trust services arm of Vietnam’s largest mobile operator.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "VIB",
+       "title": "VIB Signing Hub: every signing method, one platform",
+       "text": "A signing hub for VIB that supports remote, mobile, local and HSM-based signing — and verifies them all in one place.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "Leading Vietnamese banks",
+       "title": "TrustCA Remote Signing with VNeID for Vietnam’s leading banks",
+       "text": "Banks and finance companies use TrustCA Remote Signing, linked to Vietnam’s VNeID national identity, to sign documents digitally from front office to back office.",
+       "more": "Read the case study",
+       "linked": true
+      }
+     ],
+     "dropped": 1
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Open API platforms and hubs built for SBV Circular 64 and PSD2",
+     "eyebrow": "Open Banking & Payments"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "Vietcombank",
+       "title": "A complete Open Banking platform for Vietcombank",
+       "text": "SAVIS delivered every module of Vietcombank’s Open Banking platform, built for SBV Circular 64 and aligned with PSD2.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "NAPAS",
+       "title": "Designing a national Open Banking Hub for NAPAS",
+       "text": "Consulting, design and pilot of an Open Banking Hub that connects banks, credit institutions and merchants through one national switch.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "VPBank",
+       "title": "Open Banking Platform for the VPBank Open API ecosystem",
+       "text": "A full-module Open Banking Platform that powers VPBank’s Open API ecosystem for partners and fintechs.",
+       "more": "Read the case study",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Citizen apps and public-service platforms for provinces and cities",
+     "eyebrow": "Digital Government"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "Bac Ninh City",
+       "title": "iBacninh: one app between the city, its citizens and businesses",
+       "text": "SAVIS developed and deployed iBacninh, the city’s digital communication platform that brings nearly 30 information channels and services into one app.",
+       "more": "Read the case study",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "surface",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Certification programmes and paperless journeys for regulated institutions",
+     "eyebrow": "Security & Compliance"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "eyebrow": "VPBank",
+       "title": "From gap assessment to PCI DSS certification",
+       "text": "SAVIS supported VPBank through PCI DSS certification, working with ControlCase as the Qualified Security Assessor.",
+       "more": "Read the case study",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "eyebrow": "VietCredit",
+       "title": "Paperless lending with e-contracts and e-signatures",
+       "text": "Customers complete a loan end to end online — onboarding, contract and signature — without visiting a branch.",
+       "more": "Read the case study",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Government, banks and enterprises",
+     "eyebrow": "Trusted by"
+    },
+    {
+     "t": "logos",
+     "label": "Government & central agencies · 24",
+     "items": [
+      "Ministry of National Defence",
+      "Ministry of Public Security",
+      "Ministry of Foreign Affairs",
+      "Ministry of Home Affairs",
+      "Ministry of Justice",
+      "Ministry of Finance",
+      "Ministry of Industry and Trade",
+      "Ministry of Agriculture and Environment",
+      "Ministry of Construction",
+      "Ministry of Culture, Sports and Tourism",
+      "Ministry of Science and Technology",
+      "Ministry of Education and Training",
+      "Ministry of Health",
+      "Government Inspectorate",
+      "Ministry of Ethnic and Religious Affairs",
+      "Office of the Government",
+      "State Bank of Vietnam",
+      "NEAC",
+      "State Audit Office of Vietnam",
+      "State Records and Archives Department",
+      "Committee for Ethnic Minority Affairs",
+      "Vietnam Cooperative Alliance",
+      "Bac Ninh City People’s Committee",
+      "Hai Phong Newspaper"
+     ],
+     "gate": "clientNames"
+    },
+    {
+     "t": "logos",
+     "label": "Banking & finance · 23",
+     "items": [
+      "Vietcombank",
+      "BIDV",
+      "VietinBank",
+      "Agribank",
+      "VPBank",
+      "Sacombank",
+      "VIB",
+      "TPBank",
+      "SHB",
+      "PVcomBank",
+      "Bac A Bank",
+      "OCB",
+      "Kienlongbank",
+      "Ban Viet Bank",
+      "Nam A Bank",
+      "NCB",
+      "Techcombank",
+      "NAPAS",
+      "VCBS",
+      "FE CREDIT",
+      "Home Credit",
+      "HD SAISON",
+      "VietCredit"
+     ],
+     "gate": "clientNames"
+    },
+    {
+     "t": "logos",
+     "label": "Enterprises, telco & media · 22",
+     "items": [
+      "Viettel",
+      "VNPT",
+      "MobiFone",
+      "EVN",
+      "PetroVietnam",
+      "Petrolimex",
+      "Vinacomin",
+      "VIMC",
+      "LILAMA",
+      "VTV",
+      "VOV",
+      "VTVcab",
+      "Bao Viet Group",
+      "Vinhomes",
+      "Vincom Retail",
+      "Vinschool",
+      "One Mount Group",
+      "Giao Hang Tiet Kiem (GHTK)",
+      "Buymed Logistics",
+      "Crowe Vietnam",
+      "Viet Analytics",
+      "Vector"
+     ],
+     "gate": "clientNames"
+    },
+    {
+     "t": "logos",
+     "label": "Education · 5",
+     "items": [
+      "Hanoi University of Science and Technology",
+      "Posts and Telecommunications Institute of Technology",
+      "Hanoi University of Natural Resources and Environment",
+      "Vietnam National University of Agriculture",
+      "Ho Chi Minh National Academy of Politics"
+     ],
+     "gate": "clientNames"
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Become the next success story",
+    "lead": "Tell us about your project and we will connect you with a reference customer.",
+    "buttons": [
+     {
+      "label": "Discuss Your Project",
+      "href": "/contact",
+      "ghost": false
+     }
+    ]
+   }
+  }
+ ]
+}

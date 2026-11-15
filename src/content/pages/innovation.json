@@ -1,0 +1,109 @@
+{
+ "slug": "innovation",
+ "hero": {
+  "crumb": "Innovation",
+  "eyebrow": "Innovation · R&D",
+  "title": "Building the trust layer for the next decade.",
+  "lead": "Our R&D focuses on the technology that will decide whether digital services stay trustworthy: post-quantum cryptography, digital identity and applied AI.",
+  "buttons": [],
+  "dropped": [
+   "Visit the PQC Lab"
+  ]
+ },
+ "sections": [
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "Where we invest",
+     "eyebrow": "Focus areas"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "card",
+       "title": "Quantum PQC Lab",
+       "text": "Test post-quantum algorithms, hybrid certificates and migrations before production.",
+       "more": "Learn more",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Quantum Readiness",
+       "text": "A structured programme to inventory cryptography and plan migration.",
+       "more": "Learn more",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "Digital Trust",
+       "text": "Remote signing certified for eIDAS 2.0 and NIS2; national PKI and digital ID.",
+       "more": "Learn more",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "AI & IoT Lab",
+       "text": "AI hub for training and inference (vision, NLP, speech), edge/IoT gateway and FMIP Box for remote control.",
+       "more": "Learn more",
+       "linked": true
+      },
+      {
+       "t": "card",
+       "title": "AI",
+       "text": "AI for fraud detection, intelligent documents and media production.",
+       "more": "Learn more",
+       "linked": true
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [
+    {
+     "t": "head",
+     "title": "From research to products customers can run.",
+     "eyebrow": "How we do R&D"
+    },
+    {
+     "t": "grid",
+     "cols": "3",
+     "items": [
+      {
+       "t": "step",
+       "num": "01",
+       "text": "Standards first: NIST post-quantum algorithms, eIDAS 2.0, FIDO2, CSC API"
+      },
+      {
+       "t": "step",
+       "num": "02",
+       "text": "Pilots with customers in the Quantum PQC Lab before rollout"
+      },
+      {
+       "t": "step",
+       "num": "03",
+       "text": "Engineering teams that own products from design to operations"
+      }
+     ],
+     "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "dark",
+   "blocks": [],
+   "cta": {
+    "t": "cta",
+    "title": "Test post-quantum before you migrate",
+    "lead": "Book a session in the Quantum PQC Lab with our R&D team.",
+    "buttons": []
+   }
+  }
+ ]
+}

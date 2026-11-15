@@ -19,7 +19,7 @@ export function HomeHero({ locale, content: c, stats }: Props) {
   const cta = (
     <div className="mt-2 flex flex-wrap items-center gap-3">
       <Button asChild><Link href={`/${locale}#solutions`}>{c.primary}</Link></Button>
-      <Button asChild variant="onBand"><Link href={`/${locale}#contact`}>{c.secondary}</Link></Button>
+      <Button asChild variant="onBand"><Link href={`/${locale}/contact`}>{c.secondary}</Link></Button>
     </div>
   );
   const slides = [
