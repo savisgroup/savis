@@ -171,6 +171,10 @@
     },
     {
      "t": "text",
+     "text": "Recognised among Vietnam’s Top 10 IT companies."
+    },
+    {
+     "t": "text",
      "text": "Expert teams certified by IBM, Cisco, Oracle and Google."
     },
     {
@@ -302,6 +306,27 @@
       }
      ],
      "dropped": 0
+    }
+   ]
+  },
+  {
+   "tone": "light",
+   "blocks": [
+    {
+     "t": "head",
+     "eyebrow": "Leadership",
+     "title": "Management team"
+    },
+    {
+     "t": "grid",
+     "cols": "4",
+     "items": [
+      {
+       "t": "card",
+       "title": "Phạm Văn Đức",
+       "text": "General Director"
+      }
+     ]
     }
    ]
   },

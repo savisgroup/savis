@@ -61,7 +61,9 @@ def card(n):
         if k.has("p-badge"):
             d.setdefault("badges", []).append({"text": clean(k.text()), "tone": "new" if k.has("new") else "default"})
         elif k.has("sw-eyebrow"):
-            d["eyebrow"] = k.text()
+            # "[Year]" kèm ghi chú "year to confirm" đã được duyệt: giữ thẻ, bỏ nhãn năm.
+            if k.text().strip() != "[Year]":
+                d["eyebrow"] = k.text()
         elif k.tag == "h3":
             d["title"] = k.text()
         elif k.tag == "p":
@@ -265,6 +267,29 @@ def drop_mostly_pending(blocks):
 CUR = ""
 
 
+# Dữ kiện lấy từ docx sitemap (đã được duyệt 15/11/2026), chỉ gồm giá trị có thật trong docx; chỗ docx vẫn là "[X]" thì bỏ.
+def apply_docx_fills(slug, page):
+    if slug in ("solutions", "services"):
+        for btn in page["hero"]["buttons"]:  # docx gạch chữ "our" trong nút
+            btn["label"] = btn["label"].replace("Talk to our Expert", "Talk to Expert")
+    if slug == "about":
+        for sec in page["sections"]:
+            heads = [b.get("title") for b in sec["blocks"] if b["t"] == "head"]
+            if "Independently certified" in heads:
+                i = next(n for n, b in enumerate(sec["blocks"]) if b["t"] == "text")
+                sec["blocks"].insert(i, {"t": "text", "text": "Recognised among Vietnam’s Top 10 IT companies."})
+        leader = {"t": "card", "title": "Phạm Văn Đức", "text": "General Director"}
+        why = next(n for n, s in enumerate(page["sections"]) if any(b.get("title") == "What sets us apart" for b in s["blocks"]))
+        page["sections"].insert(why + 1, {"tone": "light", "blocks": [
+            {"t": "head", "eyebrow": "Leadership", "title": "Management team"},
+            {"t": "grid", "cols": "4", "items": [leader]}]})
+    if slug == "trust-center":
+        disclosure = {"tone": "surface", "blocks": [
+            {"t": "head", "eyebrow": "Report a vulnerability", "title": "Responsible disclosure"},
+            {"t": "text", "text": "Found a security issue in a SAVIS product or service? Contact our security team at security@savis.vn."}]}
+        page["sections"].insert(len(page["sections"]) - 1, disclosure)
+
+
 def convert(slug):
     global CUR
     CUR = slug
@@ -292,6 +317,7 @@ def convert(slug):
         for b in sec["blocks"]:
             if b["t"] == "tabs" and slug in ("solutions", "use-cases"):
                 b["anchors"] = [f"pillar-{i + 1:02d}" for i in range(len(b["items"]))]
+    apply_docx_fills(slug, page)
     return page
 
 
