@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 export function LocaleSwitch({ current, label, onBand = false }: { current: Locale; label: string; onBand?: boolean }) {
   const pathname = usePathname() ?? `/${current}`;
   const rest = pathname.replace(/^\/(vi|en)(?=\/|$)/, "");
+  if (locales.length < 2) return null; // chỉ còn một ngôn ngữ: không cần bộ chuyển
   return (
     <nav className="flex items-center gap-1 text-sm font-semibold" aria-label={label}>
       {locales.map((l, i) => (
