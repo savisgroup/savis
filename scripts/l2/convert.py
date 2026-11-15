@@ -8,6 +8,7 @@ Quy tắc nội dung:
 - Nhãn "To confirm" / "VERIFY" / "to be confirmed" của MKT đã được doanh nghiệp duyệt (14/11/2026): giữ nội dung, bỏ nhãn.
 - Placeholder còn thiếu dữ kiện thật ("[Year]", "[Name]", "[Address]", "[X]") bị đánh dấu `pending` và bộ render bỏ qua
   (design system cấm placeholder trên production). Lưới có quá nửa mục như vậy bị bỏ nguyên.
+- Mọi thứ bị ẩn được lưu ở scripts/l2/hidden-content.json (chạy lại convert.py để cập nhật) để khôi phục khi có dữ kiện.
 - Ghi chú nội bộ (p-note), nút có đích chưa tồn tại, trang Insights (chạy bằng CMS) không được chuyển.
 - Mọi liên kết thẻ trong thiết kế là "#": thẻ hiện là khối thường cho đến khi có trang cấp 3.
 Chỉ dùng thư viện chuẩn của Python 3. Gặp cấu trúc chưa biết thì dừng và báo lỗi thay vì bỏ qua âm thầm.
@@ -52,6 +53,14 @@ def link_dest(label):
     if re.search(r"talk to|discuss|contact savis|enquir|request compliance|expert|become", l):
         return "/contact"
     return None
+
+
+# Mọi thứ bị ẩn khỏi trang được ghi lại để khôi phục khi có dữ kiện: scripts/l2/hidden-content.json.
+HIDDEN = []
+
+
+def hide(kind, content):
+    HIDDEN.append({"page": CUR, "kind": kind, "content": content})
 
 
 def card(n):
@@ -139,6 +148,7 @@ def hero(sec):
             h["buttons"].append({"label": label, "href": d, "ghost": a.has("sw-btn-ghost")})
         else:
             h["dropped"] = h.get("dropped", []) + [label]
+            hide("nút hero (đích chưa có)", label)
     return h
 
 
@@ -172,6 +182,7 @@ def blocks_of(wrap, sec_id_counter):
             items = [item(i) for i in k.elems()]
             out.append({"t": "grid", "cols": grid_cols(k), "items": items})
         elif k.has("p-note"):
+            hide("ghi chú nội bộ của thiết kế", k.text())
             continue  # ghi chú nội bộ của thiết kế ("to confirm"): không đưa lên production
         elif k.has("p-tl"):
             tl = []
@@ -252,6 +263,9 @@ def drop_mostly_pending(blocks):
         if b["t"] == "grid":
             its = b["items"]
             bad = sum(1 for i in its if i.get("pending"))
+            for i in its:
+                if i.get("pending") or bad > len(its) / 2:
+                    hide("thẻ chưa đủ dữ kiện", {k: v for k, v in i.items() if k in ("eyebrow", "title", "text", "badges", "list", "photo")})
             if bad > len(its) / 2:
                 b = {**b, "dropped": bad, "items": []}
             else:
@@ -259,6 +273,9 @@ def drop_mostly_pending(blocks):
             if not b["items"]:
                 continue
         elif b["t"] == "timeline":
+            for i in b["items"]:
+                if i.get("pending"):
+                    hide("mốc timeline chưa đủ dữ kiện", i)
             b = {**b, "items": [i for i in b["items"] if not i.get("pending")]}
         res.append(b)
     return res
@@ -303,6 +320,7 @@ def convert(slug):
         # Khối chỉ còn rác (rỗng sau khi lọc) thì bỏ.
         if not sec["blocks"] or all(b["t"] in ("head", "sub") for b in sec["blocks"]):
             page.setdefault("droppedSections", []).append(s.text()[:50])
+            hide("section bị bỏ nguyên (còn placeholder)", s.text())
             continue
         # CTA nằm một mình trong section tối
         if len(sec["blocks"]) == 1 and sec["blocks"][0]["t"] == "cta":
@@ -330,3 +348,7 @@ for slug in PAGES:
     nb = sum(len(s["blocks"]) for s in p["sections"])
     drop = [d for s in p["sections"] for b in s["blocks"] if b["t"] == "grid" and b.get("dropped") for d in [b["dropped"]]]
     print(slug, "sections", len(p["sections"]), "blocks", nb, "dropped-items", sum(drop), p["hero"].get("dropped", ""), p.get("droppedSections", ""))
+
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "hidden-content.json"), "w", encoding="utf-8", newline="\n") as f:
+    json.dump(HIDDEN, f, ensure_ascii=False, indent=1)
+    f.write("\n")

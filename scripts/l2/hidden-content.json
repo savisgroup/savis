@@ -1,0 +1,110 @@
+[
+ {
+  "page": "innovation",
+  "kind": "nút hero (đích chưa có)",
+  "content": "Visit the PQC Lab"
+ },
+ {
+  "page": "customers",
+  "kind": "ghi chú nội bộ của thiết kế",
+  "content": "Client list as published on savis.vn. Logos and the education list need confirmation; some names were inferred from logo files."
+ },
+ {
+  "page": "about",
+  "kind": "nút hero (đích chưa có)",
+  "content": "Join us"
+ },
+ {
+  "page": "about",
+  "kind": "ghi chú nội bộ của thiết kế",
+  "content": "Recognised among Vietnam’s Top 10 IT companies: award and year to confirm."
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "badges": [
+    {
+     "text": "",
+     "tone": "default"
+    }
+   ],
+   "title": "Top 10 Vietnamese IT companies",
+   "text": "[Award body]"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "badges": [
+    {
+     "text": "",
+     "tone": "default"
+    }
+   ],
+   "title": "[Additional awards]",
+   "text": "[The savis.vn awards page is empty — please provide the list.]"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "mốc timeline chưa đủ dữ kiện",
+  "content": {
+   "year": "[Year]",
+   "text": "TrustCA licensed as a public digital signature certification provider in Vietnam.",
+   "pending": true
+  }
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "photo": true,
+   "title": "[Name]",
+   "text": "Chairman"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "photo": true,
+   "title": "Phạm Văn Đức",
+   "text": "General Director"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "photo": true,
+   "title": "[Name]",
+   "text": "Chief Technology Officer"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "thẻ chưa đủ dữ kiện",
+  "content": {
+   "photo": true,
+   "title": "[Name]",
+   "text": "Chief Security Officer"
+  }
+ },
+ {
+  "page": "about",
+  "kind": "section bị bỏ nguyên (còn placeholder)",
+  "content": "LeadershipManagement team[PHOTO][Name]Chairman[PHOTO]Phạm Văn ĐứcGeneral Director[PHOTO][Name]Chief Technology Officer[PHOTO][Name]Chief Security Officer"
+ },
+ {
+  "page": "trust-center",
+  "kind": "ghi chú nội bộ của thiết kế",
+  "content": "Certification bodies and certificate dates to add."
+ },
+ {
+  "page": "trust-center",
+  "kind": "section bị bỏ nguyên (còn placeholder)",
+  "content": "Report a vulnerabilityResponsible disclosureFound a security issue in a SAVIS product or service? Contact our security team at [security@savis.vn — to confirm]. We acknowledge reports within [X] business days."
+ }
+]
