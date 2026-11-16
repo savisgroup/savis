@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const POINTS = 760;
+const POINTS = 2600;
 const TILT = -0.42; // nghiêng trục để thấy nửa trên của quả cầu
 const SPIN_RAD_PER_S = 0.07; // xoay chậm
 const STATIC_ANGLE = 0.6;
-const DOME_MAX_WIDTH_RATIO = 0.5;
-const DOME_HEIGHT_RATIO = 0.98;
-const DOME_CENTER_Y = 1.04;
+const DOME_MAX_WIDTH_RATIO = 0.4;
+const DOME_HEIGHT_RATIO = 0.5;
+const DOME_CENTER_Y = 1;
 const GOLDEN = Math.PI * (3 - Math.sqrt(5));
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 
@@ -19,9 +19,9 @@ const SPHERE = Array.from({ length: POINTS }, (_, i) => {
   return { x: Math.cos(t) * r, y, z: Math.sin(t) * r };
 });
 
-// Nền quả cầu chấm xanh nằm sau nội dung thẻ: nửa trên của cầu nhô lên từ đáy thẻ, xoay quanh trục dọc, chấm gần mắt lớn và sáng hơn.
-// Hình trang trí (aria-hidden). Chỉ vẽ lại khi thẻ trong khung nhìn; giảm chuyển động thì vẽ một khung tĩnh.
-// Thẻ cha cần `relative isolate overflow-hidden` để canvas (z âm) nằm trên nền thẻ và dưới chữ.
+// Nền quả cầu chấm xanh nằm sau nội dung khối cha: nửa trên của cầu nhô lên từ sát đáy, xoay quanh trục dọc, chấm gần mắt lớn và sáng hơn.
+// Hình trang trí (aria-hidden). Chỉ vẽ lại khi khối trong khung nhìn; giảm chuyển động thì vẽ một khung tĩnh.
+// Khối cha cần `relative isolate overflow-hidden` để canvas (z âm) nằm trên nền khối và dưới chữ.
 export function SphereBackdrop() {
   const ref = useRef<HTMLCanvasElement>(null);
 
@@ -41,7 +41,7 @@ export function SphereBackdrop() {
       ctx.clearRect(0, 0, w, h);
       const cx = w / 2;
       const radius = Math.min(w * DOME_MAX_WIDTH_RATIO, h * DOME_HEIGHT_RATIO);
-      const cy = h * DOME_CENTER_Y; // tâm cầu sát đáy thẻ: chấm ở giữa lớn và sáng, nửa dưới bị thẻ cắt
+      const cy = h * DOME_CENTER_Y; // tâm cầu sát đáy khối: chấm ở giữa lớn và sáng, nửa dưới bị khối cắt
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       glow.addColorStop(0, "rgba(40,110,230,0.28)");
       glow.addColorStop(1, "rgba(40,110,230,0)");
@@ -59,7 +59,7 @@ export function SphereBackdrop() {
         const depth = Math.max(z2, 0);
         ctx.fillStyle = `rgba(30,124,255,${0.22 + 0.7 * depth})`;
         ctx.beginPath();
-        ctx.arc(cx + x1 * radius, cy - y2 * radius, 1 + 2.6 * depth, 0, Math.PI * 2);
+        ctx.arc(cx + x1 * radius, cy - y2 * radius, 0.6 + 2 * depth, 0, Math.PI * 2);
         ctx.fill();
       }
     };
