@@ -44,15 +44,23 @@ export function PresenceMap({ locale }: { locale: Locale }) {
           const dx = p.x - hq.x;
           const lift = Math.min(MAX_LIFT, Math.abs(dx) * ARC_LIFT);
           const d = `M${hq.x.toFixed(1)} ${hq.y.toFixed(1)}Q${((hq.x + p.x) / 2).toFixed(1)} ${(Math.min(hq.y, p.y) - lift).toFixed(1)} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`;
-          return <path key={i} d={d} pathLength={1} className="map-arc" style={{ animationDelay: `${ARC_START_S + k * ARC_STEP_S}s` }} fill="none" stroke="#6fe3ff" strokeOpacity={0.7} strokeWidth={1.2} strokeLinecap="round" />;
+          const delay = `${ARC_START_S + k * ARC_STEP_S}s`;
+          return (
+            <g key={i}>
+              <path d={d} pathLength={1} className="map-arc" style={{ animationDelay: delay }} fill="none" stroke="#6fe3ff" strokeWidth={1.6} strokeLinecap="round" />
+              <circle r={3.4} className="map-travel" style={{ offsetPath: `path("${d}")`, animationDelay: `${ARC_START_S + k * 0.55}s` }} fill="#fff" />
+            </g>
+          );
         })}
         {pts.map((p, i) => {
           const isHq = i === 0;
           return (
             <g key={i} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
               <title>{offices[i].name[locale]}</title>
-              <circle r={isHq ? 5 : 3.2} className="map-ping" style={{ animationDelay: `${(i * 0.37) % 2.8}s` }} fill="none" stroke="#6fe3ff" strokeWidth={1.4} />
-              <circle r={isHq ? 5 : 3.4} fill={isHq ? "#ffffff" : "#6fe3ff"} />
+              <circle r={isHq ? 6 : 4} className="map-ping" style={{ animationDelay: `${(i * 0.37) % 2.4}s` }} fill="none" stroke="#6fe3ff" strokeWidth={2} />
+              <circle r={isHq ? 6 : 4} className="map-ping" style={{ animationDelay: `${((i * 0.37) % 2.4) + 1.2}s` }} fill="none" stroke="#6fe3ff" strokeWidth={2} />
+              <circle r={isHq ? 6.5 : 4.4} fill={isHq ? "#ffffff" : "#6fe3ff"} />
+              {isHq && <text x={12} y={-10} fill="#ffffff" fontSize={15} fontWeight={700}>{offices[0].name[locale]} · HQ</text>}
             </g>
           );
         })}

@@ -77,7 +77,15 @@ export function HeroSigningPhone({ c }: { c: Hero }) {
             <b className="font-display text-[15px] text-[#0b1f4d]">{p.title}</b>
             <span className="rounded-full bg-[#e7f0ff] px-2 py-[3px] text-[11px] font-semibold text-[#0040c7]">{p.badge}</span>
           </div>
-          <div className="flex flex-col gap-3 px-[18px] py-4">
+          <ol className="flex gap-1 px-[18px] pt-3">
+            {p.steps.map((label, i) => (
+              <li key={label} className={cn("flex min-w-0 flex-1 flex-col gap-1 text-[9.5px] font-semibold leading-3 transition-colors duration-500", s >= i ? "text-[#0040c7]" : "text-[#8793ad]")}>
+                <span className={cn("h-1 rounded-full transition-colors duration-500", s > i || (reduced && i === LAST) ? "bg-[#0aa06e]" : s === i ? "bg-[#0052ff]" : "bg-[#e1e7f2]")} />
+                <span className="truncate">{label}</span>
+              </li>
+            ))}
+          </ol>
+          <div className="flex flex-col gap-3 px-[18px] pb-4 pt-3">
             <div className="relative flex items-center gap-2.5 rounded-[12px] border border-[#e1e7f2] p-3">
               <div className="h-[42px] w-[34px] flex-none rounded-md border border-[#e1e7f2] bg-[#f3f6fc]" />
               <div className="min-w-0">
@@ -94,26 +102,28 @@ export function HeroSigningPhone({ c }: { c: Hero }) {
                 <div className={cn("h-full rounded-full bg-[#0052ff] transition-[width] ease-[var(--ease-out)]", s >= 1 ? "w-full duration-[1800ms]" : "w-0 duration-300")} />
               </div>
             </div>
-            <div className="relative mt-2 size-[120px] self-center rounded-full bg-[#e7f0ff]">
+            <div className="relative mt-1 size-[140px] self-center rounded-full bg-[#e7f0ff]">
               <div className={cn(stage, on(0))}>
-                <div className="relative h-[68px] w-[96px] overflow-hidden rounded-lg border border-[#c9d6f0] bg-white">
+                <div className="relative h-[82px] w-[116px] overflow-hidden rounded-lg border-2 border-[#0052ff] bg-white shadow-[0_0_0_6px_rgba(0,82,255,.12)]">
                   <div className="absolute left-2 top-2 h-[34px] w-[26px] rounded bg-[#dbe6fb]" />
                   <div className="absolute left-[42px] top-2.5 h-1.5 w-11 rounded bg-[#c9d6f0]" />
                   <div className="absolute left-[42px] top-[22px] h-1.5 w-8 rounded bg-[#c9d6f0]" />
                   <div className="absolute inset-x-2 bottom-2 h-1.5 rounded bg-[#e1e7f2]" />
-                  <div className="hero-scan absolute inset-x-0 top-0 h-5 bg-gradient-to-b from-transparent via-[#0052ff]/35 to-transparent" />
+                  <div className="hero-scan absolute inset-x-0 top-0 h-7 bg-gradient-to-b from-transparent via-[#0052ff]/50 to-[#0052ff]/80 shadow-[0_2px_8px_rgba(0,82,255,.6)]" />
                 </div>
               </div>
               <div className={cn(stage, on(1))}>
-                <ScanFace className="size-14 text-[#0052ff]" strokeWidth={1.5} />
-                <span className="hero-ring absolute inset-3 rounded-full border-2 border-[#0052ff]/40" />
+                <ScanFace className="size-[68px] text-[#0052ff]" strokeWidth={1.5} />
+                <span className="hero-ring absolute inset-2 rounded-full border-[3px] border-[#0052ff]/50" />
+                <span className="hero-ring absolute inset-2 rounded-full border-[3px] border-[#0052ff]/50 [animation-delay:700ms]" />
               </div>
               <div className={cn(stage, on(2))}>
-                <Fingerprint className="size-14 text-[#0052ff]" strokeWidth={1.6} />
-                <span className="hero-ring absolute inset-3 rounded-full border-2 border-[#0052ff]/40" />
+                <Fingerprint className="size-[68px] text-[#0052ff]" strokeWidth={1.6} />
+                <span className="hero-ring absolute inset-2 rounded-full border-[3px] border-[#0052ff]/50" />
+                <span className="hero-ring absolute inset-2 rounded-full border-[3px] border-[#0052ff]/50 [animation-delay:700ms]" />
               </div>
               <div className={cn(stage, on(3))}>
-                <span className="flex size-[72px] items-center justify-center rounded-full bg-[#0aa06e] text-white"><Check className="size-9" strokeWidth={2.5} /></span>
+                <span className="flex size-[84px] items-center justify-center rounded-full bg-[#0aa06e] text-white shadow-[0_0_0_10px_rgba(10,160,110,.18)]"><Check className="size-11" strokeWidth={2.5} /></span>
               </div>
             </div>
             <div className="text-center text-xs text-[#56617a]">{hint}</div>
