@@ -48,7 +48,7 @@ export function HeroCarousel({ slides, labels }: { slides: React.ReactNode[]; la
           );
         })}
       </div>
-      <div className="relative z-10 flex items-center gap-1 pb-7 pt-2">
+      <div className={cn("relative z-10 flex items-center gap-1 pb-7 pt-2", count < 2 && "invisible")}>
         {slides.map((_, i) => (
           <button
             key={i} type="button" onClick={() => setIndex(i)}
