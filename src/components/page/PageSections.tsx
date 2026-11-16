@@ -96,6 +96,27 @@ function BlockView({ locale, block: b, dark }: { locale: Locale; block: Block; d
       return <p className="max-w-[760px] text-lg leading-7">{b.text}</p>;
     case "note":
       return <p className="max-w-[760px] text-[15px] leading-6 text-muted">{b.text}</p>;
+    case "table":
+      return (
+        <div className="overflow-x-auto rounded-lg border border-line bg-raised" tabIndex={0} role="region" aria-label={b.head[0]}>
+          <table className="w-full min-w-[640px] border-collapse text-left text-[14px] leading-[21px] text-ink">
+            <thead>
+              <tr className="bg-surface">
+                {b.head.map((h, i) => <th key={i} scope="col" className="border-b border-line px-4 py-3 align-bottom font-display text-[13px] font-bold">{h}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {b.rows.map((r, ri) => (
+                <tr key={ri} className="border-b border-line last:border-b-0">
+                  {r.map((c, ci) => ci === 0
+                    ? <th key={ci} scope="row" className="px-4 py-3 align-top font-semibold">{c}</th>
+                    : <td key={ci} className="px-4 py-3 align-top text-muted">{c}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
     case "layers":
       return (
         <div className="flex flex-col gap-2.5">

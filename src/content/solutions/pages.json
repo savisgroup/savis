@@ -20602,6 +20602,848 @@
         "text": "SAVIS-led solution."
        }
       ]
+     },
+     {
+      "t": "tabs",
+      "items": [
+       "Product family",
+       "Specifications",
+       "Design",
+       "Security architecture",
+       "Compliance",
+       "Sovereign delivery"
+      ],
+      "anchors": [
+       "product-family",
+       "specifications",
+       "design",
+       "security-architecture",
+       "compliance",
+       "sovereign-delivery"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "product-family",
+    "tone": "surface",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Product family",
+      "title": "Five models, two shared platforms, one security core",
+      "lead": "A trusted, sovereign AI camera line for critical infrastructure and smart cities: Western-grade cybersecurity certification as the target, keys that never leave the device, and source-code options for government buyers. Platform A powers the dome, bullet and LPR models; Platform B powers the multisensor and PTZ models. All five share the same secure firmware, secure element and software stack."
+     },
+     {
+      "t": "note",
+      "text": "Concept · in development"
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "eyebrow": "SX-D4",
+        "title": "Dome AI 4MP",
+        "text": "Indoor and outdoor perimeters, lobbies, corridors",
+        "list": [
+         "4MP @ 60 fps",
+         "~6 TOPS NPU",
+         "IR 40 m",
+         "12 W"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "SX-B8",
+        "title": "Bullet AI 8MP",
+        "text": "Streets, car parks, fences and long perimeters",
+        "list": [
+         "4K @ 30 fps",
+         "~6 TOPS NPU",
+         "IR 80 m",
+         "15 W"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "SX-L4",
+        "title": "LPR / ANPR",
+        "text": "Gates, toll points, tunnels and traffic enforcement",
+        "list": [
+         "Global shutter",
+         "Plate, make, colour",
+         "IR 850 + 940 nm",
+         "22 W"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "SX-M16",
+        "title": "Multisensor 16MP",
+        "text": "Intersections, squares and wide open areas",
+        "list": [
+         "4 × 4MP sensors",
+         "~12 TOPS NPU",
+         "Cross-channel tracking",
+         "45 W"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "SX-P4",
+        "title": "PTZ AI",
+        "text": "City surveillance, ports, borders and critical sites",
+        "list": [
+         "40× optical zoom",
+         "~12 TOPS NPU",
+         "IR laser 400 m",
+         "85 W"
+        ]
+       }
+      ]
+     },
+     {
+      "t": "sub",
+      "title": "Editions"
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "title": "Global edition",
+        "text": "Full EU and US certification set for international tenders."
+       },
+       {
+        "t": "card",
+        "title": "Gov edition",
+        "text": "IEC 62443-4-2 SL3, customer-held root of trust, all cloud connections disabled."
+       },
+       {
+        "t": "card",
+        "title": "Lite edition",
+        "text": "Without the FIPS secure element, for commercial projects in Southeast Asia, the Middle East and Africa."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "specifications",
+    "tone": "light",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Technical specifications",
+      "title": "Target specification by model"
+     },
+     {
+      "t": "table",
+      "head": [
+       "Specification",
+       "SX-D4 Dome AI 4MP",
+       "SX-B8 Bullet AI 8MP",
+       "SX-L4 LPR / ANPR",
+       "SX-M16 Multisensor 16MP",
+       "SX-P4 PTZ AI"
+      ],
+      "rows": [
+       [
+        "Platform",
+        "A",
+        "A",
+        "A",
+        "B",
+        "B"
+       ],
+       [
+        "NPU (AI performance)",
+        "~6 TOPS",
+        "~6 TOPS",
+        "~6 TOPS",
+        "~12 TOPS",
+        "~12 TOPS"
+       ],
+       [
+        "Image sensor",
+        "1/1.8\" 4MP, starlight",
+        "1/1.2\" 8MP, starlight",
+        "1/1.8\" 4MP global shutter",
+        "4 × 1/1.8\" 4MP",
+        "1/1.8\" 4MP, starlight"
+       ],
+       [
+        "Resolution / frame rate",
+        "2688×1520 @ 60 fps",
+        "3840×2160 @ 30 fps",
+        "2048×1536 @ 60 fps",
+        "4 × 2688×1520 @ 30 fps",
+        "2688×1520 @ 60 fps"
+       ],
+       [
+        "Lens",
+        "2.8–12 mm motorised",
+        "4–16 mm motorised, P-Iris",
+        "10–50 mm motorised",
+        "4 × 2.8–8 mm motorised, independent tilt",
+        "6.5–260 mm, 40× optical zoom"
+       ],
+       [
+        "WDR",
+        "140 dB",
+        "140 dB",
+        "120 dB + headlight compensation",
+        "120 dB",
+        "140 dB"
+       ],
+       [
+        "Illumination",
+        "IR 40 m",
+        "IR 80 m",
+        "IR 850 nm + 940 nm 40 m, synced flash",
+        "IR 30 m per channel",
+        "IR laser 400 m"
+       ],
+       [
+        "AI analytics",
+        "Person / vehicle classification, line crossing, loitering, people counting",
+        "As D4 + attribute search, crowd detection",
+        "Multi-country plate reading, make / colour, average speed",
+        "Cross-channel tracking, heat maps",
+        "AI auto-tracking, AI-driven PTZ control"
+       ],
+       [
+        "Video encoding",
+        "H.265 / H.264 / MJPEG",
+        "H.265 / H.264 / MJPEG",
+        "H.265 / H.264 / MJPEG",
+        "H.265 / H.264",
+        "H.265 / H.264 / MJPEG"
+       ],
+       [
+        "Streams",
+        "3 + metadata",
+        "3 + metadata",
+        "3 + metadata",
+        "2 per channel + metadata",
+        "3 + metadata"
+       ],
+       [
+        "Hardware security",
+        "Secure element CC EAL6+ (FIPS 140-3 module), secure boot, IEEE 802.1AR IDevID, tamper sensor",
+        "As D4",
+        "As D4",
+        "As D4",
+        "As D4"
+       ],
+       [
+        "Network / power",
+        "PoE 802.3at, 1 GbE",
+        "PoE 802.3at, 1 GbE",
+        "PoE+ 802.3at or 24 VAC, 1 GbE",
+        "PoE++ 802.3bt, 1 GbE SFP",
+        "Hi-PoE 90 W or 24 VAC, 1 GbE SFP"
+       ],
+       [
+        "Edge storage",
+        "microSD 512 GB, encrypted",
+        "microSD 512 GB, encrypted",
+        "microSD 1 TB, encrypted",
+        "microSD 1 TB, encrypted",
+        "microSD 1 TB, encrypted"
+       ],
+       [
+        "I/O",
+        "1 in / 1 out, two-way audio",
+        "2 in / 1 out, audio",
+        "2 in / 2 out, RS-485",
+        "2 in / 2 out",
+        "4 in / 2 out, audio"
+       ],
+       [
+        "Protection",
+        "IP67, IK10",
+        "IP67, IK10, NEMA 4X",
+        "IP67, IK10",
+        "IP67, IK10",
+        "IP67, IK10, C5-M corrosion"
+       ],
+       [
+        "Operating temperature",
+        "−40 °C to +60 °C",
+        "−40 °C to +60 °C",
+        "−40 °C to +65 °C",
+        "−40 °C to +55 °C",
+        "−40 °C to +65 °C"
+       ],
+       [
+        "Dimensions",
+        "Ø150 × 115 mm",
+        "290 × 105 × 100 mm",
+        "340 × 120 × 115 mm",
+        "Ø260 × 120 mm",
+        "Ø240 × 380 mm"
+       ],
+       [
+        "Weight",
+        "0.9 kg",
+        "1.6 kg",
+        "2.2 kg",
+        "4.5 kg",
+        "7.5 kg"
+       ],
+       [
+        "Max. power",
+        "12 W",
+        "15 W",
+        "22 W",
+        "45 W",
+        "85 W"
+       ],
+       [
+        "Target certifications",
+        "IEC 62443-4-2 SL2, ETSI EN 303 645, ONVIF S/G/T/M, NDAA, CE/FCC/UKCA",
+        "As D4",
+        "As D4 + national LPR standard",
+        "As D4",
+        "As D4 + IEC 62443-4-2 SL3 (Gov edition)"
+       ]
+      ]
+     },
+     {
+      "t": "note",
+      "text": "Target values for the concept-design phase. SoC, NPU and sensor are reference configurations to be finalised after evaluation boards and supplier quotations. All specifications are subject to change."
+     }
+    ]
+   },
+   {
+    "id": "design",
+    "tone": "surface",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Industrial design",
+      "title": "Built for outdoor duty and physical attack"
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "title": "Housing",
+        "text": "Die-cast ADC12 aluminium, UV-resistant polyester powder coat; 316 stainless tamper-proof Torx screws"
+       },
+       {
+        "t": "card",
+        "title": "Sealing",
+        "text": "Double silicone gasket, ePTFE membrane vent against condensation"
+       },
+       {
+        "t": "card",
+        "title": "Thermal",
+        "text": "Core module bonded to the aluminium body through a thermal pad; fanless"
+       },
+       {
+        "t": "card",
+        "title": "Anti-tamper",
+        "text": "Case switch and accelerometer wired to the secure element; SE and flash potted in epoxy; no exposed debug ports"
+       },
+       {
+        "t": "card",
+        "title": "Mounting",
+        "text": "4\" junction box, wall, pole and corner brackets compatible across all five models"
+       }
+      ]
+     },
+     {
+      "t": "grid",
+      "cols": "2",
+      "items": [
+       {
+        "t": "card",
+        "eyebrow": "One core, five housings",
+        "text": "Every model uses the same 60 × 60 mm core module — SoC, memory and secure element under shielding. Models differ only in housing, optics and power, which shortens tooling and re-certification.",
+        "list": [
+         "IDevID / LDevID private keys generated in the secure element — never exported",
+         "Boot ROM verifies ECDSA P-384 signatures twice (anti-glitch)",
+         "eFuse holds the root public key and anti-rollback counter",
+         "JTAG / UART locked by eFuse; reopened only by signed per-device challenge-response",
+         "Flash encrypted with AES-256-XTS; key held in the SE",
+         "Separate power filtering for the SE to reduce power leakage (DPA)",
+         "Case opened → session keys erased, alert sent to the SOC",
+         "Shared 60 × 60 mm secure core module, section A–A (common to all five models). Concept design; vertical scale exaggerated."
+        ]
+       }
+      ]
+     },
+     {
+      "t": "note",
+      "text": "Concept drawings to guide R&D, not for production. Production drawings will be produced in CAD after optics and thermal design are frozen."
+     },
+     {
+      "t": "sub",
+      "title": "Mechanical specifications"
+     },
+     {
+      "t": "table",
+      "head": [
+       "Mechanical",
+       "SX-D4",
+       "SX-B8",
+       "SX-L4",
+       "SX-M1 6",
+       "SX-P4"
+      ],
+      "rows": [
+       [
+        "Form factor",
+        "Vandal-resistant dome",
+        "Bullet with sunshield",
+        "LPR bullet, long hood",
+        "4-sensor dome, round base",
+        "Pendant PTZ, cylindrical body"
+       ],
+       [
+        "Housing",
+        "ADC12 aluminium + 3 mm PC dome",
+        "ADC12 aluminium",
+        "ADC12 aluminium",
+        "ADC12 aluminium + 3 mm PC dome",
+        "ADC12 aluminium + optical acrylic dome"
+       ],
+       [
+        "Window",
+        "Scratch-resistant PC dome",
+        "Tempered glass, hydrophobic coating",
+        "Tempered glass, IR filter",
+        "Scratch-resistant PC dome",
+        "Acrylic dome with wiper"
+       ],
+       [
+        "Mounting",
+        "Ceiling, wall, 4\" junction box",
+        "Wall, pole, corner",
+        "Pole, gantry",
+        "Ceiling, wall, pole",
+        "Wall, pole, parapet"
+       ],
+       [
+        "Ports",
+        "Sealed RJ45, I/O",
+        "Sealed RJ45, I/O",
+        "RJ45, RS-485, I/O, 24 VAC",
+        "SFP / RJ45, I/O",
+        "SFP, 24 VAC, I/O"
+       ],
+       [
+        "Cooling",
+        "Passive through base",
+        "Passive through body",
+        "Passive through body",
+        "Passive, finned base",
+        "Passive + heater"
+       ]
+      ]
+     },
+     {
+      "t": "note",
+      "text": "Mounting: 4\" junction box, wall, pole and corner brackets compatible across all five models"
+     }
+    ]
+   },
+   {
+    "id": "security-architecture",
+    "tone": "light",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Security architecture",
+      "title": "Five layers of defence, rooted in the camera’s secure element",
+      "lead": "The device’s secret keys never leave the secure element, firmware cannot be replaced or downgraded, and a fake or tampered camera cannot join the network. Each layer must hold even if the one next to it has been breached."
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "eyebrow": "Layer 5",
+        "title": "Management & audit",
+        "list": [
+         "PAM with FIDO2 keys and four-eyes control for video export and firmware updates",
+         "SIEM / UEBA; audit logs on Object Lock (WORM) storage"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Layer 4",
+        "title": "Centre & applications",
+        "list": [
+         "Active-active NGFW, ZTNA for remote access, mTLS between VMS and cameras",
+         "Private PKI: offline Root CA in HSM; Issuing CA enrols LDevID via EST"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Layer 3",
+        "title": "Wide-area network",
+        "list": [
+         "WAN-MACsec AES-GCM-256 over dedicated fibre or L2 EVPN",
+         "IPsec AES-256-GCM on SD-WAN backup paths; isolated from the Internet"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Layer 2",
+        "title": "Access network",
+        "list": [
+         "802.1X EAP-TLS with device certificates; Private VLAN / port isolation",
+         "DHCP snooping, DAI, IP Source Guard; unknown devices to quarantine VLAN"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Layer 1",
+        "title": "Edge device · root of trust",
+        "list": [
+         "Secure element CC EAL6+, secure boot, anti-rollback, remote attestation",
+         "Debug locked by eFuse, encrypted flash, tamper sensor alerts to SOC"
+        ]
+       }
+      ]
+     },
+     {
+      "t": "note",
+      "text": "Each layer checks the identity issued at layer 1. Breaching one layer does not open the next. Reference: IEC 62443, ETSI EN 303 645."
+     }
+    ]
+   },
+   {
+    "id": "anti-cloning",
+    "tone": "surface",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Anti-cloning & device integrity",
+      "title": "Threats and countermeasures"
+     },
+     {
+      "t": "table",
+      "head": [
+       "Threat",
+       "Countermeasure",
+       "Standard / mechanism"
+      ],
+      "rows": [
+       [
+        "Fake or cloned camera plugged into the network",
+        "Each camera carries a factory-PKI IDevID; private key generated and stored in the secure element, non-exportable",
+        "IEEE 802.1AR, EAP-TLS (802.1X)"
+       ],
+       [
+        "Device ownership hijacked at handover",
+        "Ownership transfer by signed voucher; customer issues LDevID from its own CA",
+        "BRSKI (RFC 8995), EST (RFC 7030)"
+       ],
+       [
+        "Modified firmware",
+        "Secure boot with a chain of trust from ROM; every stage signed with ECDSA P-384 / SHA-384",
+        "Root public key fused in eFuse"
+       ],
+       [
+        "Downgrade to vulnerable firmware",
+        "Anti-rollback counter in eFuse or secure element",
+        "A/B partitions, atomic updates"
+       ],
+       [
+        "Hardware swapped on an enrolled device",
+        "Remote attestation: the camera signs boot measurements, the server verifies them",
+        "DICE (TCG), measurement reports"
+       ],
+       [
+        "Supply-chain tampering",
+        "Key injection on the production line with HSMs, logged per serial number; tamper-evident packaging",
+        "IEC 62443-4-1, ISO/IEC 20243"
+       ]
+      ]
+     },
+     {
+      "t": "sub",
+      "title": "Side-channel and physical attacks"
+     },
+     {
+      "t": "table",
+      "head": [
+       "Attack",
+       "On-chip countermeasure",
+       "Board and enclosure countermeasure"
+      ],
+      "rows": [
+       [
+        "Power / EM analysis (SPA, DPA, EMA)",
+        "Secure element CC EAL6+ with AVA_VAN.5; constant-time crypto with masking and shuffling",
+        "SE under its own metal shield; separate power filtering"
+       ],
+       [
+        "Fault injection (voltage, clock, laser, EM glitch)",
+        "Voltage, frequency and light sensors in the SE; double signature checks in boot ROM; skip-resistant control flow",
+        "On-board voltage monitoring; reset when thresholds are exceeded"
+       ],
+       [
+        "Timing attacks",
+        "Constant-time crypto library; TLS 1.3 without timing-vulnerable ciphers",
+        "Tested to ISO/IEC 17825 (TVLA)"
+       ],
+       [
+        "Debug port access (JTAG, UART, SWD)",
+        "Debug locked by eFuse; reopened only by signed per-device challenge-response",
+        "No exposed test points; SE and flash potted"
+       ],
+       [
+        "Direct flash read-out",
+        "Partition encryption (AES-256-XTS) with keys in the SE",
+        "Flash and SE placed together under a protective layer"
+       ],
+       [
+        "Opening or removing the device",
+        "Tamper sensor reports to the SE",
+        "Case switch + accelerometer: session keys erased, SOC alerted"
+       ]
+      ]
+     },
+     {
+      "t": "note",
+      "text": "Tamper response erases session keys and local data-encryption keys — not the IDevID — so a false alarm from wind or vibration never bricks a camera. The response level is configurable per site."
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "eyebrow": "Connection & application",
+        "list": [
+         "TLS 1.3 by default; TLS 1.2 with ECDHE + AES-GCM only for third-party devices; TLS 1.0 / 1.1 disabled",
+         "mTLS for management, PTZ control, metadata and RTSPS streams; OCSP stapling with CRL fallback",
+         "ECDSA P-384 PKI; roadmap to post-quantum signed firmware (ML-DSA, ML-KEM — FIPS 204 / 203) from 2028",
+         "Telnet, UPnP, cloud P2P and unencrypted protocols off by default; no default accounts or passwords (ETSI EN 303 645, 5.1)"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Insider threats",
+        "list": [
+         "PAM with FIDO2 hardware keys and four-eyes control for video export, bulk configuration and firmware updates",
+         "UEBA on the SIEM flags mass camera re-pointing, unusual exports and out-of-shift actions",
+         "Audit logs streamed to SIEM and stored on Object Lock (compliance mode)",
+         "Evidence video exported to WORM storage, digitally signed and timestamped"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Product security operations",
+        "list": [
+         "PSIRT with a public vulnerability disclosure policy and CVE assignment (CNA)",
+         "SBOM (SPDX or CycloneDX) for every firmware release, with continuous library scanning",
+         "Security patches for at least 7 years after the last batch is sold, in line with the EU CRA",
+         "Independent penetration testing every year and before every major release"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "deployment-rules",
+    "tone": "light",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Deployment design rules",
+      "title": "For city-scale and critical-infrastructure networks"
+     },
+     {
+      "t": "grid",
+      "cols": "3",
+      "items": [
+       {
+        "t": "card",
+        "title": "Encrypted unicast video",
+        "text": "No multicast across the WAN. Cameras send encrypted unicast streams (RTSPS / SRTP) to the recording cluster; operators view through the VMS proxy."
+       },
+       {
+        "t": "card",
+        "title": "Camera isolation",
+        "text": "Private VLAN or port isolation on access switches — not Layer-3 ACLs — so cameras cannot reach each other."
+       },
+       {
+        "t": "card",
+        "title": "Access-port protection",
+        "text": "DHCP snooping, Dynamic ARP Inspection, IP Source Guard and BPDU guard on every camera port."
+       },
+       {
+        "t": "card",
+        "title": "Trusted time",
+        "text": "PTP (IEEE 1588) in the core and NTS (RFC 8915) to cameras. Accurate timestamps make video admissible as evidence."
+       },
+       {
+        "t": "card",
+        "title": "Resilient paths",
+        "text": "Two independent uplinks per site: if the primary ring fails, traffic moves to SD-WAN and stays encrypted."
+       },
+       {
+        "t": "card",
+        "title": "Site power & cabinet",
+        "text": "30–60 min UPS, cabinet temperature monitoring and door sensors reported to the SIEM."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "compliance",
+    "tone": "surface",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Compliance & certification",
+      "title": "Standards we design and certify against"
+     },
+     {
+      "t": "table",
+      "head": [
+       "Standard / regulation",
+       "Scope",
+       "Status"
+      ],
+      "rows": [
+       [
+        "IEC 62443-4-1",
+        "Secure development lifecycle",
+        "Target · first, foundation for 4-2 and CRA"
+       ],
+       [
+        "IEC 62443-4-2 SL2 / SL3",
+        "Technical security requirements per component",
+        "Target · SL2 all models, SL3 Gov edition"
+       ],
+       [
+        "ETSI EN 303 645",
+        "13 IoT security provisions (EU, UK, Singapore)",
+        "Target"
+       ],
+       [
+        "EN 18031-1/-2/-3",
+        "EU RED Art. 3.3 (d)(e)(f) for radio models",
+        "Target (radio variants)"
+       ],
+       [
+        "EU Cyber Resilience Act",
+        "SBOM, vulnerability handling, incident reporting, lifetime patching",
+        "Designed in · main obligations from 12/2027"
+       ],
+       [
+        "NIS 2 (Directive (EU) 2022/2555)",
+        "Operator obligations; Art. 21 supply-chain security",
+        "Supported for EU customers"
+       ],
+       [
+        "NDAA §889",
+        "No components from designated vendors",
+        "Target · component-level origin control"
+       ],
+       [
+        "FIPS 140-3",
+        "Cryptographic module",
+        "Via certified secure element"
+       ],
+       [
+        "UL 2900-2-3",
+        "Cybersecurity for physical security devices (North America)",
+        "Target"
+       ],
+       [
+        "ONVIF Profile S / G / T / M",
+        "VMS interoperability",
+        "Target"
+       ],
+       [
+        "IEC 60529 / IEC 62262 / IEC 60068",
+        "IP66/67, IK10, vibration and temperature",
+        "Target"
+       ],
+       [
+        "CE / FCC / UKCA / RCM / KC",
+        "EMC, electrical safety, radio",
+        "Target"
+       ]
+      ]
+     },
+     {
+      "t": "grid",
+      "cols": "2",
+      "items": [
+       {
+        "t": "card",
+        "eyebrow": "Vietnam legal basis",
+        "list": [
+         "Law on Cybersecurity 2018 and Law on Network Information Security 2015",
+         "Information-system security by level (Decree 85/2016/ND-CP and successor texts); city camera systems are typically level 3–4",
+         "TCVN 11930:2017 — baseline requirements by security level",
+         "Law on Bidding 2023 — functional criteria, not brand names",
+         "National technical regulation for IP surveillance cameras — check the version in force"
+        ]
+       },
+       {
+        "t": "card",
+        "eyebrow": "Why it matters",
+        "text": "Supply-chain sovereignty is now a pass/fail criterion in government tenders, and the EU RED Delegated Act, CRA and NIS 2 make cybersecurity a condition of sale. The SAVIS AI camera line is designed to these rules from the first line of code."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "sovereign-delivery",
+    "tone": "light",
+    "blocks": [
+     {
+      "t": "head",
+      "eyebrow": "Sovereign delivery",
+      "title": "Four levels of openness — including source code"
+     },
+     {
+      "t": "grid",
+      "cols": "4",
+      "items": [
+       {
+        "t": "card",
+        "title": "Level 1 · Standard",
+        "text": "Signed firmware, full API and SDK, SBOM and penetration-test report."
+       },
+       {
+        "t": "card",
+        "title": "Level 2 · Custom",
+        "text": "Features on request; SAVIS develops and maintains a dedicated firmware branch."
+       },
+       {
+        "t": "card",
+        "title": "Level 3 · Source-code escrow",
+        "text": "Source code held by an independent escrow agent and released to the customer if support ends."
+       },
+       {
+        "t": "card",
+        "title": "Level 4 · Technology transfer",
+        "text": "Source of SAVIS-developed software, build environment, signing process and training. The customer holds the firmware signing keys.",
+        "list": [
+         "Reproducible builds let customers verify that the binary matches the delivered source. Level 4 is designed for government and defence customers."
+        ]
+       }
+      ]
      }
     ]
    },

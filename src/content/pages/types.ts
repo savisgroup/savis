@@ -23,6 +23,7 @@ export type Block =
   | { t: "timeline"; items: { year: string; text: string }[] }
   | { t: "text"; text: string }
   | { t: "note"; text: string }
+  | { t: "table"; head: string[]; rows: string[][] }
   | { t: "layers"; items: { label: string; items: string[] }[] }
   | { t: "link"; label: string; href: string | null }
   | { t: "split"; eyebrow?: string; title: string; lead?: string; cards: Card[] }
