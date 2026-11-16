@@ -49,7 +49,7 @@ function Identity() {
         <rect x="16" y="92" width="30" height="22" rx="5" fill="none" stroke={CYAN} strokeOpacity="0.6" />
         <rect x="58" y="98" width="120" height="5" rx="2.5" fill="#fff" fillOpacity="0.22" />
         <rect x="58" y="108" width="100" height="5" rx="2.5" fill="#fff" fillOpacity="0.22" />
-        <rect className="sc-scan" x="-4" y="0" width="204" height="30" fill={`url(#identity-scanline)`} clipPath="url(#identity-card-clip)" />
+        <g clipPath="url(#identity-card-clip)"><rect className="sc-scan" x="0" y="0" width="196" height="30" fill="url(#identity-scanline)" /></g>
       </g>
       <path className="sc-flow" d="M246 150H276" stroke={CYAN} strokeWidth="2" strokeLinecap="round" fill="none" />
       <g transform="translate(322 158)">
