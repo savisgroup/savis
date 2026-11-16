@@ -222,3 +222,12 @@ body {
 .map-travel { offset-rotate: 0deg; animation: map-travel 3.2s ease-in-out infinite; filter: drop-shadow(0 0 4px #6fe3ff); }
 .presence-map .map-travel { animation-play-state: paused; }
 .presence-map[data-active="true"] .map-travel { animation-play-state: running; }
+
+@keyframes sc-twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 1; } }
+@keyframes sc-travel { 0% { offset-distance: 0%; opacity: 0; } 10%, 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes sc-layer { 0%, 100% { stroke-opacity: 0.3; } 50% { stroke-opacity: 1; } }
+@keyframes sc-line { 0%, 100% { fill-opacity: 0.18; } 40%, 60% { fill-opacity: 0.95; } }
+.sc-twinkle { animation: sc-twinkle 3.3s ease-in-out infinite; }
+.sc-travel { offset-rotate: 0deg; opacity: 0; animation: sc-travel 2.6s ease-in-out infinite; filter: drop-shadow(0 0 3px #6fe3ff); }
+.sc-layer { animation: sc-layer 3s ease-in-out infinite; }
+.sc-line { animation: sc-line 3.6s ease-in-out infinite; }

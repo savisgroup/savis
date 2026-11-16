@@ -1,4 +1,3 @@
-import { PillarImage } from "./PillarImage";
 import { PillarScene } from "./PillarScene";
 import { Database, Fingerprint, Landmark, ShieldCheck, WalletCards, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -34,7 +33,7 @@ export function Pillars({ content, pillars }: Props) {
       <div className="container-x flex flex-col gap-24 pb-[88px] pt-10">
         {pillars.map((p, i) => (
           <div key={p.id} id={`pillar-${p.id}`} className="group/pillar grid items-center gap-7 min-[860px]:grid-cols-2 min-[860px]:gap-16">
-            <PillarMedia id={p.id} name={p.name} flip={i % 2 === 1} />
+            <PillarMedia id={p.id} flip={i % 2 === 1} />
             {/* Chữ hiện sau ảnh một nhịp. */}
             <Reveal delay={0.15} className="flex min-w-0 flex-col gap-4">
               <h3 className="text-[clamp(26px,2.6vw,36px)] font-bold leading-[1.12] tracking-[-0.02em]">{p.name}</h3>
@@ -48,30 +47,7 @@ export function Pillars({ content, pillars }: Props) {
   );
 }
 
-// Ảnh minh hoạ trụ cột: ảnh Unsplash (Unsplash License, dùng thương mại miễn phí, không bắt buộc ghi nguồn),
-// đã kiểm tra không có logo thương hiệu nổi bật. Thay bằng ảnh sản phẩm thật khi có. Nguồn từng ảnh:
-// (identity và cyber dùng cảnh SVG PillarScene thay ảnh stock.)
-// - gov:      Andre Benz,       unsplash.com/photos/WsxKHqrdibY
-// - finance:  Atlantic Money,   unsplash.com/photos/9XrefmwkHCs
-// - data:     jonakoh,          unsplash.com/photos/r5lbaK3fDaM
-const pillarImages: Partial<Record<PillarId, string>> = {
-  gov: "/images/pillars/gov.jpg",
-  finance: "/images/pillars/finance.jpg",
-  data: "/images/pillars/data.jpg",
-};
-
-// Ảnh mang tính trang trí (tên trụ cột đã có ở tiêu đề bên cạnh) nên alt rỗng. Chuyển động nằm trong PillarImage.
-// Trụ cột chưa có ảnh (data) dùng khung navy với hai vòng tròn và tên trụ cột như mockup, không ghi nhãn placeholder.
-function PillarMedia({ id, name, flip }: { id: PillarId; name: string; flip: boolean }) {
-  const src = pillarImages[id];
-  const order = flip ? "min-[860px]:order-2" : "";
-  if (id === "identity" || id === "cyber") return <PillarScene kind={id} className={order} />;
-  if (src) return <PillarImage src={src} className={order} />;
-  return (
-    <div aria-hidden className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-[radial-gradient(circle_at_70%_30%,#13306f_0%,var(--band)_45%,var(--band-2)_100%)] ${order}`}>
-      <div className="absolute inset-[14%] rounded-full border border-on-band-accent/20" />
-      <div className="absolute inset-[28%] rounded-full border border-on-band-accent/30" />
-      <span className="relative p-6 text-center font-display text-[22px] font-bold leading-7 text-on-band">{name}</span>
-    </div>
-  );
+// Minh hoạ mỗi trụ cột là một cảnh SVG động (PillarScene), trang trí nên không có alt; tên trụ cột đã ở tiêu đề bên cạnh.
+function PillarMedia({ id, flip }: { id: PillarId; flip: boolean }) {
+  return <PillarScene kind={id} className={flip ? "min-[860px]:order-2" : ""} />;
 }
