@@ -187,11 +187,13 @@ function Finance() {
   );
 }
 
-// Cảnh Dữ liệu và AI: tài liệu được số hoá (OCR sáng từng dòng) chảy vào kho dữ liệu nhiều tầng, kết quả đẩy ra nền tảng đám mây.
+// Cảnh Dữ liệu và AI: tài liệu được số hoá (OCR sáng từng dòng) chảy vào kho dữ liệu, các tầng sáng lần lượt khi xử lý, rồi kết quả
+// đi ra đám mây và ba nút phân tích bên dưới (điểm sáng chạy theo hướng dữ liệu, nút nhận xung khi điểm sáng tới).
 function Data() {
   const inPath = "M108 128H152";
   const outPath = "M248 128H292";
-  const ys = [110, 144, 178];
+  const dividers = [146, 182]; // hai mép tầng giữa nắp (110) và đáy (218), cách đều 36
+  const outs = [[96, 250], [200, 270], [304, 250]];
   return (
     <>
       <g transform="translate(42 86)">
@@ -204,11 +206,11 @@ function Data() {
       <path className="sc-flow" d={inPath} fill="none" stroke={CYAN} strokeOpacity="0.7" strokeWidth="1.8" strokeLinecap="round" />
       <circle className="sc-travel" r="3.6" fill="#fff" style={{ offsetPath: `path("${inPath}")` }} />
       <g>
-        <rect x="154" y="110" width="92" height="106" fill="#0b2a66" />
-        <line x1="154" y1="110" x2="154" y2="216" stroke={CYAN} strokeOpacity="0.6" />
-        <line x1="246" y1="110" x2="246" y2="216" stroke={CYAN} strokeOpacity="0.6" />
-        {ys.map((y, i) => <path key={y} className="sc-layer" d={`M154 ${y + 34}a46 12 0 0 0 92 0`} fill="none" stroke={CYAN} strokeWidth="2" style={{ animationDelay: `${i * 0.7}s` }} />)}
-        <path d="M154 216a46 12 0 0 0 92 0" fill="none" stroke={CYAN} strokeWidth="2" strokeOpacity="0.7" />
+        <rect x="154" y="110" width="92" height="108" fill="#0b2a66" />
+        <line x1="154" y1="110" x2="154" y2="218" stroke={CYAN} strokeOpacity="0.6" />
+        <line x1="246" y1="110" x2="246" y2="218" stroke={CYAN} strokeOpacity="0.6" />
+        {dividers.map((y, i) => <path key={y} className="sc-layer" d={`M154 ${y}a46 12 0 0 0 92 0`} fill="none" stroke={CYAN} strokeWidth="2" style={{ animationDelay: `${0.4 + i * 0.5}s` }} />)}
+        <path d="M154 218a46 12 0 0 0 92 0" fill="none" stroke={CYAN} strokeWidth="2" />
         <ellipse cx="200" cy="110" rx="46" ry="12" fill="#13306f" stroke={CYAN} strokeWidth="2" />
         <ellipse className="sc-glow" cx="200" cy="110" rx="20" ry="4.5" fill={CYAN} fillOpacity="0.5" />
       </g>
@@ -219,13 +221,17 @@ function Data() {
         <circle className="sc-ping" cx="28" cy="32" r="6" fill="none" stroke={CYAN} strokeWidth="1.5" />
         <circle cx="28" cy="32" r="3.2" fill={CYAN} />
       </g>
-      {[[96, 246], [200, 266], [304, 246]].map(([x, y], i) => (
-        <g key={i}>
-          <line x1="200" y1="216" x2={x} y2={y} stroke={CYAN} strokeOpacity="0.25" />
-          <circle className="sc-ping" cx={x} cy={y} r="6" fill="none" stroke={CYAN} strokeWidth="1.4" style={{ animationDelay: `${i * 0.9}s` }} />
-          <circle cx={x} cy={y} r="5" fill={CYAN} fillOpacity="0.85" />
-        </g>
-      ))}
+      {outs.map(([x, y], i) => {
+        const d = `M200 230L${x} ${y}`;
+        return (
+          <g key={i}>
+            <path className="sc-flow" d={d} fill="none" stroke={CYAN} strokeOpacity="0.5" strokeWidth="1.4" strokeLinecap="round" />
+            <circle className="sc-travel" r="3" fill="#fff" style={{ offsetPath: `path("${d}")`, animationDelay: `${1.3 + i * 0.4}s` }} />
+            <circle className="sc-ping" cx={x} cy={y} r="6" fill="none" stroke={CYAN} strokeWidth="1.4" style={{ animationDelay: `${1.3 + i * 0.4 + 2.2}s` }} />
+            <circle cx={x} cy={y} r="5" fill={CYAN} fillOpacity="0.9" />
+          </g>
+        );
+      })}
     </>
   );
 }
