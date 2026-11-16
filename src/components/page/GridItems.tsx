@@ -1,21 +1,26 @@
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { Card, GridItem, Office, Step } from "@/content/pages/types";
+import type { Locale } from "@/lib/i18n";
 
 // Thẻ trong lưới trang cấp 2. Thiết kế đặt mọi thẻ là liên kết tới trang cấp 3 (chưa thiết kế), nên thẻ hiện là khối thường,
 // không có "Learn more →" và không hover như link, để không dẫn vào 404.
 
 const badgeTone = { new: "bg-[#e3f8ec] text-[#0b6b3a]", default: "bg-chip text-chip-ink", tbc: "bg-[#fff2d9] text-[#8a5200]" } as const;
 
-export function GridItemView({ item }: { item: GridItem }) {
-  if (item.t === "card") return <CardView card={item} />;
+export function GridItemView({ item, locale }: { item: GridItem; locale: Locale }) {
+  if (item.t === "card") return <CardView card={item} locale={locale} />;
   if (item.t === "step") return <StepView step={item} />;
   return <OfficeView office={item} />;
 }
 
-export function CardView({ card, className }: { card: Card; className?: string }) {
+export function CardView({ card, locale, className }: { card: Card; locale: Locale; className?: string }) {
   const dark = card.dark;
+  // Thẻ có href (sản phẩm liên quan, thẻ pillar) là link cả khối; thẻ có thêm `more` thì chỉ dòng `more` là link.
+  const wholeLink = card.href && !card.more;
+  const cls = cn("flex min-w-0 flex-col gap-2.5 rounded-lg border p-6", dark ? "border-white/20 bg-white/5 text-on-band" : "border-line bg-raised text-ink", wholeLink && "transition-colors hover:border-brand", className);
   return (
-    <div className={cn("flex min-w-0 flex-col gap-2.5 rounded-lg border p-6", dark ? "border-white/20 bg-white/5 text-on-band" : "border-line bg-raised text-ink", className)}>
+    <CardRoot href={wholeLink ? `/${locale}${card.href}` : undefined} className={cls}>
       {card.badges?.map((b) => (
         <span key={b.text} className={cn("self-start rounded-full px-[9px] py-[3px] text-[11px] font-semibold uppercase leading-4 tracking-[0.04em]", badgeTone[b.tone])}>{b.text}</span>
       ))}
@@ -28,8 +33,13 @@ export function CardView({ card, className }: { card: Card; className?: string }
         </ul>
       )}
       {card.chain && <Chain steps={card.chain} />}
-    </div>
+      {card.more && card.href && <Link href={`/${locale}${card.href}`} className="mt-auto font-semibold text-brand hover:underline">{card.more} →</Link>}
+    </CardRoot>
   );
+}
+
+function CardRoot({ href, className, children }: { href?: string; className: string; children: React.ReactNode }) {
+  return href ? <Link href={href} className={className}>{children}</Link> : <div className={className}>{children}</div>;
 }
 
 function Chain({ steps }: { steps: string[] }) {
