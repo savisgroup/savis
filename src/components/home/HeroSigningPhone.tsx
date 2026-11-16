@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Check, Fingerprint, ScanFace, ShieldCheck } from "lucide-react";
 import type { HomeContent } from "@/content/home";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 import { cn } from "@/lib/utils";
 
 type Hero = HomeContent["hero"];
@@ -21,15 +22,6 @@ const stepAt = (elapsed: number) => {
   }
   return LAST;
 };
-const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
-
-// Giá trị prefers-reduced-motion theo dõi được; phía server luôn false (bước đầu), client cập nhật sau hydration.
-const subscribeReduced = (cb: () => void) => {
-  const mq = window.matchMedia(REDUCED_MOTION);
-  mq.addEventListener("change", cb);
-  return () => mq.removeEventListener("change", cb);
-};
-const getReduced = () => window.matchMedia(REDUCED_MOTION).matches;
 
 // Dừng khi phần tử ra khỏi khung nhìn hoặc tab bị ẩn. Giảm chuyển động: không lặp, hiện trạng thái đã ký xong.
 export function HeroSigningPhone({ c }: { c: Hero }) {
@@ -37,7 +29,7 @@ export function HeroSigningPhone({ c }: { c: Hero }) {
   const ref = useRef<HTMLDivElement>(null);
   const [step, setStep] = useState(0);
   const [visible, setVisible] = useState(true);
-  const reduced = useSyncExternalStore(subscribeReduced, getReduced, () => false);
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     const el = ref.current;

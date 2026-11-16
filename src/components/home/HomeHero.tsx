@@ -6,6 +6,7 @@ import type { HomeContent } from "@/content/home";
 import { CountUp } from "./CountUp";
 import { HeroCarousel } from "./HeroCarousel";
 import { HeroSigningPhone } from "./HeroSigningPhone";
+import { TypedKeywords } from "./TypedKeywords";
 
 type Hero = HomeContent["hero"];
 type Props = { locale: string; content: Hero; stats: HomeContent["stats"] };
@@ -29,11 +30,7 @@ export function HomeHero({ locale, content: c, stats }: Props) {
       <div className={`hero-copy ${copyClass}`}>
         <span className="eyebrow">{c.eyebrow}</span>
         <h1 className={titleClass}>{c.main.title}</h1>
-        <ul aria-label={c.keywords.label} className="flex flex-wrap gap-2">
-          {c.keywords.items.map((k, i) => (
-            <li key={k} style={{ "--i": i } as React.CSSProperties} className="hero-kw relative rounded-full border border-white/20 bg-white/5 px-3.5 py-1.5 text-sm font-semibold leading-5 text-on-band">{k}</li>
-          ))}
-        </ul>
+        <TypedKeywords label={c.keywords.label} items={c.keywords.items} />
         {cta}
       </div>
       <HeroSigningPhone c={c} />
