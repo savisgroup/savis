@@ -178,3 +178,42 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-copy > *, .hero-stat, .hero-phone, .hero-float-a, .hero-float-b, .hero-bar { animation: none; }
 }
+
+/* Trang chủ, gói chuyển động nhận diện ngành: quét CCCD và vòng sinh trắc trên điện thoại, từ khóa ngành sáng lần lượt,
+   huy hiệu chứng nhận hiện dần, bản đồ văn phòng, cảnh SVG cho trụ cột Định danh và Cybersecurity.
+   Vòng lặp chỉ chạy khi phần tử trong khung nhìn (InView đặt data-active). Giảm chuyển động: khối reduced-motion ở trên tắt hết animation,
+   mọi phần tử đều có trạng thái tĩnh hoàn chỉnh. */
+@keyframes hero-scan { from { transform: translateY(-20px); } to { transform: translateY(68px); } }
+@keyframes hero-ring { from { transform: scale(0.8); opacity: 0.9; } to { transform: scale(1.45); opacity: 0; } }
+@keyframes hero-kw { 0% { opacity: 0; } 3%, 22% { opacity: 1; } 28%, 100% { opacity: 0; } }
+@keyframes hero-cert { from { opacity: 0; transform: translateY(8px) scale(0.9); } to { opacity: 1; transform: none; } }
+.hero-scan { animation: hero-scan 1.5s ease-in-out infinite alternate; }
+.hero-ring { animation: hero-ring 1.4s ease-out infinite; }
+.hero-kw::after { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1px solid rgb(111 227 255 / 0.85); background: rgb(111 227 255 / 0.16); opacity: 0; animation: hero-kw 10s linear infinite; animation-delay: calc(var(--i) * 2.5s); pointer-events: none; }
+.hero-cert { animation: hero-cert 600ms var(--ease-out) both; animation-delay: calc(1.1s + var(--i) * 140ms); }
+
+@keyframes map-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes map-ping { from { transform: scale(1); opacity: 0.9; } to { transform: scale(4.2); opacity: 0; } }
+.map-arc { stroke-dasharray: 1; animation: map-draw 1.6s var(--ease-out) both; }
+.map-ping { transform-box: fill-box; transform-origin: center; animation: map-ping 2.8s ease-out infinite; }
+.presence-map .map-arc, .presence-map .map-ping { animation-play-state: paused; }
+.presence-map[data-active="true"] .map-arc, .presence-map[data-active="true"] .map-ping { animation-play-state: running; }
+
+@keyframes sc-scan { from { transform: translateY(-30px); } to { transform: translateY(128px); } }
+@keyframes sc-draw { 0% { stroke-dashoffset: 1; } 35%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 1; } }
+@keyframes sc-pop { 0%, 38% { transform: scale(0); opacity: 0; } 48% { transform: scale(1.18); opacity: 1; } 56%, 86% { transform: scale(1); opacity: 1; } 100% { transform: scale(0); opacity: 0; } }
+@keyframes sc-flow { to { stroke-dashoffset: -9; } }
+@keyframes sc-spin { to { transform: rotate(360deg); } }
+@keyframes sc-ping { from { transform: scale(1); opacity: 0.6; } to { transform: scale(3.2); opacity: 0; } }
+@keyframes sc-glow { 0%, 100% { stroke-opacity: 0.55; } 50% { stroke-opacity: 1; } }
+.sc-scan { animation: sc-scan 3.4s ease-in-out infinite alternate; }
+.sc-draw { stroke-dasharray: 1; animation: sc-draw 3.6s ease-in-out infinite; }
+.sc-pop { transform-box: fill-box; transform-origin: center; animation: sc-pop 3.6s ease-out infinite; }
+.sc-flow { stroke-dasharray: 3 6; animation: sc-flow 1s linear infinite; }
+.sc-orbit, .sc-orbit-rev { transform-origin: 200px 150px; }
+.sc-orbit { animation: sc-spin 26s linear infinite; }
+.sc-orbit-rev { animation: sc-spin 38s linear infinite reverse; }
+.sc-ping { transform-box: fill-box; transform-origin: center; animation: sc-ping 2.8s ease-out infinite; }
+.sc-glow { animation: sc-glow 3s ease-in-out infinite; }
+.scene [class*="sc-"] { animation-play-state: paused; }
+.scene[data-active="true"] [class*="sc-"] { animation-play-state: running; }

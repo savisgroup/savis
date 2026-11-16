@@ -23,7 +23,11 @@ export type HomeContent = {
     main: { title: string };
     egov: { title: string; accent: string; sub: string; chip: string; visualTitle: string };
     trustca: { title: string; accent: string; lead: string; sub: string; chips: string[]; visualLines: string[] };
-    phone: { title: string; badge: string; file: string; pages: string; kyc: string; kycMethod: string; hint: string; action: string };
+    phone: { title: string; badge: string; file: string; pages: string; kyc: string; kycMethod: string; hint: string; action: string; scan: string; done: string; signed: string };
+    /** Từ khóa ngành, hiện dưới tiêu đề hero và sáng lần lượt. */
+    keywords: { label: string; items: string[] };
+    /** Tiêu chuẩn và chứng nhận ở dải số liệu: eIDAS 2.0, NIS2 (hero TrustCA) và ISO (footer). */
+    credentials: { label: string; items: string[] };
     floatA: { title: string; sub: string };
     floatB: { title: string; sub: string };
   };
@@ -50,7 +54,9 @@ const en: HomeContent = {
       sub: "SAVIS reaffirms its pioneering role in delivering digital trust services in Vietnam",
       chips: ["eIDAS 2.0", "NIS2"], visualLines: ["TrustCA Remote Signing", "TrustCA Timestamp"],
     },
-    phone: { title: "Sign document", badge: "TrustCA", file: "Document.pdf", pages: "3 pages", kyc: "Smart eKYC", kycMethod: "Face + ID", hint: "Confirm with your fingerprint", action: "Sign with legal effect" },
+    phone: { title: "Sign document", badge: "TrustCA", file: "Document.pdf", pages: "3 pages", kyc: "Smart eKYC", kycMethod: "Face + ID", hint: "Confirm with your fingerprint", action: "Sign with legal effect", scan: "Scan your ID card", done: "Document signed", signed: "Signed with legal effect" },
+    keywords: { label: "What SAVIS does", items: ["Digital identity", "Digital signatures", "Cybersecurity", "PKI & trust services"] },
+    credentials: { label: "Standards & certifications", items: ["eIDAS 2.0", "NIS2", "ISO/IEC 27001", "ISO 9001", "ISO 14001"] },
     floatA: { title: "Identity verified", sub: "Smart eKYC: document and face" },
     floatB: { title: "Certificate valid", sub: "Remote Signing and Timestamp" },
   },
@@ -99,7 +105,9 @@ const vi: HomeContent = {
       sub: "SAVIS khẳng định vai trò tiên phong trong cung cấp dịch vụ tin cậy số tại Việt Nam",
       chips: en.hero.trustca.chips, visualLines: en.hero.trustca.visualLines,
     },
-    phone: { title: "Ký tài liệu", badge: "TrustCA", file: "Document.pdf", pages: "3 trang", kyc: "Smart eKYC", kycMethod: "Khuôn mặt + CCCD", hint: "Xác nhận bằng vân tay", action: "Ký có giá trị pháp lý" },
+    phone: { title: "Ký tài liệu", badge: "TrustCA", file: "Document.pdf", pages: "3 trang", kyc: "Smart eKYC", kycMethod: "Khuôn mặt + CCCD", hint: "Xác nhận bằng vân tay", action: "Ký có giá trị pháp lý", scan: "Quét CCCD", done: "Đã ký tài liệu", signed: "Đã ký có giá trị pháp lý" },
+    keywords: { label: "SAVIS làm gì", items: ["Định danh số", "Chữ ký số", "An ninh mạng", "PKI & dịch vụ tin cậy"] },
+    credentials: { label: "Tiêu chuẩn & chứng nhận", items: en.hero.credentials.items },
     floatA: { title: "Đã xác minh danh tính", sub: "Smart eKYC: giấy tờ và khuôn mặt" },
     floatB: { title: "Chứng thư hợp lệ", sub: "Ký từ xa và dấu thời gian" },
   },
