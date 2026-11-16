@@ -27,24 +27,98 @@ RED = re.compile(r'<w:color w:val="(FF0000|C00000|[DE][0-9A-F]0000)"')
 STRIKE = re.compile(r"<w:strike[^>]*>")
 
 
-def docx_lines(path):
-    xml = zipfile.ZipFile(path).read("word/document.xml").decode("utf-8")
-    out = []
-    for para in re.findall(r"<w:p[ >].*?</w:p>", xml, flags=re.S):
-        text = ""
-        for run in re.findall(r"<w:r[ >].*?</w:r>", para, flags=re.S):
-            t = "".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", run, flags=re.S))
-            if not t:
-                continue
-            st = STRIKE.search(run)
-            struck = bool(st) and 'w:val="0"' not in st.group(0)
-            if struck or RED.search(run):
-                continue
-            text += t
-        text = re.sub(r"\s+", " ", text.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")).strip()
-        if text:
-            out.append(text)
+def load_xml(path):
+    return zipfile.ZipFile(path).read("word/document.xml").decode("utf-8")
+
+
+def para_text(para):
+    """Văn bản của một đoạn, bỏ phần gạch ngang hoặc màu đỏ (nội dung đã xóa)."""
+    text = ""
+    para = re.sub(r"<w:br[ />][^>]*>|<w:br/>", "<w:t> </w:t>", para)  # xuống dòng mềm trong đoạn = dấu cách
+    for run in re.findall(r"<w:r[ >].*?</w:r>", para, flags=re.S):
+        t = "".join(re.findall(r"<w:t[^>]*>(.*?)</w:t>", run, flags=re.S))
+        if not t:
+            continue
+        st = STRIKE.search(run)
+        struck = bool(st) and 'w:val="0"' not in st.group(0)
+        if struck or RED.search(run):
+            continue
+        text += t
+    return re.sub(r"\s+", " ", text.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")).strip()
+
+
+def docx_lines(xml):
+    return [t for t in (para_text(p) for p in re.findall(r"<w:p[ >].*?</w:p>", xml, flags=re.S)) if t]
+
+
+# Một số trang có bảng dữ liệu thật (thông số, so sánh): docx_lines làm phẳng chúng nên đọc riêng theo cấu trúc bảng.
+EVENT = re.compile(r"<w:tbl>|</w:tbl>|<w:tr[ >]|</w:tr>|<w:tc>|</w:tc>|<w:p[ >].*?</w:p>", re.S)
+
+
+def page_events(xml, url):
+    i = xml.rindex(">" + url + "<")  # lần xuất hiện cuối cùng: khối nội dung (lần đầu nằm trong bảng sitemap)
+    j = xml.index(">Mã trang<", i)
+    ev = []
+    for m in EVENT.finditer(xml[i:j]):
+        t = m.group(0)
+        if t.startswith("<w:p"):
+            txt = para_text(t)
+            if txt:
+                ev.append(("p", txt))
+        else:
+            ev.append((t.strip("<>/ ").split(" ")[0].replace("w:", "") + ("" if not t.startswith("</") else "/"),))
+    return ev
+
+
+def data_tables(ev):
+    """Bảng dữ liệu (>= 3 hàng và >= 3 cột) ở độ sâu 1: [{at, end, rows}]. Thẻ là bảng một ô nên không tính."""
+    out, depth, cur, row, cell = [], 0, None, None, None
+    for idx, e in enumerate(ev):
+        k = e[0]
+        if k == "tbl":
+            depth += 1
+            if depth == 1:
+                cur = {"at": idx, "rows": []}
+        elif k == "tbl/":
+            if depth == 0:
+                continue  # đóng bảng chứa dòng URL (đoạn cắt bắt đầu giữa bảng)
+            if depth == 1 and cur:
+                cur["end"] = idx
+                if len(cur["rows"]) >= 3 and max(len(r) for r in cur["rows"]) >= 3:
+                    out.append(cur)
+                cur = None
+            depth -= 1
+        elif depth == 1 and cur is not None:
+            if k == "tr":
+                row = []
+                cur["rows"].append(row)
+            elif k == "tc":
+                cell = []
+                row.append(cell)
+            elif k == "p" and cell is not None:
+                cell.append(e[1])
+    for t in out:
+        t["rows"] = [[" ".join(c) for c in r] for r in t["rows"]]
     return out
+
+
+def lines_with_tables(xml, url):
+    """Giống khối dòng của page_blocks nhưng mỗi bảng dữ liệu thay bằng một dòng '@@TABLE:n'; trả về (dòng, danh sách bảng)."""
+    ev = page_events(xml, url)
+    tabs = data_tables(ev)
+    lines, skip_until, n = ["URL", url], -1, 0
+    starts = {t["at"]: i for i, t in enumerate(tabs)}
+    for idx, e in enumerate(ev):
+        if idx in starts:
+            lines.append(f"@@TABLE:{starts[idx]}")
+            skip_until = tabs[starts[idx]]["end"]
+        if idx <= skip_until:
+            continue
+        if e[0] == "p":
+            lines.append(e[1])
+    if re.match(r"^\d+\. ", lines[-1]):
+        lines = lines[:-1]
+    return lines, [t["rows"] for t in tabs]
 
 
 MARK = re.compile(r"^\[(Eyebrow|H1[^\]]*|H2|H3|Nút|Thẻ / Card)\]\s*(.*)$")
@@ -54,6 +128,9 @@ LABEL = re.compile(r"\s*[·—-]?\s*\b(to confirm|to be confirmed)\b\.?", re.I)
 def tokens(lines):
     out = []
     for ln in lines:
+        if ln.startswith("@@TABLE:"):
+            out.append(("table", int(ln.split(":")[1])))
+            continue
         m = MARK.match(ln)
         if not m:
             out.append(("line", ln))
@@ -203,10 +280,128 @@ def parse_hero(sec, path):
     return {"eyebrow": sec["name"], "title": h1, "lead": lead, "buttons": btns}
 
 
-# Các khối kỹ thuật dài riêng của trang AI Camera Security (bảng thông số, kiến trúc bảo mật...): bảng bị docx làm phẳng nên
-# chưa dựng; trang vẫn có đủ khối chuẩn (overview, how it works, kiến trúc logic, use cases, triển khai, ngành, liên quan).
+# Các khối kỹ thuật dài riêng của trang AI Camera Security (thông số, thiết kế, kiến trúc bảo mật, tuân thủ...): đọc ở parse_longform,
+# bảng dữ liệu lấy theo cấu trúc bảng thật của docx (lines_with_tables).
 LONGFORM = {"Product family", "Technical specifications", "Industrial design", "Security architecture", "Anti-cloning & device integrity",
             "Deployment design rules", "Compliance & certification", "Why it matters", "Sovereign delivery"}
+
+
+def table_block(i, path):
+    rows = TABLES[i]
+    head = [re.sub(r"^(SX-[A-Z][0-9]+)(?=\S)", lambda m: m.group(1) + " ", c) for c in rows[0]]  # mã model và tên model là hai run liền nhau trong docx
+    return {"t": "table", "head": head, "rows": rows[1:]}
+
+
+def card_of(c, kind):
+    """Thẻ có tiêu đề (h3) hoặc eyebrow, các dòng còn lại: dòng đầu là mô tả khi kind == 'text', ngược lại là danh sách."""
+    d = {"t": "card"}
+    lines = []
+    for k, v in c:
+        if k == "eyebrow":
+            d["eyebrow"] = v
+        elif k == "h3":
+            d["title"] = v
+        elif k == "line":
+            lines.append(v)
+    if kind == "text":
+        d["text"] = lines[0]
+        if lines[1:]:
+            d["list"] = lines[1:]
+    else:
+        d["list"] = lines
+    return d
+
+
+def parse_longform(secs, path):
+    """Các khối kỹ thuật dài của trang AI Camera Security, theo thứ tự trong docx. Trả về danh sách section {id, blocks}."""
+    by = {x["name"]: x for x in secs}
+    out = []
+
+    def lines_of(sec):
+        return [v for k, v in sec["tok"] if k == "line"]
+
+    # Product family: 5 model (mỗi model là một section có eyebrow là mã) + 3 phiên bản (thẻ)
+    pf = by["Product family"]
+    title, tag, lead = lines_of(pf)[:3]
+    models, editions = [], []
+    for x in secs:
+        if x["name"].startswith("SX-"):
+            head, cards = cards_of(x["tok"], path)
+            ls = [v for k, v in head if k == "line"]
+            models.append({"t": "card", "eyebrow": x["name"], "title": [v for k, v in head if k == "h3"][0], "text": ls[0], "list": ls[1:]})
+            editions += [card_of(c, "text") for c in cards]
+    out.append({"id": "product-family", "blocks": [
+        {"t": "head", "eyebrow": "Product family", "title": title, "lead": lead}, {"t": "note", "text": tag},
+        {"t": "grid", "cols": "3", "items": models}, {"t": "sub", "title": "Editions"}, {"t": "grid", "cols": "3", "items": editions}]})
+
+    # Technical specifications
+    ts = by["Technical specifications"]
+    ls = lines_of(ts)
+    ti = next(v for k, v in ts["tok"] if k == "table")
+    out.append({"id": "specifications", "blocks": [{"t": "head", "eyebrow": "Technical specifications", "title": ls[0]}, table_block(ti, path), {"t": "note", "text": ls[1]}]})
+
+    # Industrial design: gạch đầu dòng "Housing: ..." + thẻ lõi chung + bảng cơ khí
+    idg = by["Industrial design"]
+    head, cards = cards_of(idg["tok"], path)
+    hl = [v for k, v in head if k == "line"]
+    traits = []
+    for ln in hl[1:]:
+        name, _, rest = ln.partition(": ")
+        traits.append({"t": "card", "title": name, "text": rest[:1].upper() + rest[1:]})
+    core = cards[0]
+    cl = [v for k, v in core if k == "line"]
+    core_card = {"t": "card", "eyebrow": [v for k, v in core if k == "eyebrow"][0], "text": cl[0], "list": cl[1:-1]}
+    tabs = [v for k, v in idg["tok"] if k == "table"]
+    out.append({"id": "design", "blocks": [
+        {"t": "head", "eyebrow": "Industrial design", "title": hl[0]}, {"t": "grid", "cols": "3", "items": traits},
+        {"t": "grid", "cols": "2", "items": [core_card]}, {"t": "note", "text": cl[-1]},
+        {"t": "sub", "title": next(v for k, v in idg["tok"] if k == "h3")}, table_block(tabs[0], path),
+        {"t": "note", "text": hl[-1]}]})
+
+    # Security architecture: 5 lớp bảo vệ
+    sa = by["Security architecture"]
+    ls = lines_of(sa)
+    layers = []
+    for i, ln in enumerate(ls):
+        if ln.startswith("LAYER "):
+            num, _, name = ln.partition(" | ")
+            layers.append({"t": "card", "eyebrow": num.title(), "title": name, "list": split_pipe(ls[i + 1])})
+    out.append({"id": "security-architecture", "blocks": [
+        {"t": "head", "eyebrow": "Security architecture", "title": ls[0], "lead": ls[1]}, {"t": "grid", "cols": "3", "items": layers}, {"t": "note", "text": ls[-1]}]})
+
+    # Anti-cloning: 2 bảng + 3 thẻ danh sách
+    ac = by["Anti-cloning & device integrity"]
+    head, cards = cards_of(ac["tok"], path)
+    hl = [v for k, v in head if k == "line"]
+    tabs = [v for k, v in head if k == "table"]
+    out.append({"id": "anti-cloning", "blocks": [
+        {"t": "head", "eyebrow": "Anti-cloning & device integrity", "title": hl[0]}, table_block(tabs[0], path),
+        {"t": "sub", "title": next(v for k, v in head if k == "h3")}, table_block(tabs[1], path), {"t": "note", "text": hl[1]},
+        {"t": "grid", "cols": "3", "items": [card_of(c, "list") for c in cards]}]})
+
+    # Deployment design rules
+    dr = by["Deployment design rules"]
+    head, cards = cards_of(dr["tok"], path)
+    out.append({"id": "deployment-rules", "blocks": [
+        {"t": "head", "eyebrow": "Deployment design rules", "title": [v for k, v in head if k == "line"][0]}, {"t": "grid", "cols": "3", "items": [card_of(c, "text") for c in cards]}]})
+
+    # Compliance & certification
+    cc = by["Compliance & certification"]
+    head, cards = cards_of(cc["tok"], path)
+    legal = card_of(cards[0], "list")
+    why = card_of(cards[1], "text")
+    out.append({"id": "compliance", "blocks": [
+        {"t": "head", "eyebrow": "Compliance & certification", "title": [v for k, v in head if k == "line"][0]},
+        table_block(next(v for k, v in head if k == "table"), path), {"t": "grid", "cols": "2", "items": [legal, why]}]})
+
+    # Sovereign delivery
+    sd = by["Sovereign delivery"]
+    head, cards = cards_of(sd["tok"], path)
+    tail = [v for k, v in cards[-1] if k == "line"]
+    items = [card_of(c, "text") for c in cards]
+    out.append({"id": "sovereign-delivery", "blocks": [
+        {"t": "head", "eyebrow": "Sovereign delivery", "title": [v for k, v in head if k == "line"][0]}, {"t": "grid", "cols": "4", "items": items}]})
+    return out
 
 
 def parse_product(blk, tok, path):
@@ -239,10 +434,13 @@ def parse_product(blk, tok, path):
                 else:
                     d["text"] += " " + v
             elif k == "btn":
-                pass  # nút nhảy tới các phần của trang dài (AI Camera)
+                d.setdefault("jump", []).append(v)  # nút nhảy tới các phần của trang dài (AI Camera)
             else:
                 fail(path, f"thẻ đầu trang lạ: {k}")
+        page["jump"] = page.get("jump", []) + d.pop("jump", [])
         page["cards"].append(d)
+    if path in TABLE_PAGES:
+        page["longform"] = parse_longform(secs, path)
     for s in secs[1:]:
         n, t = s["name"], s["tok"]
         lines = [v for k, v in t if k == "line"]
@@ -293,10 +491,13 @@ def parse_product(blk, tok, path):
 
 
 ERRORS = []
+TABLES = []  # bảng dữ liệu của trang đang xử lý (xem lines_with_tables)
+TABLE_PAGES = {"digital-government-smart-infrastructure/smart-city/ai-camera"}
 
 
 def main():
-    lines = docx_lines(DOCX)
+    xml = load_xml(DOCX)
+    lines = docx_lines(xml)
     pages = {}
     for blk in page_blocks(lines):
         url = blk[1].strip("/")
@@ -304,7 +505,12 @@ def main():
         level = blk[blk.index("Cấp trong sitemap") + 1]
         crumb = blk[blk.index("Breadcrumb") + 1]
         body = blk[blk.index("Trang cha") + 2:]
+        tables = []
+        if path in TABLE_PAGES:
+            blk, tables = lines_with_tables(xml, blk[1])
+            body = blk[blk.index("Trang cha") + 2:]
         tok = tokens(body)
+        TABLES[:] = tables
         try:
             data = parse_pillar(blk, tok, path) if level == "L3" else parse_product(blk, tok, path) if level == "L5" else None
         except (SystemExit, KeyError, IndexError, StopIteration) as err:
@@ -366,6 +572,13 @@ def build_product(p, hrefs):
             d["more"], d["href"] = c["more"], "/contact"
         cards.append({k: v for k, v in d.items() if v})
     secs.append({"tone": "light", "blocks": first + [{"t": "grid", "cols": "2", "items": cards}]})
+    if p.get("longform"):
+        ids = {"Product family": "product-family", "Specifications": "specifications", "Design": "design", "Security architecture": "security-architecture",
+               "Compliance": "compliance", "Sovereign delivery": "sovereign-delivery"}
+        jump = [j for j in p.get("jump", []) if j in ids]
+        secs[0]["blocks"].append({"t": "tabs", "items": jump, "anchors": [ids[j] for j in jump]})
+        for lf in p["longform"]:
+            secs.append({"id": lf["id"], "tone": "light", "blocks": lf["blocks"]})
     if p.get("how"):
         secs.append({"tone": "dark", "blocks": [{"t": "head", "eyebrow": "How it works", "title": p["how"]["title"]}, {"t": "grid", "cols": "3", "items": p["how"]["steps"]}]})
     if p.get("arch"):
@@ -410,7 +623,7 @@ def build_pillar(p, hrefs):
             "sections": tone_cycle(secs)}
 
 
-NOTE_RE = re.compile(r"to be (confirmed|verified|finalised)|to confirm|^verify.*before publication", re.I)
+NOTE_RE = re.compile(r"to be (confirmed|verified)|to confirm|^verify.*before publication", re.I)
 
 
 def scrub(x):
@@ -422,7 +635,7 @@ def scrub(x):
     if isinstance(x, dict):
         return {k: scrub(v) for k, v in x.items()}
     if isinstance(x, list):
-        return [scrub(v) for v in x]
+        return [v for v in (scrub(v) for v in x) if v != ""]
     return x
 
 
