@@ -1,13 +1,14 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-const POINTS = 2600;
+const POINTS = 4500;
 const TILT = -0.42; // nghiêng trục để thấy nửa trên của quả cầu
 const SPIN_RAD_PER_S = 0.07; // xoay chậm
 const STATIC_ANGLE = 0.6;
-const DOME_MAX_WIDTH_RATIO = 0.4;
-const DOME_HEIGHT_RATIO = 0.5;
-const DOME_CENTER_Y = 1;
+const RADIUS_PER_WIDTH = 0.62; // cầu rất rộng: vòm tràn sang hai bên khối
+const CAP_HEIGHT_PER_SECTION = 0.42; // phần nhô lên (khoảng 1/3 quả) so với chiều cao khối
+const CAP_MAX_PER_RADIUS = 0.75;
+const DEPTH_GAIN = 2.4;
 const GOLDEN = Math.PI * (3 - Math.sqrt(5));
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 
@@ -40,8 +41,9 @@ export function SphereBackdrop() {
     const draw = () => {
       ctx.clearRect(0, 0, w, h);
       const cx = w / 2;
-      const radius = Math.min(w * DOME_MAX_WIDTH_RATIO, h * DOME_HEIGHT_RATIO);
-      const cy = h * DOME_CENTER_Y; // tâm cầu sát đáy khối: chấm ở giữa lớn và sáng, nửa dưới bị khối cắt
+      const radius = w * RADIUS_PER_WIDTH;
+      const cap = Math.min(h * CAP_HEIGHT_PER_SECTION, radius * CAP_MAX_PER_RADIUS);
+      const cy = h - cap + radius; // tâm cầu nằm dưới đáy khối, chỉ một chỏm cầu nhô lên
       const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
       glow.addColorStop(0, "rgba(40,110,230,0.28)");
       glow.addColorStop(1, "rgba(40,110,230,0)");
@@ -56,10 +58,10 @@ export function SphereBackdrop() {
         const y2 = p.y * ct - z1 * st;
         const z2 = p.y * st + z1 * ct;
         if (z2 < -0.05) continue; // mặt sau không vẽ
-        const depth = Math.max(z2, 0);
-        ctx.fillStyle = `rgba(30,124,255,${0.22 + 0.7 * depth})`;
+        const depth = Math.min(Math.max(z2, 0) * DEPTH_GAIN, 1); // chỏm cầu chỉ thấy phần rìa (z thấp) nên khuếch đại độ sâu
+        ctx.fillStyle = `rgba(30,124,255,${0.3 + 0.65 * depth})`;
         ctx.beginPath();
-        ctx.arc(cx + x1 * radius, cy - y2 * radius, 0.6 + 2 * depth, 0, Math.PI * 2);
+        ctx.arc(cx + x1 * radius, cy - y2 * radius, 1 + 2.2 * depth, 0, Math.PI * 2);
         ctx.fill();
       }
     };
