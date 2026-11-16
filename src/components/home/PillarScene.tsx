@@ -1,10 +1,12 @@
 import { InView } from "@/components/ui/InView";
 import { cn } from "@/lib/utils";
 
-// Cảnh minh hoạ SVG thay ảnh stock cho hai trụ cột lõi (hình trang trí, aria-hidden). Chuyển động là CSS (xem `.sc-*` trong globals.css),
+// Cảnh minh hoạ SVG thay ảnh stock cho 5 trụ cột (hình trang trí, aria-hidden). Chuyển động là CSS (xem `.sc-*` trong globals.css),
 // chỉ chạy khi cảnh nằm trong khung nhìn; giảm chuyển động thì hiện tĩnh ở trạng thái hoàn chỉnh. Khung, viền cyan, bóng khi rê chuột
-// giống PillarImage (class `group/pillar` ở hàng cha).
-export function PillarScene({ kind, className }: { kind: "identity" | "cyber"; className?: string }) {
+// (hover do class `group/pillar` ở hàng cha).
+export type SceneKind = "identity" | "cyber" | "gov" | "finance" | "data";
+
+export function PillarScene({ kind, className }: { kind: SceneKind; className?: string }) {
   return (
     <InView rootMargin="-8% 0px" className={cn("scene relative aspect-[4/3] overflow-hidden rounded-lg bg-band ring-1 ring-transparent transition-[box-shadow] duration-500 ease-out group-hover/pillar:shadow-[0_24px_48px_-12px_rgba(0,64,199,.45)] group-hover/pillar:ring-on-band-accent/70", className)}>
       <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden className="absolute inset-0 size-full">
@@ -24,7 +26,7 @@ export function PillarScene({ kind, className }: { kind: "identity" | "cyber"; c
         </defs>
         <rect width="400" height="300" fill={`url(#${kind}-bg)`} />
         <rect width="400" height="300" fill={`url(#${kind}-grid)`} />
-        {kind === "identity" ? <Identity /> : <Cyber />}
+        {SCENES[kind]}
       </svg>
     </InView>
   );
@@ -97,3 +99,141 @@ function Cyber() {
     </>
   );
 }
+
+// Cảnh Chính phủ số: toà nhà cơ quan nhà nước giữa đường chân trời, tín hiệu toả lên các nút thành phố thông minh (camera, kiosk, ứng dụng).
+function Gov() {
+  const windows = (x: number, y: number, cols: number, rows: number, seed: number) =>
+    Array.from({ length: cols * rows }, (_, i) => (
+      <rect key={`${x}-${y}-${i}`} className="sc-twinkle" x={x + (i % cols) * 14} y={y + Math.floor(i / cols) * 16} width="7" height="9" rx="1.5" fill={CYAN} fillOpacity="0.6" style={{ animationDelay: `${((i * 7 + seed) % 11) * 0.3}s` }} />
+    ));
+  const nodes = [{ x: 78, y: 70 }, { x: 200, y: 42 }, { x: 322, y: 72 }];
+  return (
+    <>
+      <line x1="0" y1="250" x2="400" y2="250" stroke={CYAN} strokeOpacity="0.3" />
+      <g fill="#0b2a66" stroke={CYAN} strokeOpacity="0.4">
+        <rect x="26" y="158" width="62" height="92" rx="3" />
+        <rect x="94" y="196" width="44" height="54" rx="3" />
+        <rect x="268" y="142" width="62" height="108" rx="3" />
+        <rect x="336" y="190" width="40" height="60" rx="3" />
+      </g>
+      {windows(36, 170, 4, 4, 1)}
+      {windows(102, 208, 3, 2, 5)}
+      {windows(278, 154, 4, 5, 3)}
+      {windows(344, 202, 2, 3, 8)}
+      <g>
+        <path d="M148 152L200 114L252 152Z" fill="#0b2a66" stroke={CYAN} strokeWidth="1.6" strokeLinejoin="round" />
+        <circle cx="200" cy="138" r="4.5" fill={CYAN} />
+        <rect x="146" y="152" width="108" height="8" rx="2" fill="#13306f" stroke={CYAN} strokeOpacity="0.7" />
+        {[0, 1, 2, 3, 4].map((i) => <rect key={i} x={156 + i * 20} y="160" width="9" height="76" rx="2" fill={CYAN} fillOpacity="0.55" />)}
+        <rect x="140" y="236" width="120" height="7" rx="2" fill="#13306f" stroke={CYAN} strokeOpacity="0.6" />
+        <rect x="132" y="243" width="136" height="7" rx="2" fill="#13306f" stroke={CYAN} strokeOpacity="0.5" />
+      </g>
+      {nodes.map((n, i) => {
+        const d = `M200 114L${n.x} ${n.y}`;
+        return (
+          <g key={i}>
+            <path className="sc-flow" d={d} fill="none" stroke={CYAN} strokeOpacity="0.6" strokeWidth="1.4" strokeLinecap="round" />
+            <circle className="sc-travel" r="3.6" fill="#fff" style={{ offsetPath: `path("${d}")`, animationDelay: `${i * 0.8}s` }} />
+            <circle className="sc-ping" cx={n.x} cy={n.y} r="8" fill="none" stroke={CYAN} strokeWidth="1.5" style={{ animationDelay: `${i * 0.7}s` }} />
+            <circle cx={n.x} cy={n.y} r="8" fill="#13306f" stroke={CYAN} strokeWidth="1.8" />
+            <circle cx={n.x} cy={n.y} r="3" fill={CYAN} />
+          </g>
+        );
+      })}
+    </>
+  );
+}
+
+// Cảnh Tài chính mở: ngân hàng và ví số trao đổi hai chiều qua lớp bảo mật (khoá), giao dịch hoàn tất hiện dấu tích.
+function Finance() {
+  const bankPath = "M126 168H274";
+  return (
+    <>
+      <g transform="translate(78 170)">
+        <circle r="46" fill="#0b2a66" stroke={CYAN} strokeOpacity="0.45" />
+        <path d="M-26 -8L0 -28L26 -8Z" fill="none" stroke={CYAN} strokeWidth="2.4" strokeLinejoin="round" />
+        {[-17, -6, 5, 16].map((x) => <rect key={x} x={x - 2.5} y="-5" width="5" height="22" rx="1.5" fill={CYAN} fillOpacity="0.8" />)}
+        <rect x="-28" y="19" width="56" height="5" rx="2" fill={CYAN} />
+      </g>
+      <g transform="translate(322 170)">
+        <circle r="46" fill="#0b2a66" stroke={CYAN} strokeOpacity="0.45" />
+        <rect x="-18" y="-30" width="36" height="60" rx="8" fill="#13306f" stroke={CYAN} strokeWidth="2" />
+        <rect x="-11" y="-20" width="22" height="14" rx="3" fill={CYAN} fillOpacity="0.7" />
+        <rect x="-11" y="-1" width="22" height="4" rx="2" fill="#fff" fillOpacity="0.5" />
+        <rect x="-11" y="8" width="14" height="4" rx="2" fill="#fff" fillOpacity="0.3" />
+        <circle cx="0" cy="22" r="2.4" fill={CYAN} />
+      </g>
+      <path className="sc-flow" d={bankPath} fill="none" stroke={CYAN} strokeOpacity="0.7" strokeWidth="2" strokeLinecap="round" />
+      <path className="sc-flow" d="M274 188H126" fill="none" stroke={CYAN} strokeOpacity="0.35" strokeWidth="1.6" strokeLinecap="round" style={{ animationDirection: "reverse" }} />
+      <circle className="sc-travel" r="5" fill="#fff" style={{ offsetPath: `path("${bankPath}")`, animationDuration: "2.2s" }} />
+      <circle className="sc-travel" r="5" fill="#fff" style={{ offsetPath: `path("${bankPath}")`, animationDuration: "2.2s", animationDelay: "1.1s" }} />
+      <g className="sc-glow" transform="translate(200 168)">
+        <path d="M0 -26L20 -18V2C20 16 9 24 0 28C-9 24 -20 16 -20 2V-18Z" fill="#0b1f4d" stroke={CYAN} strokeWidth="2.2" strokeLinejoin="round" />
+        <rect x="-7" y="-4" width="14" height="11" rx="2.5" fill={CYAN} />
+        <path d="M-4 -4v-4a4 4 0 0 1 8 0v4" fill="none" stroke={CYAN} strokeWidth="2" strokeLinecap="round" />
+      </g>
+      <g transform="translate(150 52)">
+        <rect width="100" height="62" rx="9" fill="#13306f" stroke={CYAN} strokeOpacity="0.6" />
+        <rect y="14" width="100" height="10" fill="#0b1f4d" />
+        <rect x="12" y="34" width="22" height="16" rx="3.5" fill={CYAN} fillOpacity="0.8" />
+        <rect x="46" y="38" width="42" height="5" rx="2.5" fill="#fff" fillOpacity="0.45" />
+        <rect x="46" y="47" width="28" height="5" rx="2.5" fill="#fff" fillOpacity="0.25" />
+      </g>
+      <g className="sc-pop" transform="translate(200 238)">
+        <circle r="15" fill="#19c37d" />
+        <path d="M-6 1l4 5 9-11" fill="none" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      </g>
+    </>
+  );
+}
+
+// Cảnh Dữ liệu và AI: tài liệu được số hoá (OCR sáng từng dòng) chảy vào kho dữ liệu nhiều tầng, kết quả đẩy ra nền tảng đám mây.
+function Data() {
+  const inPath = "M108 128H152";
+  const outPath = "M248 128H292";
+  const ys = [110, 144, 178];
+  return (
+    <>
+      <g transform="translate(42 86)">
+        <rect width="66" height="88" rx="7" fill="#0b2a66" stroke={CYAN} strokeOpacity="0.55" />
+        <path d="M44 0L66 22H44Z" fill="#13306f" stroke={CYAN} strokeOpacity="0.55" />
+        {[22, 34, 46, 58, 70].map((y, i) => (
+          <rect key={y} className="sc-line" x="9" y={y} width={i % 2 ? 36 : 46} height="5" rx="2.5" fill={CYAN} style={{ animationDelay: `${i * 0.45}s` }} />
+        ))}
+      </g>
+      <path className="sc-flow" d={inPath} fill="none" stroke={CYAN} strokeOpacity="0.7" strokeWidth="1.8" strokeLinecap="round" />
+      <circle className="sc-travel" r="3.6" fill="#fff" style={{ offsetPath: `path("${inPath}")` }} />
+      <g>
+        <rect x="154" y="110" width="92" height="106" fill="#0b2a66" />
+        <line x1="154" y1="110" x2="154" y2="216" stroke={CYAN} strokeOpacity="0.6" />
+        <line x1="246" y1="110" x2="246" y2="216" stroke={CYAN} strokeOpacity="0.6" />
+        {ys.map((y, i) => <path key={y} className="sc-layer" d={`M154 ${y + 34}a46 12 0 0 0 92 0`} fill="none" stroke={CYAN} strokeWidth="2" style={{ animationDelay: `${i * 0.7}s` }} />)}
+        <path d="M154 216a46 12 0 0 0 92 0" fill="none" stroke={CYAN} strokeWidth="2" strokeOpacity="0.7" />
+        <ellipse cx="200" cy="110" rx="46" ry="12" fill="#13306f" stroke={CYAN} strokeWidth="2" />
+        <ellipse className="sc-glow" cx="200" cy="110" rx="20" ry="4.5" fill={CYAN} fillOpacity="0.5" />
+      </g>
+      <path className="sc-flow" d={outPath} fill="none" stroke={CYAN} strokeOpacity="0.7" strokeWidth="1.8" strokeLinecap="round" />
+      <circle className="sc-travel" r="3.6" fill="#fff" style={{ offsetPath: `path("${outPath}")`, animationDelay: "1.3s" }} />
+      <g transform="translate(298 98)">
+        <path d="M6 44a13 13 0 0 1 4-25a18 18 0 0 1 34-3a14 14 0 0 1 6 28Z" fill="#13306f" stroke={CYAN} strokeWidth="2" strokeLinejoin="round" />
+        <circle className="sc-ping" cx="28" cy="32" r="6" fill="none" stroke={CYAN} strokeWidth="1.5" />
+        <circle cx="28" cy="32" r="3.2" fill={CYAN} />
+      </g>
+      {[[96, 246], [200, 266], [304, 246]].map(([x, y], i) => (
+        <g key={i}>
+          <line x1="200" y1="216" x2={x} y2={y} stroke={CYAN} strokeOpacity="0.25" />
+          <circle className="sc-ping" cx={x} cy={y} r="6" fill="none" stroke={CYAN} strokeWidth="1.4" style={{ animationDelay: `${i * 0.9}s` }} />
+          <circle cx={x} cy={y} r="5" fill={CYAN} fillOpacity="0.85" />
+        </g>
+      ))}
+    </>
+  );
+}
+
+const SCENES: Record<SceneKind, React.ReactNode> = {
+  identity: <Identity />,
+  cyber: <Cyber />,
+  gov: <Gov />,
+  finance: <Finance />,
+  data: <Data />,
+};
