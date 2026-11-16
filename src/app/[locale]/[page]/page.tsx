@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, locales } from "@/lib/i18n";
 import { getPage, pageSlugs } from "@/content/pages";
-import { PageHero } from "@/components/page/PageHero";
-import { PageSection } from "@/components/page/PageSections";
+import { PageView } from "@/components/page/PageView";
 
 // Các trang cấp 2 của mega menu (Solutions, Industries, Use Cases, Services, Innovation, Customers, About, Trust Center, Contact),
 // dựng từ dữ liệu trong content/pages. Insights có route riêng (CMS) nên không nằm trong danh sách này.
@@ -27,10 +26,5 @@ export default async function L2Page({ params }: Props) {
   const { locale, page } = await params;
   const data = getPage(page);
   if (!isLocale(locale) || !data) notFound();
-  return (
-    <>
-      <PageHero locale={locale} hero={data.hero} />
-      {data.sections.map((s, i) => <PageSection key={i} locale={locale} section={s} />)}
-    </>
-  );
+  return <PageView locale={locale} data={data} />;
 }

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { homeContent, type PillarId } from "@/content/home";
+import { solutionPaths } from "@/content/solutions";
 
 // Mega menu theo "SAVIS Web V3 – Sitemap & nội dung" (bản 13/11/2026), phần 2.2.
 // Đã bỏ các mục gạch đỏ trong tài liệu: Open Finance API, GO Invoice, SAVIS Media Hub, nhóm Digital Radio & Broadcasting.
@@ -22,7 +23,7 @@ const BUILT_PATHS = new Set<string>([
 /** Trả về href đầy đủ theo ngôn ngữ, hoặc null nếu trang đích chưa có. */
 export function resolveHref(locale: Locale, item: Pick<NavItem, "path" | "fallback">): string | null {
   const base = item.path.split(/[?#]/)[0];
-  if (BUILT_PATHS.has(base)) return `/${locale}${item.path}`;
+  if (BUILT_PATHS.has(base) || solutionPaths.has(base)) return `/${locale}${item.path}`;
   return item.fallback ? `/${locale}${item.fallback}` : null;
 }
 

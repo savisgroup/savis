@@ -58,7 +58,7 @@ function BlockView({ locale, block: b, dark }: { locale: Locale; block: Block; d
     case "sub":
       return <h3 className="mt-2 flex items-center gap-3 font-display text-lg font-bold leading-6 after:h-px after:flex-1 after:bg-line">{b.title}</h3>;
     case "grid":
-      return <div className={cn("grid gap-5", gridCols[b.cols])}>{b.items.map((it, i) => <GridItemView key={i} item={it} />)}</div>;
+      return <div className={cn("grid gap-5", gridCols[b.cols])}>{b.items.map((it, i) => <GridItemView key={i} item={it} locale={locale} />)}</div>;
     case "stats":
       return (
         <dl className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-8">
@@ -94,6 +94,21 @@ function BlockView({ locale, block: b, dark }: { locale: Locale; block: Block; d
       );
     case "text":
       return <p className="max-w-[760px] text-lg leading-7">{b.text}</p>;
+    case "note":
+      return <p className="max-w-[760px] text-[15px] leading-6 text-muted">{b.text}</p>;
+    case "layers":
+      return (
+        <div className="flex flex-col gap-2.5">
+          {b.items.map((l) => (
+            <div key={l.label} className="grid gap-3 rounded-lg border border-line bg-raised p-4 min-[760px]:grid-cols-[200px_1fr] min-[760px]:items-center">
+              <span className="eyebrow">{l.label}</span>
+              <ul className="flex flex-wrap gap-2">
+                {l.items.map((n) => <li key={n} className="rounded-full border border-line bg-surface px-3 py-1.5 text-[13.5px] font-medium leading-5 text-ink">{n}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+      );
     case "link":
       return b.href ? <Link href={`/${locale}${b.href}`} className="font-semibold text-brand hover:underline">{b.label} →</Link> : null;
     case "split":
@@ -104,7 +119,7 @@ function BlockView({ locale, block: b, dark }: { locale: Locale; block: Block; d
             <h2 className="text-balance text-[clamp(28px,3vw,40px)] font-bold leading-[1.12] tracking-[-0.02em]">{b.title}</h2>
             {b.lead && <p className="text-lg leading-7">{b.lead}</p>}
           </div>
-          <div className="flex flex-col gap-4">{b.cards.map((c, i) => <CardView key={i} card={c} />)}</div>
+          <div className="flex flex-col gap-4">{b.cards.map((c, i) => <CardView key={i} card={c} locale={locale} />)}</div>
         </div>
       );
     case "contact":
