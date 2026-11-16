@@ -1,4 +1,5 @@
 import { PillarImage } from "./PillarImage";
+import { PillarScene } from "./PillarScene";
 import { Database, Fingerprint, Landmark, ShieldCheck, WalletCards, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Reveal } from "@/components/site/Reveal";
@@ -49,14 +50,11 @@ export function Pillars({ content, pillars }: Props) {
 
 // Ảnh minh hoạ trụ cột: ảnh Unsplash (Unsplash License, dùng thương mại miễn phí, không bắt buộc ghi nguồn),
 // đã kiểm tra không có logo thương hiệu nổi bật. Thay bằng ảnh sản phẩm thật khi có. Nguồn từng ảnh:
-// - identity: George Prentzas, unsplash.com/photos/SRFG7iwktDk
-// - cyber:    Winston Chen,     unsplash.com/photos/iZe21DzHnUg
+// (identity và cyber dùng cảnh SVG PillarScene thay ảnh stock.)
 // - gov:      Andre Benz,       unsplash.com/photos/WsxKHqrdibY
 // - finance:  Atlantic Money,   unsplash.com/photos/9XrefmwkHCs
 // - data:     jonakoh,          unsplash.com/photos/r5lbaK3fDaM
 const pillarImages: Partial<Record<PillarId, string>> = {
-  identity: "/images/pillars/identity.jpg",
-  cyber: "/images/pillars/cyber.jpg",
   gov: "/images/pillars/gov.jpg",
   finance: "/images/pillars/finance.jpg",
   data: "/images/pillars/data.jpg",
@@ -67,6 +65,7 @@ const pillarImages: Partial<Record<PillarId, string>> = {
 function PillarMedia({ id, name, flip }: { id: PillarId; name: string; flip: boolean }) {
   const src = pillarImages[id];
   const order = flip ? "min-[860px]:order-2" : "";
+  if (id === "identity" || id === "cyber") return <PillarScene kind={id} className={order} />;
   if (src) return <PillarImage src={src} className={order} />;
   return (
     <div aria-hidden className={`relative flex aspect-[4/3] items-center justify-center overflow-hidden rounded-lg bg-[radial-gradient(circle_at_70%_30%,#13306f_0%,var(--band)_45%,var(--band-2)_100%)] ${order}`}>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "@/components/site/Reveal";
+import { PresenceMap } from "./PresenceMap";
 import type { Locale } from "@/lib/i18n";
 import type { HomeContent } from "@/content/home";
 import { resolveHref } from "@/content/navigation";
@@ -19,6 +20,7 @@ export function GlobalPresence({ locale, content }: { locale: Locale; content: H
           </div>
           {aboutHref && <Link href={aboutHref} className="font-semibold text-brand hover:underline">{content.about} →</Link>}
         </div>
+        <Reveal><PresenceMap locale={locale} /></Reveal>
         <Reveal>
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,210px),1fr))] gap-4">
             {offices.map((o) => (
