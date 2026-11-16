@@ -1,22 +1,24 @@
 import Link from "next/link";
 import { Reveal } from "@/components/site/Reveal";
+import { SphereBackdrop } from "./SphereBackdrop";
 import type { Locale } from "@/lib/i18n";
 import type { HomeContent } from "@/content/home";
 import { resolveHref, simpleMenus } from "@/content/navigation";
 
 const FEATURED_COUNT = 2;
 const pillBase = "flex min-h-[52px] items-center justify-between gap-2.5 rounded-full border border-white/40 bg-white/5 px-5 text-[15px] font-semibold leading-5 text-on-band";
-const cardBase = "flex w-full flex-col gap-4 rounded-lg border border-white/20 bg-band p-9 text-on-band";
+const cardBase = "flex w-full flex-col gap-4 rounded-lg border border-white/20 bg-band/70 p-9 text-on-band";
 const hoverBorder = "transition-colors duration-[var(--motion-fast)] ease-[var(--ease-out)] hover:border-on-band-accent";
 
-// Khối ngành nền tối (neo #industries trên menu): 2 thẻ lớn Chính phủ / Ngân hàng + 11 ngành còn lại dạng viên.
+// Khối ngành nền tối có quả cầu chấm xoay chậm làm nền (neo #industries trên menu): 2 thẻ lớn Chính phủ / Ngân hàng + 11 ngành còn lại dạng viên.
 // Trang ngành chưa dựng thì thẻ và viên hiện dạng chữ, không phải link, để không dẫn vào 404 (xem BUILT_PATHS).
 export function Industries({ locale, content }: { locale: Locale; content: HomeContent["industries"] }) {
   const menu = simpleMenus.find((m) => m.id === "industries");
   const others = (menu?.items ?? []).slice(FEATURED_COUNT);
   const allHref = resolveHref(locale, { path: "/industries" });
   return (
-    <section id="industries" className="on-band bg-band-2 py-24 text-on-band">
+    <section id="industries" className="on-band relative isolate overflow-hidden bg-band-2 py-24 text-on-band">
+      <SphereBackdrop />
       <div className="container-x flex flex-col gap-10">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div className="max-w-[760px]">
