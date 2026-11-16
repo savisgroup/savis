@@ -15,6 +15,9 @@ const subClass = "text-[clamp(17px,1.5vw,20px)] italic leading-normal text-on-ba
 const copyClass = "flex min-w-0 flex-[1_1_520px] flex-col gap-[22px]";
 const chipClass = "rounded-full bg-chip-on-band px-3 py-1 text-xs font-semibold tracking-wide text-chip-on-band-ink";
 
+// TẠM THỜI: chỉ hiện banner đầu (thông điệp chính). Đặt false để bật lại cả 3 banner luân phiên.
+const SINGLE_SLIDE_ONLY = true;
+
 // Hero phương án C: 3 banner luân phiên (thông điệp chính, eGov Super App, TrustCA) và dải số liệu ở đáy.
 // Chỉ banner đầu dùng <h1>; hai banner sau dùng <h2> cùng kiểu chữ để trang có đúng một h1.
 export function HomeHero({ locale, content: c, stats }: Props) {
@@ -70,7 +73,7 @@ export function HomeHero({ locale, content: c, stats }: Props) {
   return (
     <section className="on-band overflow-hidden bg-[radial-gradient(circle_at_78%_30%,#13306f_0%,var(--band)_38%,var(--band-2)_100%)] pt-[72px] text-on-band">
       <div className="container-x">
-        <HeroCarousel slides={slides} labels={c.carousel} />
+        <HeroCarousel slides={SINGLE_SLIDE_ONLY ? slides.slice(0, 1) : slides} labels={c.carousel} />
       </div>
       <div className="relative border-t border-white/10 bg-band-2/60">
         <div className="container-x flex flex-wrap items-center justify-between gap-x-12 gap-y-6 py-8">
